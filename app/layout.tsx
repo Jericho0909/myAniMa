@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Fredoka } from "next/font/google";
 import "./globals.css";
 import Header from "../components/Header";
-import {  HomePageNavLinks } from "../constants/navLinks";
+import Navbar from "@/components/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,18 +38,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <Header>
-            <nav className="w-auto p-1">
-                <ul 
-                    className="flex gap-x-6 list-none m-0 p-0"
-                    style={{ fontFamily: 'var(--font-fredoka)' }}
-                >
-                    {HomePageNavLinks.map((link) => (
-                        <li key={link.href}>
-                            <a href={link.href} className="text-lg font-bold nav-link">{link.label}</a>
-                        </li>
-                    ))}
-                </ul>
-            </nav>
+            <Navbar/>
         </Header>
         {children}
       </body>

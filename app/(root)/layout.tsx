@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Fredoka } from "next/font/google";
-import "./globals.css";
-import Header from "../components/Header";
+import "../globals.css";
+import Header from "@/components/Header";
 import Navbar from "@/components/Navbar";
 
 const geistSans = Geist({
@@ -33,14 +33,14 @@ export default function RootLayout({
   return (
 
     <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${fredoka.variable} h-full antialiased`}
+        lang="en"
+        className={`${geistSans.variable} ${geistMono.variable} ${fredoka.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Header>
-            <Navbar/>
-        </Header>
-        {children}
+            <Header>
+                <Navbar/>
+            </Header>
+            {children}
       </body>
     </html>
   );

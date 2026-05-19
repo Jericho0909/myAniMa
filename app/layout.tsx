@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Fredoka } from "next/font/google";
 import "./globals.css";
 import Header from "../components/Header";
 import {  HomePageNavLinks } from "../constants/navLinks";
@@ -12,6 +12,12 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const fredoka = Fredoka({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-fredoka",
 });
 
 export const metadata: Metadata = {
@@ -28,15 +34,18 @@ export default function RootLayout({
 
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${fredoka.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <Header>
             <nav className="w-auto p-1">
-                <ul className="flex gap-x-6 list-none m-0 p-0">
+                <ul 
+                    className="flex gap-x-6 list-none m-0 p-0"
+                    style={{ fontFamily: 'var(--font-fredoka)' }}
+                >
                     {HomePageNavLinks.map((link) => (
                         <li key={link.href}>
-                            <a href={link.href} className="text-sm">{link.label}</a>
+                            <a href={link.href} className="text-lg font-bold nav-link">{link.label}</a>
                         </li>
                     ))}
                 </ul>

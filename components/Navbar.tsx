@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect, useRef, use } from "react"
+import { useState, useEffect, useRef } from "react"
 import { HomePageNavLinks } from "@/constants/navLinks"
 import { useWindowSize } from '@uidotdev/usehooks'
 import { Menu } from 'lucide-react';

@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+
+
 /* Base nav link styles */
 .nav-link {
   position: relative;
@@ -38,7 +40,7 @@
 /* Hover effects only on hover-capable devices (desktop/mouse) */
 @media (hover: hover) {
   .nav-link:hover {
-    color: #6366f1;
+    color: #c9187f;
     transform: scale(1.05);
   }
 
@@ -57,7 +59,15 @@
     width: 100%;
     animation: gradientShift 1s ease infinite;
   }
+
+  /* Horizontal Carousel hover effect */
+  .carousel-arrow:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    transition: background-color 300ms ease, border-radius 300ms ease;
+  }
 }
+
 
 @keyframes gradientShift {
   0% {

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Fredoka } from "next/font/google";
+import { Geist, Geist_Mono, Fredoka, Lato } from "next/font/google";
 import "../globals.css";
 import Header from "@/components/Header";
 import Navbar from "@/components/Navbar";
@@ -16,8 +16,14 @@ const geistMono = Geist_Mono({
 
 const fredoka = Fredoka({
   weight: "400",
-  subsets: ["latin"],
   variable: "--font-fredoka",
+  subsets: ["latin"],
+});
+
+const lato = Lato({
+  weight: "400",
+  variable: "--font-lato",
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -34,7 +40,7 @@ export default function RootLayout({
 
     <html
         lang="en"
-        className={`${geistSans.variable} ${geistMono.variable} ${fredoka.variable} h-full antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${fredoka.variable} ${lato.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
             <Header>

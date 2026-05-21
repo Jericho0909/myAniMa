@@ -10,7 +10,7 @@ export default function Header({ children }: HeaderProps) {
   
 
   return (
-    <header className="flex justify-between items-center px-4 py-3 border-b">
+    <header className="fixed flex justify-between items-center px-4 py-3 w-full bg-transparent z-10">
         {/* Left: Logo */}
         <div 
             className="text-3xl font-bold" 

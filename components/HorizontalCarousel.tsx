@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import { ArrowBigLeftDash, ArrowBigRightDash, Heart } from 'lucide-react';
-import { CAROUSEL_ITEMS } from '@/constants/animeData';
+import { Favorite_Anime } from '@/constants/animeData';
 
 const HorizontalCarousel = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -32,18 +32,18 @@ const HorizontalCarousel = () => {
                     ref={scrollContainerRef} 
                     className="flex gap-4 overflow-hidden flex-1"
                 >
-                    {CAROUSEL_ITEMS.map((item, index) => (
+                    {Favorite_Anime.map((item, index) => (
                         <div 
                             key={index} 
                             className="shrink-0 w-56 h-auto rounded-tl-xl rounded-br-xl overflow-hidden border border-gray-300 cursor-pointer relative"
                         >
                             <button
                                 type="button"
-                                className="absolute top-0 right-0 p-1 favorite-heart-button"
+                                className="absolute bottom-0 right-0 p-1 favorite-heart-button"
                             >
                                 <Heart
                                   size={20} 
-                                  className={`${item.isFavorite ? 'text-red-500 fill-red-500' : 'text-white'}`}
+                                  className={`cursor-pointer ${item.isFavorite ? 'text-red-500 fill-red-500' : 'text-black'}`}
                                 />
                             </button>
                             <img
@@ -57,12 +57,17 @@ const HorizontalCarousel = () => {
                             >
                                 {item.title}
                             </h3>
-                            <p
-                                className="text-sm text-gray-600 px-2 mb-1"
-                                style={{ fontFamily: 'var(--font-lato)' }}
-                            >
-                                {item.genre}
-                            </p>
+                            {item.genre.map((genre, genreIndex) => (
+                                genreIndex <= 2 && (
+                                    <span
+                                        key={genreIndex}
+                                        className="inline-block bg-gray-200 text-gray-800 text-xs px-2 py-1 rounded-full mr-2 mx-1 my-2 font-semibold"
+                                        style={{ fontFamily: 'var(--font-lato)' }}
+                                    >
+                                        {genre}
+                                    </span>
+                                )
+                            ))}
                         </div>
                     ))}
                 </div>

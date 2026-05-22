@@ -1,9 +1,10 @@
-export interface AnimeSlide {
-  id: string
-  title: string
-  image: string
-  genre: string[]
-  description: string
+export interface AnimeType {
+    id: string
+    title: string
+    image: string
+    genre: string[]
+    description: string
+    isFavorite?: boolean
 }
 
 export interface SliderState<T>  {
@@ -16,12 +17,4 @@ export interface SliderState<T>  {
 export interface UseSliderOptions  {
     autoPlay?: boolean
     interval?: number // milliseconds
-}
-
-export interface Anime {
-    id: string
-    title: string
-    image: string
-    genre: string
-    isFavorite: boolean
 }

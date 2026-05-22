@@ -1,7 +1,7 @@
-import type { AnimeSlide } from "../type/model"
-import type { Anime } from "../type/model"
+import type { AnimeType } from "../type/model"
 
-export const ANIME_SLIDER_DATA: AnimeSlide[] = [
+
+export const ANIME_SLIDER_DATA: AnimeType[] = [
   {
     id: "a1",
     title: "Attack on Titan",
@@ -28,68 +28,77 @@ export const ANIME_SLIDER_DATA: AnimeSlide[] = [
   }
 ]
 
-export const CAROUSEL_ITEMS: Anime[] = [
+export const CAROUSEL_ITEMS: AnimeType[] = [
   {
     id: "1",
     title: "Attack on Titan",
     image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779254585/aotW_j0i9vt.webp",
-    genre: "Action, Fantasy",
-    isFavorite: true
+    genre: ["Action", "Fantasy"],
+    description:"testing description for carousel item",
+    isFavorite: true,
   },
   {
     id: "2",
     title: "Demon Slayer",
     image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779254597/dsW_kelu9f.webp",
-    genre: "Action, Supernatural",
+    genre: ["Action", "Supernatural"],
+    description:"testing description for carousel item",
     isFavorite: false
   },
   {
     id: "3",
     title: "My Teen Romantic Comedy",
     image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779254610/snafuW_ldvh0e.webp",
-    genre: "Romance, Comedy",
+    genre: ["Romance", "Comedy"],
+    description:"testing description for carousel item",
     isFavorite: true
   },
   {
     id: "4",
     title: "Jujutsu Kaisen",
     image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779254585/aotW_j0i9vt.webp",
-    genre: "Action, Supernatural",
+    genre: ["Action", "Supernatural"],
+    description:"testing description for carousel item",
     isFavorite: true
   },
   {
     id: "5",
     title: "Steins;Gate",
     image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779254597/dsW_kelu9f.webp",
-    genre: "Sci-Fi, Thriller",
+    genre: ["Sci-Fi", "Thriller"],
+    description:"testing description for carousel item",
     isFavorite: true
   },
   {
     id: "6",
     title: "Jujutsu Kaisen",
     image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779254585/aotW_j0i9vt.webp",
-    genre: "Action, Supernatural",
+    genre: ["Action", "Supernatural"],
+    description:"testing description for carousel item",
     isFavorite: true
   },
   {
     id: "7",
     title: "Steins;Gate",
     image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779254597/dsW_kelu9f.webp",
-    genre: "Sci-Fi, Thriller",
+    genre: ["Sci-Fi", "Thriller"],
+    description:"testing description for carousel item",
     isFavorite: true
   },
   {
     id: "8",
     title: "Jujutsu Kaisen",
     image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779254585/aotW_j0i9vt.webp",
-    genre: "Action, Supernatural",
+    genre: ["Action", "Supernatural"],
+    description:"testing description for carousel item",
     isFavorite: true
   },
   {
     id: "9",
     title: "Steins;Gate",
     image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779254597/dsW_kelu9f.webp",
-    genre: "Sci-Fi, Thriller",
+    genre: ["Sci-Fi", "Thriller"],
+    description:"testing description for carousel item",
     isFavorite: true
   },
 ];

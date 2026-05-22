@@ -6,7 +6,6 @@ export interface AnimeSlide {
   description: string
 }
 
-
 export interface SliderState<T>  {
     activeIndex: number
     currentItem: T
@@ -17,4 +16,12 @@ export interface SliderState<T>  {
 export interface UseSliderOptions  {
     autoPlay?: boolean
     interval?: number // milliseconds
+}
+
+export interface Anime {
+    id: string
+    title: string
+    image: string
+    genre: string
+    isFavorite: boolean
 }

@@ -66,6 +66,15 @@
     border-radius: 50%;
     transition: background-color 300ms ease, border-radius 300ms ease;
   }
+
+  .favorite-heart-button svg {
+    transform: scale(1);
+    transition: transform 200ms ease-in-out;
+  }
+
+  .favorite-heart-button:hover svg {
+    transform: scale(1.1);
+  }
 }
 
 

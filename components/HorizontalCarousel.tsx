@@ -2,74 +2,7 @@
 
 import { useRef } from 'react';
 import { ArrowBigLeftDash, ArrowBigRightDash, Heart } from 'lucide-react';
-
-
-
-const CAROUSEL_ITEMS = [
-  {
-    id: "1",
-    title: "Attack on Titan",
-    image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779254585/aotW_j0i9vt.webp",
-    genre: "Action, Fantasy",
-    isFavorite: true
-  },
-  {
-    id: "2",
-    title: "Demon Slayer",
-    image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779254597/dsW_kelu9f.webp",
-    genre: "Action, Supernatural",
-    isFavorite: false
-  },
-  {
-    id: "3",
-    title: "My Teen Romantic Comedy",
-    image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779254610/snafuW_ldvh0e.webp",
-    genre: "Romance, Comedy",
-    isFavorite: true
-  },
-  {
-    id: "4",
-    title: "Jujutsu Kaisen",
-    image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779254585/aotW_j0i9vt.webp",
-    genre: "Action, Supernatural",
-    isFavorite: true
-  },
-  {
-    id: "5",
-    title: "Steins;Gate",
-    image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779254597/dsW_kelu9f.webp",
-    genre: "Sci-Fi, Thriller",
-    isFavorite: true
-  },
-  {
-    id: "6",
-    title: "Jujutsu Kaisen",
-    image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779254585/aotW_j0i9vt.webp",
-    genre: "Action, Supernatural",
-    isFavorite: true
-  },
-  {
-    id: "7",
-    title: "Steins;Gate",
-    image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779254597/dsW_kelu9f.webp",
-    genre: "Sci-Fi, Thriller",
-    isFavorite: true
-  },
-  {
-    id: "8",
-    title: "Jujutsu Kaisen",
-    image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779254585/aotW_j0i9vt.webp",
-    genre: "Action, Supernatural",
-    isFavorite: true
-  },
-  {
-    id: "9",
-    title: "Steins;Gate",
-    image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779254597/dsW_kelu9f.webp",
-    genre: "Sci-Fi, Thriller",
-    isFavorite: true
-  },
-];
+import { CAROUSEL_ITEMS } from '@/constants/animeData';
 
 const HorizontalCarousel = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -106,11 +39,11 @@ const HorizontalCarousel = () => {
                         >
                             <button
                                 type="button"
-                                className="absolute top-0 right-0 p-1"
+                                className="absolute top-0 right-0 p-1 favorite-heart-button"
                             >
-                                <Heart 
-                                    size={20} 
-                                    className={`${item.isFavorite ? 'text-red-500 fill-red-500' : 'text-white'}`}
+                                <Heart
+                                  size={20} 
+                                  className={`${item.isFavorite ? 'text-red-500 fill-red-500' : 'text-white'}`}
                                 />
                             </button>
                             <img

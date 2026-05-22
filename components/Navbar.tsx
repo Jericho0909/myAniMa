@@ -1,14 +1,14 @@
 'use client'
 import { useState, useEffect, useRef } from "react"
 import { HomePageNavLinks } from "@/constants/navLinks"
-import { useWindowSize } from '@uidotdev/usehooks'
+import useWindowSize from "@/hooks/useWindowSize"
 import { Menu } from 'lucide-react';
 
 const Navbar = () => {
-    const size = useWindowSize()
     const [ isOpen, setIsOpen ] = useState<boolean>(false)
     const navRef = useRef<HTMLElement>(null)
-    const isMobile = size.width ? size.width < 768 : false
+    const { isMobile } = useWindowSize()
+    
 
     useEffect(() => {
         if (!isMobile) {

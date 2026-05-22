@@ -1,4 +1,5 @@
 import type { AnimeSlide } from "../type/model"
+import type { Anime } from "../type/model"
 
 export const ANIME_SLIDER_DATA: AnimeSlide[] = [
   {
@@ -26,3 +27,69 @@ export const ANIME_SLIDER_DATA: AnimeSlide[] = [
       "The story follows Hachiman Hikigaya, a cynical high school student who is forced to join the Service Club, where he begins to understand relationships, friendships, and social dynamics."
   }
 ]
+
+export const CAROUSEL_ITEMS: Anime[] = [
+  {
+    id: "1",
+    title: "Attack on Titan",
+    image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779254585/aotW_j0i9vt.webp",
+    genre: "Action, Fantasy",
+    isFavorite: true
+  },
+  {
+    id: "2",
+    title: "Demon Slayer",
+    image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779254597/dsW_kelu9f.webp",
+    genre: "Action, Supernatural",
+    isFavorite: false
+  },
+  {
+    id: "3",
+    title: "My Teen Romantic Comedy",
+    image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779254610/snafuW_ldvh0e.webp",
+    genre: "Romance, Comedy",
+    isFavorite: true
+  },
+  {
+    id: "4",
+    title: "Jujutsu Kaisen",
+    image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779254585/aotW_j0i9vt.webp",
+    genre: "Action, Supernatural",
+    isFavorite: true
+  },
+  {
+    id: "5",
+    title: "Steins;Gate",
+    image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779254597/dsW_kelu9f.webp",
+    genre: "Sci-Fi, Thriller",
+    isFavorite: true
+  },
+  {
+    id: "6",
+    title: "Jujutsu Kaisen",
+    image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779254585/aotW_j0i9vt.webp",
+    genre: "Action, Supernatural",
+    isFavorite: true
+  },
+  {
+    id: "7",
+    title: "Steins;Gate",
+    image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779254597/dsW_kelu9f.webp",
+    genre: "Sci-Fi, Thriller",
+    isFavorite: true
+  },
+  {
+    id: "8",
+    title: "Jujutsu Kaisen",
+    image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779254585/aotW_j0i9vt.webp",
+    genre: "Action, Supernatural",
+    isFavorite: true
+  },
+  {
+    id: "9",
+    title: "Steins;Gate",
+    image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779254597/dsW_kelu9f.webp",
+    genre: "Sci-Fi, Thriller",
+    isFavorite: true
+  },
+];

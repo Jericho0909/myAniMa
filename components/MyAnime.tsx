@@ -1,6 +1,6 @@
-import { Completed_Anime, Current_Anime } from "@/constants/animeData";
 import AnimeListCard from "./AnimeListCard";
-const MyAnime = () => {
+import type { AnimeType } from "@/type/model";
+const MyAnime = ({completedData, currentData}: { completedData: AnimeType[]; currentData: AnimeType[] }) => {
     return (
         <section className="w-full py-8">
             <div className="grid grid-cols-2 gap-6 max-w-full sm:max-w-[90%] h-auto mx-auto p-6 bg-linear-to-br from-slate-50 to-slate-100 rounded-2xl shadow-lg border border-slate-200">
@@ -11,7 +11,7 @@ const MyAnime = () => {
                     >
                         Anime I've Finished
                     </h3>
-                    {Completed_Anime.map((anime, index) => (
+                    {completedData.map((anime, index) => (
                         <AnimeListCard key={index} anime={anime}/>
                     ))}
                 </div>
@@ -22,7 +22,7 @@ const MyAnime = () => {
                     >
                         What I'm Watching
                     </h3>
-                    {Current_Anime.map((anime, index) => (
+                    {currentData.map((anime, index) => (
                         <AnimeListCard key={index} anime={anime}/>
                     ))}
                 </div>

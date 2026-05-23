@@ -21,7 +21,7 @@ const Slider = () => {
                         <motion.img
                             src={currentItem.image}
                             alt={currentItem.title}
-                            className="w-full h-[63svh] object-fill"
+                            className={`w-full h-[63svh] ${currentItem.type === "Anime" ? "object-fill" : "object-contain"}`}
                             initial={{ scale: 1.05 }}
                             animate={{ scale: 1 }}
                             exit={{ scale: 1.02 }}
@@ -41,6 +41,11 @@ const Slider = () => {
                             >
                                 {currentItem.title}
                             </h2>
+                            <span className="text-sm mt-1 font-medium text-gray-300"
+                                style={{ fontFamily: 'var(--font-fredoka)' }}
+                            >
+                                {currentItem.type}
+                            </span>
                             <p 
                                 className="text-sm mt-4 font-medium text-gray-300"
                                 style={{ fontFamily: 'var(--font-lato)' }}

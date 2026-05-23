@@ -49,7 +49,7 @@ const HorizontalCarousel = ({ data }: { data: AnimeType[] }) => {
                             <img
                                 src={item.image}
                                 alt={item.title}
-                                className="w-full h-80 object-cover"
+                                className={`w-full h-80 ${item.type === "Anime" ? "object-cover" : "object-fill"}`}
                             />
                             <h3
                                 className="font-semibold text-lg mt-2 px-2 truncate"
@@ -58,7 +58,7 @@ const HorizontalCarousel = ({ data }: { data: AnimeType[] }) => {
                                 {item.title}
                             </h3>
                             {item.genre.map((genre, genreIndex) => (
-                                genreIndex <= 2 && (
+                                genreIndex < 2 && (
                                     <span
                                         key={genreIndex}
                                         className="inline-block bg-gray-200 text-gray-800 text-xs px-2 py-1 rounded-full mr-2 mx-1 my-2 font-semibold"

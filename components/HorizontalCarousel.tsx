@@ -1,6 +1,7 @@
 ﻿'use client';
 
 import { useRef } from 'react';
+import AnimeCard from './AnimeCard';
 import { ArrowBigLeftDash, ArrowBigRightDash, Heart } from 'lucide-react';
 import { AnimeType } from '@/type/model';
 
@@ -20,7 +21,7 @@ const HorizontalCarousel = ({ data }: { data: AnimeType[] }) => {
 
   return (
     <section className="w-full py-8">
-        <div className="max-w-full sm:max-w-[90%] mx-auto">
+        <div className="max-w-full sm:max-w-[90%] h-auto mx-auto p-6 bg-linear-to-br from-slate-50 to-slate-100 rounded-2xl shadow-lg border border-slate-200">
             <div className="flex items-center gap-4">
                 <button
                     onClick={() => scroll('left')}
@@ -33,42 +34,7 @@ const HorizontalCarousel = ({ data }: { data: AnimeType[] }) => {
                     className="flex gap-4 overflow-hidden flex-1"
                 >
                     {data.map((item, index) => (
-                        <div 
-                            key={index} 
-                            className="shrink-0 w-56 h-auto rounded-tl-xl rounded-br-xl overflow-hidden border border-gray-300 cursor-pointer relative"
-                        >
-                            <button
-                                type="button"
-                                className="absolute bottom-0 right-0 p-1 favorite-heart-button"
-                            >
-                                <Heart
-                                  size={20} 
-                                  className={`cursor-pointer ${item.isFavorite ? 'text-red-500 fill-red-500' : 'text-black'}`}
-                                />
-                            </button>
-                            <img
-                                src={item.image}
-                                alt={item.title}
-                                className={`w-full h-80 ${item.type === "Anime" ? "object-cover" : "object-fill"}`}
-                            />
-                            <h3
-                                className="font-semibold text-lg mt-2 px-2 truncate"
-                                style={{ fontFamily: 'var(--font-fredoka)' }}
-                            >
-                                {item.title}
-                            </h3>
-                            {item.genre.map((genre, genreIndex) => (
-                                genreIndex < 2 && (
-                                    <span
-                                        key={genreIndex}
-                                        className="inline-block bg-gray-200 text-gray-800 text-xs px-2 py-1 rounded-full mr-2 mx-1 my-2 font-semibold"
-                                        style={{ fontFamily: 'var(--font-lato)' }}
-                                    >
-                                        {genre}
-                                    </span>
-                                )
-                            ))}
-                        </div>
+                        <AnimeCard key={index} item={item}/>
                     ))}
                 </div>
                 <button

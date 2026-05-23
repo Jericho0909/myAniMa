@@ -465,5 +465,68 @@ export const Current_Manga: AnimeType[] = [
   }
 ];
 
+export const Anime_List: AnimeType[] = [
+  {
+    id: "1",
+    title: "Soredemo Sekai wa Utsukushii",
+    image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779501095/twisbW_yzthxj.webp",
+    genre: ["Romance", "Fantasy", "Adventure"],
+    description:
+      "The story follows Nike, a princess with the power to summon rain, who is sent to marry a young king and discovers a deeper connection as they face challenges together.",
+    isFavorite: true,
+    type: "Manga"
+  },
+  {
+    id: "2",
+    title: "Kamisama Kiss",
+    image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779501108/kkW_ynbxkd.webp",
+    genre: ["Romance", "Supernatural", "Comedy"],
+    description:
+      "Nanami Momozono suddenly becomes a land god after helping a stranger and begins a new life filled with spirits, gods, and an unexpected relationship.",
+    isFavorite: false,
+    type: "Manga"
+  },
+  {
+    id: "3",
+    title: "Masamune-kun no Revenge",
+    image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779501122/mrW_voymz6.webp",
+    genre: ["Romance", "Comedy", "School"],
+    description:
+      "Masamune Makabe returns after years of self-improvement with a plan to get revenge on the girl who once rejected him, but things do not go as expected.",
+    isFavorite: true,
+    type: "Manga"
+  },
+  {
+    id: "4",
+    title: "Soredemo Sekai wa Utsukushii",
+    image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779501095/twisbW_yzthxj.webp",
+    genre: ["Romance", "Fantasy", "Adventure"],
+    description:
+      "The story follows Nike, a princess with the power to summon rain, who is sent to marry a young king and discovers a deeper connection as they face challenges together.",
+    isFavorite: true,
+    type: "Manga"
+  },
+  {
+    id: "5",
+    title: "Kamisama Kiss",
+    image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779501108/kkW_ynbxkd.webp",
+    genre: ["Romance", "Supernatural", "Comedy"],
+    description:
+      "Nanami Momozono suddenly becomes a land god after helping a stranger and begins a new life filled with spirits, gods, and an unexpected relationship.",
+    isFavorite: false,
+    type: "Manga"
+  },
+  {
+    id: "6",
+    title: "Masamune-kun no Revenge",
+    image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779501122/mrW_voymz6.webp",
+    genre: ["Romance", "Comedy", "School"],
+    description:
+      "Masamune Makabe returns after years of self-improvement with a plan to get revenge on the girl who once rejected him, but things do not go as expected.",
+    isFavorite: true,
+    type: "Manga"
+  }
+];
+
 
 

@@ -1,6 +1,7 @@
 import Slider from "@/components/Slider";
 import HorizontalCarousel from "@/components/HorizontalCarousel"
 import MyAnime from "@/components/MyAnime";
+import AnimeMangaList from "@/components/AnimeMangaList";
 import { Favorite_Anime, Favorite_Manga, Completed_Anime, Current_Anime, Completed_Manga, Current_Manga } from "@/constants/animeData";
 const Page = () => {
     return (
@@ -25,6 +26,13 @@ const Page = () => {
                 completedData={Completed_Anime}
                 currentData={Current_Anime}
             />
+             <h2 
+                className="text-3xl font-bold mt-8 text-left p-2" 
+                style={{ fontFamily: 'var(--font-fredoka)' }}
+            >
+                My Watchlist
+            </h2>
+            <AnimeMangaList />
             <h2 
                 className="text-3xl font-bold mt-8 text-left p-2" 
                 style={{ fontFamily: 'var(--font-fredoka)' }}
@@ -44,12 +52,6 @@ const Page = () => {
                 completedData={Completed_Manga}
                 currentData={Current_Manga}
             />
-            <h2 
-                className="text-3xl font-bold mt-8 text-left p-2" 
-                style={{ fontFamily: 'var(--font-fredoka)' }}
-            >
-                My Watchlist
-            </h2>
         </main>
     )
 }

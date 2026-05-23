@@ -1,4 +1,4 @@
-import { Completed_Anime } from "@/constants/animeData";
+import { Completed_Anime, Current_Anime } from "@/constants/animeData";
 import AnimeListCard from "./AnimeListCard";
 const MyAnime = () => {
     return (
@@ -16,7 +16,15 @@ const MyAnime = () => {
                     ))}
                 </div>
                 <div className="w-full h-auto bg-white rounded-xl p-6 shadow-sm border border-slate-100">
-
+                    <h3
+                        className="text-2xl font-bold text-left p-2" 
+                        style={{ fontFamily: 'var(--font-fredoka)' }}
+                    >
+                        What I'm Watching
+                    </h3>
+                    {Current_Anime.map((anime, index) => (
+                        <AnimeListCard key={index} anime={anime}/>
+                    ))}
                 </div>
             </div>
         </section>

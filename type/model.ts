@@ -5,6 +5,7 @@ export interface AnimeType {
     genre: string[]
     description: string
     isFavorite?: boolean
+    type: "Anime" | "Manga"
 }
 
 export interface SliderState<T>  {
@@ -16,5 +17,5 @@ export interface SliderState<T>  {
 
 export interface UseSliderOptions  {
     autoPlay?: boolean
-    interval?: number // milliseconds
+    interval?: number
 }

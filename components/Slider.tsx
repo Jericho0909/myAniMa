@@ -21,7 +21,7 @@ const Slider = () => {
                         <motion.img
                             src={currentItem.image}
                             alt={currentItem.title}
-                            className="w-full h-[63svh] object-cover"
+                            className="w-full h-[63svh] object-fill"
                             initial={{ scale: 1.05 }}
                             animate={{ scale: 1 }}
                             exit={{ scale: 1.02 }}

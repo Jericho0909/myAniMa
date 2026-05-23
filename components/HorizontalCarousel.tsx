@@ -2,9 +2,9 @@
 
 import { useRef } from 'react';
 import { ArrowBigLeftDash, ArrowBigRightDash, Heart } from 'lucide-react';
-import { Favorite_Anime } from '@/constants/animeData';
+import { AnimeType } from '@/type/model';
 
-const HorizontalCarousel = () => {
+const HorizontalCarousel = ({ data }: { data: AnimeType[] }) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: 'left' | 'right') => {
@@ -32,7 +32,7 @@ const HorizontalCarousel = () => {
                     ref={scrollContainerRef} 
                     className="flex gap-4 overflow-hidden flex-1"
                 >
-                    {Favorite_Anime.map((item, index) => (
+                    {data.map((item, index) => (
                         <div 
                             key={index} 
                             className="shrink-0 w-56 h-auto rounded-tl-xl rounded-br-xl overflow-hidden border border-gray-300 cursor-pointer relative"

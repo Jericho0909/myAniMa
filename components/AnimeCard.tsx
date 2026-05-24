@@ -8,7 +8,7 @@ const AnimeCard = ({ item}: { item: AnimeType }) => {
         >
             <button
                 type="button"
-                className="absolute bottom-0 right-0 p-1 favorite-heart-button"
+                className="absolute bottom-0 right-0 p-1 icon-btn"
             >
                 <Heart
                     size={20} 

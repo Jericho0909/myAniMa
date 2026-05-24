@@ -13,19 +13,25 @@ const AnimeListCard = ({ anime }: { anime: AnimeType }) => {
             <div className="flex-1">
                 <span 
                     className="font-bold text-sm"
-                    style={{ fontFamily: 'var(--font-lato)' }}
+                    style={{ fontFamily: 'var(--font-lato)'}}
                 >
                     {anime.title}
                 </span>
             </div>
             <button
                 type="button"
-                className="p-1 icon-btn"
+                className="p-1 icon-btn cursor-pointer"
             >
                 {anime.status === "planToWatch" || anime.status === "planToRead" ? (
-                    <Eye className={`transition-colors duration-300 ${anime.isFavorite ? 'text-pink-600' : 'text-gray-500'}`} />
+                    <Eye 
+                        size={20} 
+                        className="text-gray-500'}"
+                    />
                 ) : (
-                    <Heart className={`transition-colors duration-300 ${anime.isFavorite ? 'text-red-500 fill-red-500' : 'text-gray-500'}`} />
+                    <Heart 
+                        size={20}
+                        className={`transition-colors duration-300 ${anime.isFavorite ? 'text-red-500 fill-red-500' : 'text-gray-500'}`} 
+                    />
                 )}
             </button>
         </div>

@@ -33,7 +33,7 @@ const Slider = () => {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: 12 }}
                             transition={{ duration: 0.35, delay: 0.1 }}
-                            className="text-white absolute bottom-4 left-4 p-4 max-w-[50%] min-h-[40%] leading-relaxed tracking-wide"
+                            className="text-white absolute bottom-4 left-4 p-4 w-full md:w-[50%] min-h-[40%] leading-relaxed tracking-wide"
                         >
                             <h2 
                                 className="text-3xl font-bold"

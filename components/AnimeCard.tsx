@@ -18,7 +18,7 @@ const AnimeCard = ({ item}: { item: AnimeType }) => {
             <img
                 src={item.image}
                 alt={item.title}
-                className={`w-full h-80 ${item.type === "Anime" ? "object-cover" : "object-fill"}`}
+                className={`w-full h-60 sm:h-80 ${item.type === "Anime" ? "object-cover" : "object-fill"}`}
             />
             <h3
                 className="font-semibold text-lg mt-2 px-2 truncate"

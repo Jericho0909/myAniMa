@@ -1,8 +1,9 @@
 'use client'
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef, type MouseEvent as ReactMouseEvent } from "react"
 import { HomePageNavLinks } from "@/constants/navLinks"
 import useWindowSize from "@/hooks/useWindowSize"
 import { Menu } from 'lucide-react';
+import { useSectionObserverContext } from "@/hooks/SectionObserverProvider"
 
 const Navbar = () => {
     const [ isOpen, setIsOpen ] = useState<boolean>(false)
@@ -18,7 +19,7 @@ const Navbar = () => {
 
     // Close menu when clicking outside
     useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
+        const handleClickOutside = (event: Event) => {
             if (navRef.current && !navRef.current.contains(event.target as Node)) {
                 setIsOpen(false)
             }
@@ -33,6 +34,40 @@ const Navbar = () => {
         }
     }, [isOpen])
 
+    const { activeSection } = useSectionObserverContext()
+
+    const handleNavClick = (
+        event: ReactMouseEvent<HTMLAnchorElement>,
+        link: typeof HomePageNavLinks[number],
+        isMobileMenu: boolean,
+    ) => {
+        if (link.openInNewTab) {
+            if (isMobileMenu) setIsOpen(false)
+            return
+        }
+
+        const isHomeLink = link.href === "/"
+        const isSectionLink = link.href.startsWith("/#")
+        const isSamePage = window.location.pathname === "/"
+
+        if (isHomeLink && isSamePage) {
+            event.preventDefault()
+            window.scrollTo({ top: 0, behavior: "smooth" })
+        } else if (isSectionLink && isSamePage) {
+            event.preventDefault()
+            const targetId = link.href.split("#")[1]
+            const target = document.getElementById(targetId)
+
+            if (target) {
+                target.scrollIntoView({ behavior: "smooth", block: "start" })
+            } else {
+                window.location.href = link.href
+            }
+        }
+
+        if (isMobileMenu) setIsOpen(false)
+    }
+
     const NavbarContent = ({ isMobileMenu = false }) => {
         return (
             <ul 
@@ -43,8 +78,11 @@ const Navbar = () => {
                     <li key={link.href}>
                         <a 
                             href={link.href} 
-                            className="text-lg font-bold nav-link block"
-                            onClick={() => isMobileMenu && setIsOpen(false)}
+                            target={link.openInNewTab ? "_blank" : undefined}
+                            rel={link.openInNewTab ? "noopener noreferrer" : undefined}
+                            className={`text-lg font-bold nav-link block ${!link.openInNewTab && link.id === activeSection ? 'text-blue-600' : ''}`}
+                            aria-current={!link.openInNewTab && link.id === activeSection ? 'page' : undefined}
+                            onClick={(event) => handleNavClick(event, link, isMobileMenu)}
                         >
                             {link.label}
                         </a>

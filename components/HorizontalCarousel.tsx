@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import AnimeCard from './AnimeCard';
-import { ArrowBigLeftDash, ArrowBigRightDash, Heart } from 'lucide-react';
+import { ArrowBigLeftDash, ArrowBigRightDash } from 'lucide-react';
 import { AnimeType } from '@/type/model';
 
 const HorizontalCarousel = ({ data }: { data: AnimeType[] }) => {
@@ -20,8 +20,8 @@ const HorizontalCarousel = ({ data }: { data: AnimeType[] }) => {
   };
 
   return (
-    <section className="w-full py-8">
-        <div className="max-w-full sm:max-w-[90%] h-auto mx-auto p-6 bg-linear-to-br from-slate-50 to-slate-100 rounded-2xl shadow-lg border border-slate-200">
+    <section className="w-full py-8 px-1">
+        <div className="max-w-full md:max-w-[90%] h-auto mx-auto p-6 bg-linear-to-br from-slate-50 to-slate-100 rounded-2xl shadow-lg border border-slate-200">
             <div className="flex items-center gap-4">
                 <button
                     onClick={() => scroll('left')}

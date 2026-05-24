@@ -10,7 +10,7 @@ const AnimeListCard = ({ anime }: { anime: AnimeType }) => {
                 className="w-12 h-12 object-cover rounded-full border-2 border-black"
                 loading="lazy"
             />
-            <div className="flex-1">
+            <div className="flex-1 truncate">
                 <span 
                     className="font-bold text-sm"
                     style={{ fontFamily: 'var(--font-lato)'}}
@@ -25,7 +25,7 @@ const AnimeListCard = ({ anime }: { anime: AnimeType }) => {
                 {anime.status === "planToWatch" || anime.status === "planToRead" ? (
                     <Eye 
                         size={20} 
-                        className="text-gray-500'}"
+                        className="text-gray-500"
                     />
                 ) : (
                     <Heart 

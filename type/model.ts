@@ -6,6 +6,7 @@ export interface AnimeType {
     description: string
     isFavorite?: boolean
     type: "Anime" | "Manga"
+    status?: "watching" | "reading" | "completed" | "planToWatch" | "planToRead"
 }
 
 export interface SliderState<T>  {

@@ -67,12 +67,12 @@
     transition: background-color 300ms ease, border-radius 300ms ease;
   }
 
-  .favorite-heart-button svg {
+  .icon-btn svg {
     transform: scale(1);
     transition: transform 200ms ease-in-out;
   }
 
-  .favorite-heart-button:hover svg {
+  .icon-btn:hover svg {
     transform: scale(1.1);
   }
 }

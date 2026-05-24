@@ -1,5 +1,5 @@
 import type { AnimeType } from "@/type/model";
-import { Heart } from 'lucide-react';
+import { Heart, Eye } from 'lucide-react';
 
 const AnimeListCard = ({ anime }: { anime: AnimeType }) => {
     return (
@@ -20,12 +20,13 @@ const AnimeListCard = ({ anime }: { anime: AnimeType }) => {
             </div>
             <button
                 type="button"
-                className="p-1 favorite-heart-button"
+                className="p-1 icon-btn"
             >
-                <Heart
-                    size={20} 
-                    className={`${anime.isFavorite ? 'text-red-500 fill-red-500' : 'text-black'}`}
-                />
+                {anime.status === "planToWatch" || anime.status === "planToRead" ? (
+                    <Eye className={`transition-colors duration-300 ${anime.isFavorite ? 'text-pink-600' : 'text-gray-500'}`} />
+                ) : (
+                    <Heart className={`transition-colors duration-300 ${anime.isFavorite ? 'text-red-500 fill-red-500' : 'text-gray-500'}`} />
+                )}
             </button>
         </div>
     )

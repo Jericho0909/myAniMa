@@ -3,7 +3,7 @@ import { Geist, Geist_Mono, Fredoka, Lato } from "next/font/google";
 import "../globals.css";
 import Header from "@/components/Header";
 import Navbar from "@/components/Navbar";
-import { SectionObserverProvider } from "@/hooks/SectionObserverProvider";
+import { SectionObserverProvider } from "@/context/SectionObserverContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

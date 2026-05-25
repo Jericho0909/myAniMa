@@ -3,7 +3,7 @@ import { useState, useEffect, useRef, type MouseEvent as ReactMouseEvent } from 
 import { HomePageNavLinks } from "@/constants/navLinks"
 import useWindowSize from "@/hooks/useWindowSize"
 import { Menu } from 'lucide-react';
-import { useSectionObserverContext } from "@/hooks/SectionObserverProvider"
+import { useSectionObserverContext } from "@/hooks/useSectionObserver"
 
 const Navbar = () => {
     const [ isOpen, setIsOpen ] = useState<boolean>(false)

@@ -1,7 +1,7 @@
 'use client'
 
-import { createContext, useState, useEffect, useMemo, useContext } from 'react'
-import IntersectionObserver from '../hooks/useIntersectionObserver'
+import { createContext, ReactNode } from 'react'
+import { useSectionObserver } from '../hooks/useSectionObserver'
 
 type SectionId = 'home' | 'anime' | 'manga'
 
@@ -12,45 +12,12 @@ interface SectionObserverContextValue {
 
 const SectionObserverContext = createContext<SectionObserverContextValue | null>(null)
 
-export const SectionObserverProvider = ({ children }: { children: React.ReactNode }) => {
-    const homeObserver = IntersectionObserver({ th: 0.4 })
-    const animeObserver = IntersectionObserver({ th: 0.4 })
-    const mangaObserver = IntersectionObserver({ th: 0.4 })
-    const [ activeSection, setActiveSection ] = useState<SectionId>("home")
+export const SectionObserverProvider = ({ children }: { children: ReactNode }) => {
+    const value = useSectionObserver()
 
-    useEffect(() => {
-        if (mangaObserver.isIntersecting) {
-          setActiveSection('manga')
-          return
-        }
-    
-        if (animeObserver.isIntersecting) {
-          setActiveSection('anime')
-          return
-        }
-    
-        if (homeObserver.isIntersecting) {
-          setActiveSection('home')
-          return
-        }
-    }, [homeObserver.isIntersecting, animeObserver.isIntersecting, mangaObserver.isIntersecting])
-
-    const value = useMemo(
-        () => ({
-          activeSection,
-          sectionRefs: {
-            home: homeObserver.ref,
-            anime: animeObserver.ref,
-            manga: mangaObserver.ref,
-          },
-        }),
-        [activeSection, homeObserver.ref, animeObserver.ref, mangaObserver.ref],
-    )
     return (
-        <SectionObserverContext.Provider 
-            value={value}
-        >
-            {children}
+        <SectionObserverContext.Provider value={value}>
+        {children}
         </SectionObserverContext.Provider>
     )
 }

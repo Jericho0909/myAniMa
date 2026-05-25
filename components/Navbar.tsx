@@ -1,9 +1,9 @@
 'use client'
-import { useState, useEffect, useRef, type MouseEvent as ReactMouseEvent } from "react"
+import { useState, useEffect, useRef, useContext, type MouseEvent as ReactMouseEvent } from "react"
 import { HomePageNavLinks } from "@/constants/navLinks"
 import useWindowSize from "@/hooks/useWindowSize"
 import { Menu } from 'lucide-react';
-import { useSectionObserverContext } from "@/hooks/useSectionObserver"
+import SectionObserverContext from "@/context/SectionObserverContext";
 
 const Navbar = () => {
     const [ isOpen, setIsOpen ] = useState<boolean>(false)
@@ -34,7 +34,7 @@ const Navbar = () => {
         }
     }, [isOpen])
 
-    const { activeSection } = useSectionObserverContext()
+    const { activeSection } = useContext(SectionObserverContext)!
 
     const handleNavClick = (
         event: ReactMouseEvent<HTMLAnchorElement>,

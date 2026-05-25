@@ -1,6 +1,7 @@
 'use client'
 
-import { useSectionObserverContext } from "@/hooks/useSectionObserver";
+import { useContext } from 'react'
+import SectionObserverContext from '@/context/SectionObserverContext'
 import Slider from "@/components/Slider";
 import HorizontalCarousel from "@/components/HorizontalCarousel"
 import MyAnimeManga from "@/components/MyAnimeManga";
@@ -16,7 +17,7 @@ import {
     Manga_List
 } from "@/constants/animeData";
 const Page = () => {
-    const { sectionRefs } = useSectionObserverContext()
+    const { sectionRefs } = useContext(SectionObserverContext)!
     return (
         <main className="min-h-full">
             <section

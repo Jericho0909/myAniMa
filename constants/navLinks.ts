@@ -10,5 +10,5 @@ export const HomePageNavLinks: NavLink[] = [
   { id: "anime", label: "Anime", href: "/#anime" },
   { id: "manga", label: "Manga", href: "/#manga" },
   { id: "about", label: "About", href: "/about", openInNewTab: true },
-  { id: "suggestion", label: "Suggestion", href: "/suggestion", openInNewTab: true },
+  { id: "add", label: "Add", href: "/add", openInNewTab: true },
 ]

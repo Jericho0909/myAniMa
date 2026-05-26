@@ -23,14 +23,14 @@ const Page = () => {
             <section
                 id="home"
                 ref={sectionRefs.home}
-                className="w-auto"
+                className="w-auto border"
             >
                 <Slider/>
             </section>
             <section
                 id="anime"
                 ref={sectionRefs.anime}
-                className="w-auto scroll-mt-16"
+                className="w-auto mt-12 scroll-mt-16"
             >
                 <h2 
                     className="text-3xl font-bold mt-8 text-left p-2" 
@@ -64,7 +64,7 @@ const Page = () => {
             <section
                 id="manga"
                 ref={sectionRefs.manga}
-                className="w-auto scroll-mt-16"
+                className="w-auto mt-12 scroll-mt-16"
             >
                 <h2 
                     className="text-3xl font-bold mt-8 text-left p-2" 

@@ -10,8 +10,8 @@ interface SectionObserverContextValue {
 
 export const useSectionObserver = (): SectionObserverContextValue => {
     const homeObserver = IntersectionObserver({ th: 0.4 })
-    const animeObserver = IntersectionObserver({ th: 0.4 })
-    const mangaObserver = IntersectionObserver({ th: 0.4 })
+    const animeObserver = IntersectionObserver({ th: 0.2 })
+    const mangaObserver = IntersectionObserver({ th: 0.2 })
     const [ activeSection, setActiveSection ] = useState<SectionId>("home")
 
     useEffect(() => {

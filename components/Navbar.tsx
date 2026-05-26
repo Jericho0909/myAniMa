@@ -80,7 +80,7 @@ const Navbar = () => {
                             href={link.href} 
                             target={link.openInNewTab ? "_blank" : undefined}
                             rel={link.openInNewTab ? "noopener noreferrer" : undefined}
-                            className={`text-lg font-bold nav-link block ${!link.openInNewTab && link.id === activeSection ? 'text-blue-600' : ''}`}
+                            className={`text-lg font-bold nav-link block ${!link.openInNewTab && link.id === activeSection ? 'text-pink-600' : ''}`}
                             aria-current={!link.openInNewTab && link.id === activeSection ? 'page' : undefined}
                             onClick={(event) => handleNavClick(event, link, isMobileMenu)}
                         >

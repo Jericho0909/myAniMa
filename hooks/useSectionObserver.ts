@@ -12,22 +12,22 @@ export const useSectionObserver = (): SectionObserverContextValue => {
     const homeObserver = IntersectionObserver({ th: 0.4 })
     const animeObserver = IntersectionObserver({ th: 0.4 })
     const mangaObserver = IntersectionObserver({ th: 0.4 })
-    const [activeSection, setActiveSection] = useState<SectionId>("home")
+    const [ activeSection, setActiveSection ] = useState<SectionId>("home")
 
     useEffect(() => {
         if (mangaObserver.isIntersecting) {
-        setActiveSection('manga')
-        return
+            setActiveSection('manga')
+            return
         }
 
         if (animeObserver.isIntersecting) {
-        setActiveSection('anime')
-        return
+            setActiveSection('anime')
+            return
         }
 
         if (homeObserver.isIntersecting) {
-        setActiveSection('home')
-        return
+            setActiveSection('home')
+            return
         }
     }, [homeObserver.isIntersecting, animeObserver.isIntersecting, mangaObserver.isIntersecting])
 

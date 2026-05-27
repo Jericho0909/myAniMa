@@ -37,6 +37,18 @@
   width: 0;
 }
 
+.anime-sidebar {
+    opacity: 0;
+    transform: translateX(100%);
+    pointer-events: none;
+    transition: all 0.4s ease;
+}
+
+.anime-img {
+    transition: transform 0.3s ease;
+}
+
+
 /* Hover effects only on hover-capable devices (desktop/mouse) */
 @media (hover: hover) {
   .nav-link:hover {
@@ -75,6 +87,44 @@
   .icon-btn:hover svg {
     transform: scale(1.1);
   }
+
+
+  .anime-card:hover .anime-image {
+    transform: scale(1.1);
+  }
+
+  .anime-card:hover .anime-overlay {
+    opacity: 1;
+  }
+
+  .anime-card:hover .anime-content {
+    opacity: 1;
+    transform: translateY(-20);
+
+  }
+
+  .anime-card:hover .anime-detail{
+    opacity: 1;
+  }
+
+   /* SHOW SIDEBAR */
+  .anime-list-card:hover .anime-sidebar {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+
+  /* OPTIONAL: image zoom */
+  .anime-list-card:hover .anime-img {
+      transform: scale(1.1);
+  }
+
+  /* CARD LIFT EFFECT */
+  .anime-list-card {
+    transition: all 0.3s ease;
+  }
+    
+
 }
 
 

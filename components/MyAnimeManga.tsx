@@ -1,4 +1,4 @@
-import AnimeListCard from "./AnimeListCard";
+import AnimeMangaListCard from "./AnimeMangaListCard";
 import type { AnimeType } from "@/type/model";
 const MyAnimeManga = ({completedData, currentData}: { completedData: AnimeType[]; currentData: AnimeType[] }) => {
     return (
@@ -11,8 +11,8 @@ const MyAnimeManga = ({completedData, currentData}: { completedData: AnimeType[]
                     >
                         Anime I've Finished
                     </h3>
-                    {completedData.map((anime, index) => (
-                        <AnimeListCard key={index} anime={anime} />
+                    {completedData.map((item, index) => (
+                        <AnimeMangaListCard key={index} item={item} />
                     ))}
                 </div>
                 <div className="w-full h-auto bg-white rounded-xl p-6 shadow-sm border border-slate-100">
@@ -22,8 +22,8 @@ const MyAnimeManga = ({completedData, currentData}: { completedData: AnimeType[]
                     >
                         What I'm Watching
                     </h3>
-                    {currentData.map((anime, index) => (
-                        <AnimeListCard key={index} anime={anime} />
+                    {currentData.map((item, index) => (
+                        <AnimeMangaListCard key={index} item={item} />
                     ))}
                 </div>
             </div>

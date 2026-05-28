@@ -1,7 +1,7 @@
 ﻿'use client';
 
 import { useRef } from 'react';
-import AnimeCard from './AnimeCard';
+import AnimeMangaCard from './AnimeMangaCard';
 import { ArrowBigLeftDash, ArrowBigRightDash } from 'lucide-react';
 import { AnimeType } from '@/type/model';
 
@@ -34,7 +34,7 @@ const HorizontalCarousel = ({ data }: { data: AnimeType[] }) => {
                     className="flex gap-4 overflow-hidden flex-1"
                 >
                     {data.map((item, index) => (
-                        <AnimeCard key={index} item={item}/>
+                        <AnimeMangaCard key={index} item={item}/>
                     ))}
                 </div>
                 <button

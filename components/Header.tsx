@@ -22,7 +22,7 @@ export default function Header({ children }: HeaderProps) {
 
   return (
     <header
-      className={`fixed flex justify-between items-center px-4 py-3 w-full z-10 transition-all duration-300 ease-in-out ${isScrolled ? 'bg-white border-b border-black': 'bg-transparent'}`}
+      className={`fixed flex justify-between items-center px-4 py-3 w-full z-20 transition-all duration-300 ease-in-out ${isScrolled ? 'bg-white border-b border-black': 'bg-transparent'}`}
     >
       {/* Left: Logo */}
       <div

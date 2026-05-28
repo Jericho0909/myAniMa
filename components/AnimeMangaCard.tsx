@@ -1,7 +1,7 @@
 import type { AnimeType } from "@/type/model";
 import { Heart } from "lucide-react";
 
-const AnimeCard = ({ item }: { item: AnimeType }) => {
+const AnimeMangaCard = ({ item }: { item: AnimeType }) => {
   return (
         <div
         className="group shrink-0 w-56 rounded-tl-xl rounded-br-xl overflow-hidden border border-gray-300 cursor-pointer"
@@ -75,4 +75,4 @@ const AnimeCard = ({ item }: { item: AnimeType }) => {
     );
 };
 
-export default AnimeCard;
+export default AnimeMangaCard;

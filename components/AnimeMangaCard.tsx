@@ -1,10 +1,10 @@
 import type { AnimeMangaType } from "@/type/model";
 import { Heart } from "lucide-react";
 
-const AnimeMangaCard = ({ item }: { item: AnimeMangaType }) => {
+const AnimeMangaCard = ({ item, w }: { item: AnimeMangaType, w: string }) => {
   return (
         <div
-        className="group shrink-0 w-56 rounded-tl-xl rounded-br-xl overflow-hidden border border-gray-300 cursor-pointer"
+        className={`group shrink-0 ${w} rounded-tl-xl rounded-br-xl overflow-hidden border border-gray-600 cursor-pointer`}
         >
         <div className="group anime-card relative overflow-hidden">
             <img

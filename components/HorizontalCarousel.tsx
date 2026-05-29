@@ -3,9 +3,9 @@
 import { useRef } from 'react';
 import AnimeMangaCard from './AnimeMangaCard';
 import { ArrowBigLeftDash, ArrowBigRightDash } from 'lucide-react';
-import { AnimeType } from '@/type/model';
+import { AnimeMangaType } from '@/type/model';
 
-const HorizontalCarousel = ({ data }: { data: AnimeType[] }) => {
+const HorizontalCarousel = ({ data }: { data: AnimeMangaType[] }) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: 'left' | 'right') => {
@@ -34,7 +34,7 @@ const HorizontalCarousel = ({ data }: { data: AnimeType[] }) => {
                     className="flex gap-4 overflow-hidden flex-1"
                 >
                     {data.map((item, index) => (
-                        <AnimeMangaCard key={index} item={item}/>
+                        <AnimeMangaCard key={index} item={item} w={"w-56"}/>
                     ))}
                 </div>
                 <button

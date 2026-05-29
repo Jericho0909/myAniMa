@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef } from "react"
+
 import type { AnimeMangaType } from "@/type/model"
 
 
@@ -17,9 +18,16 @@ const AnimeMangaForm = () => {
     })
     const imageInputRef = useRef<HTMLInputElement | null>(null)
 
+    const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
+        e.preventDefault();
+    };
+
 
     return (
-        <form className="flex flex-col gap-6 bg-linear-to-br from-slate-50 to-slate-100 border border-slate-200 rounded-3xl shadow-lg p-8 sm:p-10">
+        <form 
+            onSubmit={handleSubmit}
+            className="flex flex-col gap-6 bg-linear-to-br from-slate-50 to-slate-100 border border-slate-200 rounded-3xl shadow-lg p-8 sm:p-10"
+        >
 
             {/* IMAGE INPUT */}
             <div

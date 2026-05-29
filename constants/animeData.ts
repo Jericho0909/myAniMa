@@ -1,6 +1,6 @@
-import type { AnimeType } from "../type/model"
+import type { AnimeMangaType } from "../type/model"
 
-export const ANIME_SLIDER_DATA: AnimeType[] = [
+export const ANIME_SLIDER_DATA: AnimeMangaType[] = [
   {
     id: "1",
     title: "Attack on Titan",
@@ -58,7 +58,7 @@ export const ANIME_SLIDER_DATA: AnimeType[] = [
 
 ]
 
-export const Favorite_Anime: AnimeType[] = [
+export const Favorite_Anime: AnimeMangaType[] = [
   {
     id: "1",
     title: "Attack on Titan",
@@ -141,7 +141,7 @@ export const Favorite_Anime: AnimeType[] = [
   },
 ];
 
-export const Completed_Anime: AnimeType[] = [
+export const Completed_Anime: AnimeMangaType[] = [
   {
     id: "1",
     title: "Attack on Titan",
@@ -234,7 +234,7 @@ export const Completed_Anime: AnimeType[] = [
   },
 ];
 
-export const Current_Anime: AnimeType[] = [
+export const Current_Anime: AnimeMangaType[] = [
   {
     id: "1",
     title: "Attack on Titan",
@@ -297,7 +297,7 @@ export const Current_Anime: AnimeType[] = [
   }
 ];
 
-export const Anime_List: AnimeType[] = [
+export const Anime_List: AnimeMangaType[] = [
   {
     id: "1",
     title: "Soredemo Sekai wa Utsukushii",
@@ -366,7 +366,7 @@ export const Anime_List: AnimeType[] = [
   }
 ];
 
-export const Favorite_Manga: AnimeType[] = [
+export const Favorite_Manga: AnimeMangaType[] = [
     {
     id: "1",
     title: "Soredemo Sekai wa Utsukushii",
@@ -435,7 +435,7 @@ export const Favorite_Manga: AnimeType[] = [
   }
 ];
 
-export const Completed_Manga: AnimeType[] = [
+export const Completed_Manga: AnimeMangaType[] = [
     {
     id: "1",
     title: "Soredemo Sekai wa Utsukushii",
@@ -504,7 +504,7 @@ export const Completed_Manga: AnimeType[] = [
   }
 ];
 
-export const Current_Manga: AnimeType[] = [
+export const Current_Manga: AnimeMangaType[] = [
   {
     id: "1",
     title: "Soredemo Sekai wa Utsukushii",
@@ -573,7 +573,7 @@ export const Current_Manga: AnimeType[] = [
   }
 ];
 
-export const Manga_List: AnimeType[] = [
+export const Manga_List: AnimeMangaType[] = [
   {
     id: "1",
     title: "Attack on Titan",

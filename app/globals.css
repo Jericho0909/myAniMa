@@ -123,7 +123,16 @@
   .anime-list-card {
     transition: all 0.3s ease;
   }
-    
+  
+  /* FORM BUTTON */
+  .watch-btn:hover {
+    background-color: #333;
+    transform: scale(1.02);
+  }
+
+  .watch-btn:active {
+    transform: scale(0.97);
+  }
 
 }
 

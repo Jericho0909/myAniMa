@@ -1,7 +1,7 @@
-export interface AnimeType {
+export interface AnimeMangaType {
     id: string
     title: string
-    image: string
+    image: string 
     genre: string[]
     description: string
     isFavorite?: boolean

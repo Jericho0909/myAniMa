@@ -1,7 +1,7 @@
-import type { AnimeType } from "@/type/model";
+import type { AnimeMangaType } from "@/type/model";
 import { Heart, Eye } from "lucide-react";
 
-const AnimeMangaListCard = ({ item }: { item: AnimeType }) => {
+const AnimeMangaListCard = ({ item }: { item: AnimeMangaType }) => {
     return (
         <div className="group anime-list-card flex items-center gap-3 p-2 border-2 rounded-2xl mb-2 relative overflow-visible">
 

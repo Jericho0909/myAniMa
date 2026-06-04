@@ -134,6 +134,36 @@
     transform: scale(0.97);
   }
 
+  /* ANIME DETAIL CARD BUTTON */
+
+  .close-btn:hover {
+    background-color: rgba(239, 68, 68, 0.12);
+    color: rgb(239, 68, 68);
+    transform: rotate(90deg);
+  }
+
+  .close-btn:active {
+    transform: rotate(90deg) scale(0.9);
+  }
+
+  .fav-btn .bg-gray-200:hover {
+    background-color: #d1d5db;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  }
+
+  /* FAVORITE hover */
+  .fav-btn .bg-red-500:hover {
+    background-color: #dc2626;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(239,68,68,0.3);
+  }
+
+  /* click effect */
+  .fav-btn:active {
+    transform: scale(0.90);
+  }
+
 }
 
 

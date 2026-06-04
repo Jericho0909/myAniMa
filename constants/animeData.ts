@@ -507,7 +507,7 @@ export const Completed_Manga: AnimeMangaType[] = [
 export const Current_Manga: AnimeMangaType[] = [
   {
     id: "1",
-    title: "Soredemo Sekai wa Utsukushii",
+    title: "Sooredemo Sekai wa Utsukushii",
     image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779501095/twisbW_yzthxj.webp",
     genre: ["Romance", "Fantasy", "Adventure"],
     description:
@@ -581,7 +581,7 @@ export const Manga_List: AnimeMangaType[] = [
     genre: ["Action", "Fantasy"],
     description:"testing description for carousel item",
     isFavorite: true,
-    type: "Anime",
+    type: "Manga",
     status: "planToRead"
   },
   {
@@ -591,7 +591,7 @@ export const Manga_List: AnimeMangaType[] = [
     genre: ["Action", "Supernatural"],
     description:"testing description for carousel item",
     isFavorite: false,
-    type: "Anime",
+    type: "Manga",
     status: "planToRead"
   },
   {
@@ -601,7 +601,7 @@ export const Manga_List: AnimeMangaType[] = [
     genre: ["Romance", "Comedy"],
     description:"testing description for carousel item",
     isFavorite: true,
-    type: "Anime",
+    type: "Manga",
     status: "planToRead"
   },
   {
@@ -611,7 +611,7 @@ export const Manga_List: AnimeMangaType[] = [
     genre: ["Action", "Supernatural"],
     description:"testing description for carousel item",
     isFavorite: true,
-    type: "Anime",
+    type: "Manga",
     status: "planToRead"
   },
   {
@@ -621,7 +621,7 @@ export const Manga_List: AnimeMangaType[] = [
     genre: ["Sci-Fi", "Thriller"],
     description:"testing description for carousel item",
     isFavorite: true,
-    type: "Anime",
+    type: "Manga",
     status: "planToRead"
   },
   {
@@ -631,7 +631,7 @@ export const Manga_List: AnimeMangaType[] = [
     genre: ["Action", "Supernatural"],
     description:"testing description for carousel item",
     isFavorite: true,
-    type: "Anime",
+    type: "Manga",
     status: "planToRead"
   }
 ];

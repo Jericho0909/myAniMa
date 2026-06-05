@@ -11,13 +11,13 @@ const HorizontalCarousel = ({ data }: { data: AnimeMangaType[] }) => {
   const scroll = (direction: 'left' | 'right') => {
     
     if (scrollContainerRef.current) {
-      const scrollAmount = 240;
-      scrollContainerRef.current.scrollBy({
-        left: direction === 'left' ? -scrollAmount : scrollAmount,
-        behavior: 'smooth'
-      });
+        const scrollAmount = 240;
+        scrollContainerRef.current.scrollBy({
+            left: direction === 'left' ? -scrollAmount : scrollAmount,
+            behavior: 'smooth'
+        })
     }
-  };
+  }
 
   return (
     <section className="w-full py-8 px-1">
@@ -34,7 +34,7 @@ const HorizontalCarousel = ({ data }: { data: AnimeMangaType[] }) => {
                     className="flex gap-4 overflow-hidden flex-1"
                 >
                     {data.map((item, index) => (
-                        <AnimeMangaCard key={index} item={item} w={"w-56"}/>
+                        <AnimeMangaCard key={index} index={index} item={item} w={"w-56"}/>
                     ))}
                 </div>
                 <button

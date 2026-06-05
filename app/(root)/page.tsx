@@ -89,7 +89,7 @@ const Page = () => {
                     className="text-3xl font-bold mt-8 text-left p-2" 
                     style={{ fontFamily: 'var(--font-fredoka)' }}
                 >
-                    My Manga List
+                    Reading List
                 </h2>
                 <AnimeMangaList 
                     data={Manga_List}

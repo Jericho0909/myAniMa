@@ -12,7 +12,7 @@ const MyAnimeManga = ({completedData, currentData}: { completedData: AnimeMangaT
                         Anime I've Finished
                     </h3>
                     {completedData.map((item, index) => (
-                        <AnimeMangaListCard key={index} item={item} />
+                        <AnimeMangaListCard key={index} item={item} index={index} />
                     ))}
                 </div>
                 <div className="w-full h-auto bg-white rounded-xl p-6 shadow-sm border border-slate-100">
@@ -23,7 +23,7 @@ const MyAnimeManga = ({completedData, currentData}: { completedData: AnimeMangaT
                         What I'm Watching
                     </h3>
                     {currentData.map((item, index) => (
-                        <AnimeMangaListCard key={index} item={item} />
+                        <AnimeMangaListCard key={index} item={item} index={index} />
                     ))}
                 </div>
             </div>

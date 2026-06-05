@@ -1,13 +1,19 @@
+import { useRef } from "react";
 import type { AnimeMangaType } from "@/type/model";
 import Link from "next/link";
 import { Heart } from "lucide-react";
 
-const AnimeMangaCard = ({ item, w }: { item: AnimeMangaType, w: string }) => {
+const AnimeMangaCard = ({ index, item, w }: { index: number; item: AnimeMangaType; w: string }) => {
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([])
+
   return (
         <Link
             href={`/${item.status}/${item.title}`}
-            className={`group shrink-0 ${w} rounded-tl-xl rounded-br-xl overflow-hidden border border-gray-600 cursor-pointer`}
         >
+            <div
+                ref={(el) => {cardRefs.current[index] = el}}
+                className={`group shrink-0 ${w} rounded-tl-xl rounded-br-xl overflow-hidden border border-gray-600 cursor-pointer`}
+            >
             <div className="group anime-card relative overflow-hidden">
                 <img
                     src={item.image}
@@ -73,6 +79,7 @@ const AnimeMangaCard = ({ item, w }: { item: AnimeMangaType, w: string }) => {
                     {item.title}
                 </h3>
             </div>
+        </div>
         </Link>
     );
 };

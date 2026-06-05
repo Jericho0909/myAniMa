@@ -6,8 +6,9 @@ import { useSectionObserver } from '../hooks/useSectionObserver'
 type SectionId = 'home' | 'anime' | 'manga'
 
 interface SectionObserverContextValue {
-  activeSection: SectionId
-  sectionRefs: Record<SectionId, any>
+    activeSection: SectionId
+    setActiveSection: React.Dispatch<React.SetStateAction<SectionId>>
+    sectionRefs: Record<SectionId, any>
 }
 
 const SectionObserverContext = createContext<SectionObserverContextValue | null>(null)

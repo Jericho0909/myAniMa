@@ -1,18 +1,21 @@
-import { useRef } from "react";
+import { useRef, useContext } from "react";
 import Link from "next/link";
+import SectionObserverContext from "@/context/SectionObserverContext";
 import type { AnimeMangaType } from "@/type/model";
 import { Heart, Eye } from "lucide-react";
 
 const AnimeMangaListCard = ({ item, index }: { item: AnimeMangaType; index: number }) => {
-    const listCardRef = useRef<HTMLDivElement | null>(null);
+    const { setActiveSection } = useContext(SectionObserverContext)!
+    const listCardRef = useRef<(HTMLDivElement | null)[]>([])
 
     return (
         <Link
             href={`/${item.status}/${item.title}`}
         >
             <div 
-                ref={(el) => {listCardRef.current = el}}
+                ref={(el) => {listCardRef.current[index] = el}}
                 className="group anime-list-card flex items-center gap-3 p-2 border-2 rounded-2xl mb-2 relative overflow-visible cursor-pointer"
+                onClick={() => setActiveSection(item.type === "Anime" ? "anime" : "manga")}
             >
 
                 {/* MAIN ITEM */}

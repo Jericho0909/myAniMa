@@ -1,9 +1,11 @@
-import { useRef } from "react";
+import { useRef, useContext } from "react";
+import SectionObserverContext from "@/context/SectionObserverContext";
 import type { AnimeMangaType } from "@/type/model";
 import Link from "next/link";
 import { Heart } from "lucide-react";
 
 const AnimeMangaCard = ({ index, item, w }: { index: number; item: AnimeMangaType; w: string }) => {
+  const { setActiveSection } = useContext(SectionObserverContext)!
   const cardRefs = useRef<(HTMLDivElement | null)[]>([])
 
   return (
@@ -13,6 +15,7 @@ const AnimeMangaCard = ({ index, item, w }: { index: number; item: AnimeMangaTyp
             <div
                 ref={(el) => {cardRefs.current[index] = el}}
                 className={`group shrink-0 ${w} rounded-tl-xl rounded-br-xl overflow-hidden border border-gray-600 cursor-pointer`}
+                onClick={() => setActiveSection(item.type === "Anime" ? "anime" : "manga")}
             >
             <div className="group anime-card relative overflow-hidden">
                 <img

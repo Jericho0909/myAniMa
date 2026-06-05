@@ -5,6 +5,7 @@ type SectionId = 'home' | 'anime' | 'manga'
 
 interface SectionObserverContextValue {
     activeSection: SectionId
+    setActiveSection: React.Dispatch<React.SetStateAction<SectionId>>
     sectionRefs: Record<SectionId, any>
 }
 
@@ -33,12 +34,13 @@ export const useSectionObserver = (): SectionObserverContextValue => {
 
     const value = useMemo(() => ({
         activeSection,
+        setActiveSection,
         sectionRefs: {
             home: homeObserver.ref,
             anime: animeObserver.ref,
             manga: mangaObserver.ref,
         },
-        }),[activeSection, homeObserver.ref, animeObserver.ref, mangaObserver.ref],
+        }),[activeSection, setActiveSection, homeObserver.ref, animeObserver.ref, mangaObserver.ref],
     )
 
     return value

@@ -45,7 +45,21 @@ const AnimeMangaDetail = async ({params}: {params: Promise<{ status: string; slu
     const detail = animeDetail || mangaDetail || completedAnimeDetail || currentAnimeDetail || completedMangaDetail || currentMangaDetail || animeListDetail || mangaListDetail;
 
 
-    if (!detail) return <div>Not found</div>;
+    if (!detail) {
+        return (
+            <div className="h-screen flex items-center justify-center bg-linear-to-br from-slate-50 to-slate-100 px-4">
+                <div className="bg-white shadow-lg rounded-2xl p-8 max-w-md w-full text-center border border-slate-200">
+                    <p
+                        className="text-sm text-slate-500"
+                        style={{ fontFamily: "var(--font-fredoka)" }}
+                    >
+                        No detail found for <span className="font-semibold text-slate-700">"{cleanSlug}"</span>  
+                    </p>
+
+                </div>
+            </div>
+        )
+    }
 
     return (
         <div className="h-screen bg-slate-50">

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type {IconItem} from "@/type/model";
 import { Favorite_Anime, 
     Favorite_Manga,
@@ -16,7 +17,7 @@ import { Heart,
     X
 } from "lucide-react";
 
-const AnimeDetail = async ({params}: {params: Promise<{ status: string; slug: string }>}) => {
+const AnimeMangaDetail = async ({params}: {params: Promise<{ status: string; slug: string }>}) => {
     const { status, slug } = await params
     const cleanSlug = decodeURIComponent(slug)
     
@@ -43,9 +44,6 @@ const AnimeDetail = async ({params}: {params: Promise<{ status: string; slug: st
 
     const detail = animeDetail || mangaDetail || completedAnimeDetail || currentAnimeDetail || completedMangaDetail || currentMangaDetail || animeListDetail || mangaListDetail;
 
-    const handleClose = ():void => {
-
-    }
 
     if (!detail) return <div>Not found</div>;
 
@@ -61,12 +59,12 @@ const AnimeDetail = async ({params}: {params: Promise<{ status: string; slug: st
                 <div className="absolute inset-0 bg-black/60" />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95%] sm:w-[75%] lg:w-[60%]  z-10">
                     <div className="relative bg-white w-full rounded-3xl shadow-2xl p-6 md:p-8">
-                        <button
-                            type="button"
+                        <Link
+                            href={`/`}
                             className="close-btn absolute top-4 right-4 p-2 rounded-full transition-all cursor-pointer"
                         >
                             <X size={24} strokeWidth={3} />
-                        </button>
+                        </Link>
                         <div className="flex flex-col gap-8">
                             <div className="flex items-center justify-center w-full h-full">
                                 <img
@@ -108,11 +106,7 @@ const AnimeDetail = async ({params}: {params: Promise<{ status: string; slug: st
                                 >
                                     <button
                                         type="button"
-                                        className={`fav-btn flex items-center gap-2 px-5 py-2 rounded-xl transition-all cursor-pointer ${
-                                            detail.isFavorite
-                                                ? "bg-red-500 text-white"
-                                                : "bg-gray-200 text-gray-700"
-                                        }`}
+                                        className={`fav-btn flex items-center gap-2 px-5 py-2 rounded-xl transition-all cursor-pointer ${detail.isFavorite ? "fav-active bg-red-500": "fav-inactive bg-gray-200"}`}
                                     >
                                         <span>
                                             <Heart size={20} strokeWidth={3}/> 
@@ -124,7 +118,7 @@ const AnimeDetail = async ({params}: {params: Promise<{ status: string; slug: st
 
                                     <button
                                         type="button"
-                                        className={`flex items-center gap-2 px-5 py-2 rounded-xl font-semibold ${detail.status && icons[detail.status]?.style}`}
+                                        className={`status-btn flex items-center gap-2 px-5 py-2 rounded-xl font-semibold cursor-pointer transition-all ${detail.status && icons[detail.status]?.style}`}
                                     >
                                         <span>
                                             {
@@ -154,4 +148,4 @@ const AnimeDetail = async ({params}: {params: Promise<{ status: string; slug: st
     )
 }
 
-export default AnimeDetail
+export default AnimeMangaDetail

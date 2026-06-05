@@ -146,17 +146,14 @@
     transform: rotate(90deg) scale(0.9);
   }
 
-  .fav-btn .bg-gray-200:hover {
-    background-color: #d1d5db;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-  }
-
-  /* FAVORITE hover */
-  .fav-btn .bg-red-500:hover {
+  .fav-inactive:hover {
     background-color: #dc2626;
     transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(239,68,68,0.3);
+  }
+
+  .fav-active:hover {
+    background-color: #d1d5db;
+    transform: translateY(-2px);
   }
 
   /* click effect */
@@ -164,6 +161,14 @@
     transform: scale(0.90);
   }
 
+  .status-btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .status-btn:active {
+    transform: translateY(-2px) scale(0.90);
+  }
+ 
 }
 
 

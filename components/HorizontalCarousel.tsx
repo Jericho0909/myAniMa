@@ -5,7 +5,7 @@ import AnimeMangaCard from './AnimeMangaCard';
 import { ArrowBigLeftDash, ArrowBigRightDash } from 'lucide-react';
 import { AnimeMangaType } from '@/type/model';
 
-const HorizontalCarousel = ({ data }: { data: AnimeMangaType[] }) => {
+const HorizontalCarousel = ({ data, cardRefs, section }: { data: AnimeMangaType[]; cardRefs: (HTMLDivElement | null)[]; section: string }) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: 'left' | 'right') => {
@@ -20,7 +20,10 @@ const HorizontalCarousel = ({ data }: { data: AnimeMangaType[] }) => {
   }
 
   return (
-    <section className="w-full py-8 px-1">
+    <section 
+        id={section}
+        className="w-full py-8 px-1"
+    >
         <div className="max-w-full md:max-w-[90%] h-auto mx-auto p-6 bg-linear-to-br from-slate-50 to-slate-100 rounded-2xl shadow-lg border border-slate-200">
             <div className="flex items-center gap-4">
                 <button
@@ -34,7 +37,14 @@ const HorizontalCarousel = ({ data }: { data: AnimeMangaType[] }) => {
                     className="flex gap-4 overflow-hidden flex-1"
                 >
                     {data.map((item, index) => (
-                        <AnimeMangaCard key={index} index={index} item={item} w={"w-56"}/>
+                        <AnimeMangaCard 
+                            key={index} 
+                            index={index} 
+                            item={item} 
+                            w={"w-56"}
+                            cardRefs={cardRefs}
+                            section={section}
+                        />
                     ))}
                 </div>
                 <button

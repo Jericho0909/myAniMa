@@ -1,25 +1,27 @@
-import { useRef, useContext } from "react";
+import { useContext } from "react";
 import SectionObserverContext from "@/context/SectionObserverContext";
 import type { AnimeMangaType } from "@/type/model";
-import { handleSaveSection } from "@/utils/saveSection";
 import Link from "next/link";
 import { Heart } from "lucide-react";
 
-const AnimeMangaCard = ({ index, item, w }: { index: number; item: AnimeMangaType; w: string }) => {
+const AnimeMangaCard = ({ index, item, w, cardRefs, section }: { index: number; item: AnimeMangaType; w: string; cardRefs: (HTMLDivElement | null)[]; section: string }) => {
     const { setActiveSection } = useContext(SectionObserverContext)!
-    const cardRefs = useRef<(HTMLDivElement | null)[]>([])
 
+    const handleClick = () => {
+        console.log("Card clicked:", section)
+    }
 
   return (
         <Link
             href={`/${item.status}/${item.title}`}
         >
             <div
-                ref={(el) => {cardRefs.current[index] = el}}
+                ref={(el) => {cardRefs[index] = el}}
                 className={`group shrink-0 ${w} rounded-tl-xl rounded-br-xl overflow-hidden border border-gray-600 cursor-pointer`}
-                onClick={(e) => {
-                    setActiveSection(item.type === "Anime" ? "anime" : "manga")
-                    handleSaveSection({ e, type: item.type })
+                onClick={() => {
+                    setActiveSection(item.type === "Anime" ? "anime" : "manga");
+                    handleClick()
+                    
                 }}
             >
             <div className="group anime-card relative overflow-hidden">

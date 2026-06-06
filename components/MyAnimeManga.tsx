@@ -1,8 +1,11 @@
 import AnimeMangaListCard from "./AnimeMangaListCard";
 import type { AnimeMangaType } from "@/type/model";
-const MyAnimeManga = ({completedData, currentData}: { completedData: AnimeMangaType[]; currentData: AnimeMangaType[] }) => {
+const MyAnimeManga = ({completedData, currentData, listCardRefs, section}: { completedData: AnimeMangaType[]; currentData: AnimeMangaType[]; listCardRefs: (HTMLDivElement | null)[]; section: string }) => {
     return (
-        <section className="w-full py-8">
+        <section 
+            id={section}
+            className="w-full py-8"
+        >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-full sm:max-w-[90%] h-auto mx-auto p-6 bg-linear-to-br from-slate-50 to-slate-100 rounded-2xl shadow-lg border border-slate-200">
                 <div className="w-full h-auto bg-white rounded-xl p-6 shadow-sm border border-slate-100">
                     <h3
@@ -12,7 +15,7 @@ const MyAnimeManga = ({completedData, currentData}: { completedData: AnimeMangaT
                         Anime I've Finished
                     </h3>
                     {completedData.map((item, index) => (
-                        <AnimeMangaListCard key={index} item={item} index={index} />
+                        <AnimeMangaListCard key={index} item={item} index={index} cardRefs={listCardRefs} section={section} />
                     ))}
                 </div>
                 <div className="w-full h-auto bg-white rounded-xl p-6 shadow-sm border border-slate-100">
@@ -23,7 +26,7 @@ const MyAnimeManga = ({completedData, currentData}: { completedData: AnimeMangaT
                         What I'm Watching
                     </h3>
                     {currentData.map((item, index) => (
-                        <AnimeMangaListCard key={index} item={item} index={index} />
+                        <AnimeMangaListCard key={index} item={item} index={index} cardRefs={listCardRefs} section={section} />
                     ))}
                 </div>
             </div>

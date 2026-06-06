@@ -1,4 +1,3 @@
-export const handleSaveSection = ({e, type}: {e: React.MouseEvent<HTMLDivElement>, type: string}) => {
-    e.preventDefault()
+export const handleSaveSection = ({ type}: { type: string}) => {
     sessionStorage.setItem("section", type === "Anime" ? "Anime" : "Manga")
 }

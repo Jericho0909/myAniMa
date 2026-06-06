@@ -5,20 +5,20 @@ import { handleSaveSection } from "@/utils/saveSection";
 import type { AnimeMangaType } from "@/type/model";
 import { Heart, Eye } from "lucide-react";
 
-const AnimeMangaListCard = ({ item, index }: { item: AnimeMangaType; index: number }) => {
+const AnimeMangaListCard = ({ item, index, cardRefs, section }: { item: AnimeMangaType; index: number; cardRefs: (HTMLDivElement | null)[]; section: string }) => {
     const { setActiveSection } = useContext(SectionObserverContext)!
-    const listCardRef = useRef<(HTMLDivElement | null)[]>([])
+
 
     return (
         <Link
             href={`/${item.status}/${item.title}`}
         >
             <div 
-                ref={(el) => {listCardRef.current[index] = el}}
+                ref={(el) => {cardRefs[index] = el}}
                 className="group anime-list-card flex items-center gap-3 p-2 border-2 rounded-2xl mb-2 relative overflow-visible cursor-pointer"
-                onClick={(e) => {
+                onClick={() => {
                     setActiveSection(item.type === "Anime" ? "anime" : "manga")
-                    handleSaveSection({ e, type: item.type })
+                    handleSaveSection({type: item.type })
                 }}
             >
 

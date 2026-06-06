@@ -1,7 +1,8 @@
 'use client'
 
-import { useContext, useRef } from 'react'
+import { useContext, useRef, useEffect  } from 'react'
 import SectionObserverContext from '@/context/SectionObserverContext'
+import type { SectionKey } from '@/type/model';
 import Slider from "@/components/Slider";
 import HorizontalCarousel from "@/components/HorizontalCarousel"
 import MyAnimeManga from "@/components/MyAnimeManga";
@@ -18,14 +19,36 @@ import {
 } from "@/constants/animeData";
 const Page = () => {
     const { sectionRefs } = useContext(SectionObserverContext)!
-    const cardRefs = useRef({
-        animeFav: [] as (HTMLDivElement | null)[],
-        mangaFav: [] as (HTMLDivElement | null)[],
-        animeList: [] as (HTMLDivElement | null)[],
-        mangaList: [] as (HTMLDivElement | null)[],
-        myAnimeWatchlist: [] as (HTMLDivElement | null)[],
-        myMangaReadingList: [] as (HTMLDivElement | null)[]
+    const cardRefs = useRef<Record<SectionKey, (HTMLDivElement | null)[]>>({
+        animeFav: [],
+        mangaFav: [],
+        animeList: [],
+        mangaList: [],
+        myAnimeWatchlist: [],
+        myMangaReadingList: [],
     });
+
+    useEffect(() => {
+        const savedSection = sessionStorage.getItem("section") as keyof typeof cardRefs.current;
+        const savedIndex = sessionStorage.getItem("index")
+
+        if (!savedSection || savedIndex === null) return;
+
+        const sectionRef = cardRefs.current[savedSection]
+        const element = sectionRef?.[Number(savedIndex)]
+
+        if (!element) return
+
+        setTimeout(() => {
+            element.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+            })
+
+            sessionStorage.clear()
+        }, 300)
+
+    }, [])
 
 
     return (
@@ -50,8 +73,8 @@ const Page = () => {
                 </h2>
                 <HorizontalCarousel
                     data={Favorite_Anime}
-                    cardRefs={cardRefs.current.animeFav}
-                    section="animeFavorite"
+                    cardRefs={cardRefs}
+                    section="animeFav"
                 />
                 <h2 
                     className="text-3xl font-bold mt-8 text-left p-2" 
@@ -62,7 +85,7 @@ const Page = () => {
                 <MyAnimeManga
                     completedData={Completed_Anime}
                     currentData={Current_Anime}
-                    listCardRefs={cardRefs.current.animeList}
+                    listCardRefs={cardRefs}
                     section="animeList"
                 />
                 <h2 
@@ -73,8 +96,8 @@ const Page = () => {
                 </h2>
                 <AnimeMangaList 
                     data={Anime_List}
-                    animeMangaListRefs={cardRefs.current.animeList}
-                    section="animeWatchlist"
+                    animeMangaListRefs={cardRefs}
+                    section="myAnimeWatchlist"
                 />
             </section>
             <section
@@ -90,8 +113,8 @@ const Page = () => {
                 </h2>
                 <HorizontalCarousel
                     data={Favorite_Manga}
-                    cardRefs={cardRefs.current.mangaFav}
-                    section="mangaFavorite"
+                    cardRefs={cardRefs}
+                    section="mangaFav"
                 />
                 <h2 
                     className="text-3xl font-bold mt-8 text-left p-2" 
@@ -102,7 +125,7 @@ const Page = () => {
                 <MyAnimeManga
                     completedData={Completed_Manga}
                     currentData={Current_Manga}
-                    listCardRefs={cardRefs.current.mangaList}
+                    listCardRefs={cardRefs}
                     section="mangaList"
                 />
                 <h2 
@@ -113,8 +136,8 @@ const Page = () => {
                 </h2>
                 <AnimeMangaList 
                     data={Manga_List}
-                    animeMangaListRefs={cardRefs.current.mangaList}
-                    section="mangaReadingList"
+                    animeMangaListRefs={cardRefs}
+                    section="myMangaReadingList"
                 />
             </section>
         </main>

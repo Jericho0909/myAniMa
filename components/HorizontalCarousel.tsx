@@ -3,9 +3,9 @@
 import { useRef } from 'react';
 import AnimeMangaCard from './AnimeMangaCard';
 import { ArrowBigLeftDash, ArrowBigRightDash } from 'lucide-react';
-import { AnimeMangaType } from '@/type/model';
+import { AnimeMangaType, SectionKey } from '@/type/model';
 
-const HorizontalCarousel = ({ data, cardRefs, section }: { data: AnimeMangaType[]; cardRefs: (HTMLDivElement | null)[]; section: string }) => {
+const HorizontalCarousel = ({ data, cardRefs, section }: { data: AnimeMangaType[]; cardRefs: React.RefObject<Record<SectionKey, (HTMLDivElement | null)[]>>; section: SectionKey }) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: 'left' | 'right') => {

@@ -1,11 +1,11 @@
-import { useRef, useContext } from "react";
+import { useContext } from "react";
 import Link from "next/link";
 import SectionObserverContext from "@/context/SectionObserverContext";
-import { handleSaveSection } from "@/utils/saveSection";
-import type { AnimeMangaType } from "@/type/model";
+import { handleSaveSectionAndIndex } from "@/utils/saveSection";
+import type { AnimeMangaType, SectionKey } from "@/type/model";
 import { Heart, Eye } from "lucide-react";
 
-const AnimeMangaListCard = ({ item, index, cardRefs, section }: { item: AnimeMangaType; index: number; cardRefs: (HTMLDivElement | null)[]; section: string }) => {
+const AnimeMangaListCard = ({ item, index, cardRefs, section }: { item: AnimeMangaType; index: number; cardRefs: React.RefObject<Record<SectionKey, (HTMLDivElement | null)[]>>; section: SectionKey }) => {
     const { setActiveSection } = useContext(SectionObserverContext)!
 
 
@@ -14,11 +14,13 @@ const AnimeMangaListCard = ({ item, index, cardRefs, section }: { item: AnimeMan
             href={`/${item.status}/${item.title}`}
         >
             <div 
-                ref={(el) => {cardRefs[index] = el}}
+                ref={(el) => {
+                    cardRefs.current[section][index] = el;
+                }}
                 className="group anime-list-card flex items-center gap-3 p-2 border-2 rounded-2xl mb-2 relative overflow-visible cursor-pointer"
                 onClick={() => {
                     setActiveSection(item.type === "Anime" ? "anime" : "manga")
-                    handleSaveSection({type: item.type })
+                    handleSaveSectionAndIndex({ section, index })
                 }}
             >
 

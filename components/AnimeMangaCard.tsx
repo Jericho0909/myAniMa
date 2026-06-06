@@ -1,26 +1,25 @@
 import { useContext } from "react";
 import SectionObserverContext from "@/context/SectionObserverContext";
-import type { AnimeMangaType } from "@/type/model";
+import { handleSaveSectionAndIndex } from "@/utils/saveSection";
+import type { AnimeMangaType, SectionKey } from "@/type/model";
 import Link from "next/link";
 import { Heart } from "lucide-react";
 
-const AnimeMangaCard = ({ index, item, w, cardRefs, section }: { index: number; item: AnimeMangaType; w: string; cardRefs: (HTMLDivElement | null)[]; section: string }) => {
+const AnimeMangaCard = ({ index, item, w, cardRefs, section }: { index: number; item: AnimeMangaType; w: string; cardRefs: React.RefObject<Record<SectionKey, (HTMLDivElement | null)[]>>; section: SectionKey }) => {
     const { setActiveSection } = useContext(SectionObserverContext)!
 
-    const handleClick = () => {
-        console.log("Card clicked:", section)
-    }
-
-  return (
+    return (
         <Link
             href={`/${item.status}/${item.title}`}
         >
             <div
-                ref={(el) => {cardRefs[index] = el}}
+                ref={(el) => {
+                    cardRefs.current[section][index] = el;
+                }}
                 className={`group shrink-0 ${w} rounded-tl-xl rounded-br-xl overflow-hidden border border-gray-600 cursor-pointer`}
                 onClick={() => {
                     setActiveSection(item.type === "Anime" ? "anime" : "manga");
-                    handleClick()
+                    handleSaveSectionAndIndex({ section, index })
                     
                 }}
             >

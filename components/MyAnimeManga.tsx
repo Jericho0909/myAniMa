@@ -1,6 +1,6 @@
 import AnimeMangaListCard from "./AnimeMangaListCard";
-import type { AnimeMangaType } from "@/type/model";
-const MyAnimeManga = ({completedData, currentData, listCardRefs, section}: { completedData: AnimeMangaType[]; currentData: AnimeMangaType[]; listCardRefs: (HTMLDivElement | null)[]; section: string }) => {
+import type { AnimeMangaType, SectionKey } from "@/type/model";
+const MyAnimeManga = ({completedData, currentData, listCardRefs, section}: { completedData: AnimeMangaType[]; currentData: AnimeMangaType[]; listCardRefs: React.RefObject<Record<SectionKey, (HTMLDivElement | null)[]>>; section: SectionKey }) => {
     return (
         <section 
             id={section}

@@ -1,3 +1,4 @@
-export const handleSaveSection = ({ type}: { type: string}) => {
-    sessionStorage.setItem("section", type === "Anime" ? "Anime" : "Manga")
+export const handleSaveSectionAndIndex = ({ section, index }: { section: string; index: number }) => {
+    sessionStorage.setItem("section", section)
+    sessionStorage.setItem("index", index.toString())
 }

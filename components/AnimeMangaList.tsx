@@ -1,8 +1,8 @@
 import AnimeMangaCard from "./AnimeMangaCard";
-import type { AnimeMangaType } from "@/type/model";
+import type { AnimeMangaType, SectionKey } from "@/type/model";
 
 
-const AnimeMangaList = ({ data, animeMangaListRefs, section }: { data: AnimeMangaType[]; animeMangaListRefs: (HTMLDivElement | null)[]; section: string }) => {
+const AnimeMangaList = ({ data, animeMangaListRefs, section }: { data: AnimeMangaType[]; animeMangaListRefs: React.RefObject<Record<SectionKey, (HTMLDivElement | null)[]>>; section: SectionKey }) => {
     return (
         <section 
             id={section}

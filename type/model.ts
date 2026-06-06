@@ -32,3 +32,12 @@ export type IconItem = {
     icon: React.ReactNode;
     style?: string;
 };
+
+
+export type SectionKey =
+    | "animeFav"
+    | "mangaFav"
+    | "animeList"
+    | "mangaList"
+    | "myAnimeWatchlist"
+    | "myMangaReadingList";

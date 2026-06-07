@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useState } from "react";
-
 import Loading from "@/components/Loading";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -21,10 +21,10 @@ export default function RootLayout({
     if (isLoading) {
         return <Loading />
     }
-
+    
     return (
         <>
             {children}
         </>
-    )
+    );
 }

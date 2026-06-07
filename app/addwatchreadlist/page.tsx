@@ -8,7 +8,7 @@ const AddWatchList = () => {
                     className="text-3xl  font-bold mb-4"
                     style={{ fontFamily: "var(--font-fredoka)" }}
                 >
-                    Add WatchList
+                    Add WatchList And ReadList
                 </h2>
                 <AnimeMangaForm/>
             </section>

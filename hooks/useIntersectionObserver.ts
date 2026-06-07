@@ -1,6 +1,6 @@
 import { useIntersectionObserver } from "@uidotdev/usehooks";
 
-const IntersectionObserver = ({ th = 0 } : { th?: number }) => {
+const interSectionObserver = ({ th = 0 } : { th?: number }) => {
     const [ref, entry] = useIntersectionObserver({
         threshold: th,
         root: null,
@@ -12,4 +12,4 @@ const IntersectionObserver = ({ th = 0 } : { th?: number }) => {
     return { ref, isIntersecting }
 }
 
-export default IntersectionObserver
+export default interSectionObserver

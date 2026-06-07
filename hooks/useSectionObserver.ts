@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from "react"
-import IntersectionObserver from "./useIntersectionObserver"
+import interSectionObserver from "./useIntersectionObserver"
 
 type SectionId = 'home' | 'anime' | 'manga'
 
@@ -10,9 +10,9 @@ interface SectionObserverContextValue {
 }
 
 export const useSectionObserver = (): SectionObserverContextValue => {
-    const homeObserver = IntersectionObserver({ th: 0.4 })
-    const animeObserver = IntersectionObserver({ th: 0.2 })
-    const mangaObserver = IntersectionObserver({ th: 0.2 })
+    const homeObserver = interSectionObserver({ th: 0.4 })
+    const animeObserver = interSectionObserver({ th: 0.2 })
+    const mangaObserver = interSectionObserver({ th: 0.2 })
     const [ activeSection, setActiveSection ] = useState<SectionId>("home")
 
     useEffect(() => {

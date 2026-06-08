@@ -50,13 +50,23 @@ const Page = () => {
 
     }, [])
 
+    useEffect(() => {
+        const fetchAnime = async () => {
+            const res = await fetch('/api/animeManga')
+            const data = await res.json()
+              
+            console.log("FRONTEND DATA:", data)
+        }
+
+        fetchAnime()
+    }, [])
 
     return (
-        <main className="min-h-full">
+        <main className="min-h-full w-full">
             <section
                 id="home"
                 ref={sectionRefs.home}
-                className="w-auto border"
+                className="w-auto"
             >
                 <Slider/>
             </section>

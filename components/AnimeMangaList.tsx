@@ -10,7 +10,7 @@ const AnimeMangaList = ({ data, animeMangaListRefs, section }: { data: AnimeMang
     return (
         <section 
             id={section}
-            className="w-full py-8"
+            className="w-full py-8 overflow-hidden"
         >
             <motion.div
                 ref={animeMangaSection.ref}

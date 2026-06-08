@@ -23,7 +23,7 @@ const HorizontalCarousel = ({ data, cardRefs, section }: { data: AnimeMangaType[
     return (
         <section 
             id={section}
-            className="w-full py-8 px-1"
+            className="w-full py-8 px-1 overflow-hidden"
         >
             <motion.div 
                 ref={horizontalCarouselSection.ref}

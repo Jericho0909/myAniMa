@@ -34,7 +34,9 @@ const useImage = () => {
         } catch (err) {
             console.error("Upload error:", err);
         } finally {
-            setLoadingImg(false);
+            setTimeout(() => {
+                setLoadingImg(false)
+            }, 1000)
         }
     };
 

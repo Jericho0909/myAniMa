@@ -1,3 +1,4 @@
+
 import AnimeMangaForm from "@/components/AnimeMangaForm"
 
 const AddWatchList = () => {

@@ -22,16 +22,28 @@ export async function POST(request: Request) {
     try {
         const body = await request.json()
 
-        const anime = await prisma.animeManga.create({
-        
-        data: {
-            title: body.title,
-            description: body.description,
-            image: body.image,
-            type: body.type,
-            status: body.status,
-            genre: body.genre,
+        if (!body.title ||
+            !body.description ||
+            !body.image ||
+            !body.type ||
+            !body.status ||
+            !body.genre
+            ){
+            return Response.json(
+                { message: 'Missing required fields' },
+                { status: 400 }
+            )
         }
+
+        const anime = await prisma.animeManga.create({
+            data: {
+                title: body.title,
+                description: body.description,
+                image: body.image,
+                type: body.type,
+                status: body.status,
+                genre: body.genre,
+            }
         })
 
         return Response.json(anime, { status: 201 })

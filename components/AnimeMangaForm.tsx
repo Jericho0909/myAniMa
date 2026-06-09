@@ -1,26 +1,74 @@
 'use client'
 
 import { useState, useRef } from "react"
-
+import useImage from "@/hooks/useImage"
 import type { AnimeMangaType } from "@/type/model"
 
-
 const AnimeMangaForm = () => {
+    const { handleUpload, preview } = useImage()
+    const imageInputRef = useRef<HTMLInputElement | null>(null)
     const [data, setData] = useState<AnimeMangaType>({
-        id: "",
         title: "",
         image: "",
         genre: [],
         description: "",
-        isFavorite: false,
         type: "Anime",
-        status: "watching"
+        status: ""
     })
-    const imageInputRef = useRef<HTMLInputElement | null>(null)
 
-    const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
-        e.preventDefault();
-    };
+    const genraArr: string[] = [
+        "Action",
+        "Adventure",
+        "Romance",
+        "Comedy",
+        "Drama",
+        "Fantasy",
+        "Horror",
+        "Slice of Life",
+        "Sci-Fi",
+        "Supernatural"
+    ]
+
+    const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
+        e.preventDefault()
+
+        const finalData = {
+            ...data,
+            image: preview,
+            status:
+            data.type === "Anime"
+                ? "PlanToWatch"
+                : "PlanToRead",
+        }
+
+        try{
+            const res = await fetch('/api/animeManga', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(finalData)
+            })
+
+            const result = await res.json()
+            if (!res.ok) {
+                console.log(result.message)
+                return
+            }
+
+        } catch (error) {
+            console.error('Failed to submit:', error)
+        } finally {
+            setData({
+                title: "",
+                image: "",
+                genre: [],
+                description: "",
+                type: "Anime",
+                status: ""
+            })
+        }
+    }
 
 
     return (
@@ -34,10 +82,10 @@ const AnimeMangaForm = () => {
                 className="w-40 h-40 border-2 border-dashed rounded-lg flex items-center justify-center cursor-pointer overflow-hidden"
                 onClick={() => imageInputRef.current?.click()}
             >
-                {data.image ? (
+                {preview ? (
                     <img
-                            src={""}
-                            className="w-full h-full object-cover"
+                            src={preview}
+                            className="w-full h-full object-fill"
                             alt="preview"
                         />
                     ) : (
@@ -51,6 +99,7 @@ const AnimeMangaForm = () => {
                     type="file"
                     accept="image/*"
                     className="hidden"
+                    onChange={handleUpload}
                 />
             </div>
             {/* TITLE */}
@@ -58,7 +107,8 @@ const AnimeMangaForm = () => {
                 <label
                     htmlFor="anime-manga-title"
                     className="text-base font-semibold"
-                    style={{ fontFamily: "var(--font-lato)" }}
+                    style={{ fontFamily: "var(--font-fredoka)" }}
+                    spellCheck={false}
                 >
                     Title
                 </label>
@@ -85,7 +135,7 @@ const AnimeMangaForm = () => {
                 <label
                     htmlFor="anime-manga-description"
                     className="text-base font-semibold"
-                    style={{ fontFamily: "var(--font-lato)" }}
+                    style={{ fontFamily: "var(--font-fredoka)" }}
                 >
                     Description
                 </label>
@@ -95,13 +145,14 @@ const AnimeMangaForm = () => {
                     name="description"
                     placeholder="Once upon a time..."
                     value={data.description}
+                    spellCheck={false}
                     onChange={(e) => {
                         setData((data) => ({
                             ...data,
                             [e.target.name]: e.target.value
                         }))
                     }}
-                    className="text-base font-semibold h-32 resize-none overflow-auto border rounded-md p-2"
+                    className="text-sm font-semibold h-32 resize-none overflow-auto border rounded-md p-2"
                     style={{ fontFamily: "var(--font-lato)" }}
                 />
             </div>
@@ -157,6 +208,49 @@ const AnimeMangaForm = () => {
                     </label>
                 </div>
 
+            </div>
+
+            {/* GENRE */}
+            <div className="flex flex-col gap-3">
+                <label
+                    className="text-base font-semibold"
+                    style={{ fontFamily: "var(--font-fredoka)" }}
+                >
+                    Genre
+                </label>
+
+                <div className="flex flex-wrap gap-3">
+                    {genraArr.map((genre) => (
+                        <label
+                            key={genre}
+                            className={`text-sm font-semibold px-3 py-1 border rounded-full cursor-pointer transition-all duration-200
+                            ${
+                                data.genre.includes(genre)
+                                    ? "bg-black text-white border-black"
+                                    : "bg-white text-black border-gray-300 hover:border-black"
+                            }`}
+                            style={{ fontFamily: "var(--font-lato)" }}
+                        >
+                            <input
+                                type="checkbox"
+                                value={genre}
+                                checked={data.genre.includes(genre)}
+                                onChange={(e) => {
+                                    const checked = e.target.checked;
+
+                                    setData((prev) => ({
+                                        ...prev,
+                                        genre: checked
+                                            ? [...prev.genre, genre]
+                                            : prev.genre.filter((g) => g !== genre),
+                                    }));
+                                }}
+                                className="hidden"
+                            />
+                            {genre}
+                        </label>
+                    ))}
+                </div>
             </div>
 
             <button

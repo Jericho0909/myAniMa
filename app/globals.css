@@ -160,7 +160,7 @@
     transform: scale(0.97);
   }
 
-  /* ANIME DETAIL CARD BUTTON */
+  /* ANIME AND MANGA DETAIL CARD BUTTON */
 
   .close-btn:hover {
     background-color: rgba(239, 68, 68, 0.12);
@@ -194,7 +194,11 @@
   .status-btn:active {
     transform: translateY(-2px) scale(0.90);
   }
- 
+
+  /* ADD ANIME AND MANGA */
+  .genra-list:hover {
+    border: black
+  }
 }
 
 

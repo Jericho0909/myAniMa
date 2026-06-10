@@ -9,17 +9,34 @@ export async function getAllAnime(): Promise<AnimeMangaType[]> {
 
 export async function getFavoriteAnime(): Promise<AnimeMangaType[]> {
     try {
-        const res = await fetch('/api/animeManga/favoriteAnime');
+        const res = await fetch('/api/animeManga/favoriteAnime')
 
         if (!res.ok) {
-        throw new Error('Failed to fetch favorite anime');
+            throw new Error('Failed to fetch favorite anime')
+        }
+
+        const result = await res.json();
+
+        return result.data
+    } catch (error) {
+        console.error("Error fetching favorite anime:", error)
+        return []
+    }
+}
+
+export async function getWatchList(): Promise<AnimeMangaType[]> {
+    try {
+        const res = await fetch('/api/animeManga/watchList')
+
+        if (!res.ok) {
+            throw new Error('Failed to fetch favorite anime')
         }
 
         const result = await res.json();
 
         return result.data;
     } catch (error) {
-        console.error("Error fetching favorite anime:", error);
+        console.error("Error fetching favorite anime:", error)
         return [];
     }
 }

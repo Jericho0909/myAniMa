@@ -5,7 +5,8 @@ export async function GET() {
         const watchList = await prisma.animeManga.findMany(
             {
                 where: {
-                    status: "PlanToWatch"
+                    status: "PlanToWatch",
+                    type: "Anime"
                 }
             }
         )

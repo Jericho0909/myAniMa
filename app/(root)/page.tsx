@@ -20,7 +20,7 @@ import {
 } from "@/constants/animeData";
 const Page = () => {
     const { sectionRefs } = useContext(SectionObserverContext)!
-    const { favoriteAnime } = useAnimeMangaData()
+    const { favoriteAnime, animeList } = useAnimeMangaData()
     const cardRefs = useRef<Record<SectionKey, (HTMLDivElement | null)[]>>({
         animeFav: [],
         mangaFav: [],
@@ -78,7 +78,7 @@ const Page = () => {
                     My Favorite Anime
                 </h2>
                 <HorizontalCarousel
-                    data={Favorite_Anime}
+                    data={favoriteAnime}
                     cardRefs={cardRefs}
                     section="animeFav"
                 />
@@ -101,7 +101,7 @@ const Page = () => {
                     My Watchlist
                 </h2>
                 <AnimeMangaList 
-                    data={Anime_List}
+                    data={animeList}
                     animeMangaListRefs={cardRefs}
                     section="myAnimeWatchlist"
                 />

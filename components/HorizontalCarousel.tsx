@@ -42,18 +42,35 @@ const HorizontalCarousel = ({ data, cardRefs, section }: { data: AnimeMangaType[
                     </button>
                     <div 
                         ref={scrollContainerRef} 
-                        className="flex gap-4 overflow-hidden flex-1"
+                        className={`flex gap-4 overflow-hidden flex-1
+                            ${data.length !== 0 ? "" : "items-center justify-center h-60 sm:h-80" }
+                        `}
                     >
-                        {data.map((item, index) => (
-                            <AnimeMangaCard 
-                                key={index} 
-                                index={index} 
-                                item={item} 
-                                w={"w-56"}
-                                cardRefs={cardRefs}
-                                section={section}
-                            />
-                        ))}
+                        {data.length !== 0
+                            ? (
+                                data.map((item, index) => (
+                                    <AnimeMangaCard 
+                                        key={index} 
+                                        index={index} 
+                                        item={item} 
+                                        w={"w-56"}
+                                        cardRefs={cardRefs}
+                                        section={section}
+                                    />
+                                ))
+                            )
+                            : (
+                                <p 
+                                    className="text-base font-semibold text-gray-500"
+                                     style={{ fontFamily: 'var(--font-lato)' }}
+                                >
+                                    {section === "animeFav"
+                                        ? "Add your Favorite Anime"
+                                        : "Add your Favorite Manga"
+                                    }
+                                </p>
+                            )
+                        }
                     </div>
                     <button
                         onClick={() => scroll('right')}

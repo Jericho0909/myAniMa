@@ -67,7 +67,7 @@ export const Favorite_Anime: AnimeMangaType[] = [
     description:"testing description for carousel item",
     isFavorite: true,
     type: "Anime",
-    status: "completed"
+    status: "Completed"
   },
   {
     id: "2",
@@ -77,7 +77,7 @@ export const Favorite_Anime: AnimeMangaType[] = [
     description:"testing description for carousel item",
     isFavorite: false,
     type: "Anime",
-    status: "completed"
+    status: "Completed"
   },
   {
     id: "3",
@@ -87,7 +87,7 @@ export const Favorite_Anime: AnimeMangaType[] = [
     description:"testing description for carousel item",
     isFavorite: true,
     type: "Anime",
-    status: "completed"
+    status: "Completed"
   },
   {
     id: "4",
@@ -97,7 +97,7 @@ export const Favorite_Anime: AnimeMangaType[] = [
     description:"testing description for carousel item",
     isFavorite: true,
     type: "Anime",
-    status: "completed"
+    status: "Completed"
   },
   {
     id: "5",
@@ -107,7 +107,7 @@ export const Favorite_Anime: AnimeMangaType[] = [
     description:"testing description for carousel item",
     isFavorite: true,
     type: "Anime",
-    status: "completed"
+    status: "Completed"
   },
   {
     id: "6",
@@ -117,7 +117,7 @@ export const Favorite_Anime: AnimeMangaType[] = [
     description:"testing description for carousel item",
     isFavorite: true,
     type: "Anime",
-    status: "completed"
+    status: "Completed"
   },
   {
     id: "7",
@@ -127,7 +127,7 @@ export const Favorite_Anime: AnimeMangaType[] = [
     description:"testing description for carousel item",
     isFavorite: true,
     type: "Anime",
-    status: "completed"
+    status: "Completed"
   },
   {
     id: "8",
@@ -137,7 +137,7 @@ export const Favorite_Anime: AnimeMangaType[] = [
     description:"testing description for carousel item",
     isFavorite: true,
     type: "Anime",
-    status: "completed"
+    status: "Completed"
   },
 ];
 
@@ -150,7 +150,7 @@ export const Completed_Anime: AnimeMangaType[] = [
     description:"testing description for carousel item",
     isFavorite: true,
     type: "Anime",
-    status: "completed"
+    status: "Completed"
   },
   {
     id: "2",
@@ -160,7 +160,7 @@ export const Completed_Anime: AnimeMangaType[] = [
     description:"testing description for carousel item",
     isFavorite: false,
     type: "Anime",
-    status: "completed"
+    status: "Completed"
   },
   {
     id: "3",
@@ -170,7 +170,7 @@ export const Completed_Anime: AnimeMangaType[] = [
     description:"testing description for carousel item",
     isFavorite: true,
     type: "Anime",
-    status: "completed"
+    status: "Completed"
   },
   {
     id: "4",
@@ -180,7 +180,7 @@ export const Completed_Anime: AnimeMangaType[] = [
     description:"testing description for carousel item",
     isFavorite: true,
     type: "Anime",
-    status: "completed"
+    status: "Completed"
   },
   {
     id: "5",
@@ -190,7 +190,7 @@ export const Completed_Anime: AnimeMangaType[] = [
     description:"testing description for carousel item",
     isFavorite: true,
     type: "Anime",
-    status: "completed"
+    status: "Completed"
   },
   {
     id: "6",
@@ -200,7 +200,7 @@ export const Completed_Anime: AnimeMangaType[] = [
     description:"testing description for carousel item",
     isFavorite: true,
     type: "Anime",
-    status: "completed"
+    status: "Completed"
   },
   {
     id: "7",
@@ -210,7 +210,7 @@ export const Completed_Anime: AnimeMangaType[] = [
     description:"testing description for carousel item",
     isFavorite: true,
     type: "Anime",
-    status: "completed"
+    status: "Completed"
   },
   {
     id: "8",
@@ -220,7 +220,7 @@ export const Completed_Anime: AnimeMangaType[] = [
     description:"testing description for carousel item",
     isFavorite: true,
     type: "Anime",
-    status: "completed"
+    status: "Completed"
   },
   {
     id: "9",
@@ -230,7 +230,7 @@ export const Completed_Anime: AnimeMangaType[] = [
     description:"testing description for carousel item",
     isFavorite: true,
     type: "Anime",
-    status: "completed"
+    status: "Completed"
   },
 ];
 
@@ -243,7 +243,7 @@ export const Current_Anime: AnimeMangaType[] = [
     description:"testing description for carousel item",
     isFavorite: true,
     type: "Anime",
-    status: "watching"
+    status: "Watching"
   },
   {
     id: "2",
@@ -253,7 +253,7 @@ export const Current_Anime: AnimeMangaType[] = [
     description:"testing description for carousel item",
     isFavorite: false,
     type: "Anime",
-    status: "watching"
+    status: "Watching"
   },
   {
     id: "3",
@@ -263,7 +263,7 @@ export const Current_Anime: AnimeMangaType[] = [
     description:"testing description for carousel item",
     isFavorite: true,
     type: "Anime",
-    status: "watching"
+    status: "Watching"
   },
   {
     id: "4",
@@ -273,7 +273,7 @@ export const Current_Anime: AnimeMangaType[] = [
     description:"testing description for carousel item",
     isFavorite: true,
     type: "Anime",
-    status: "watching"
+    status: "Watching"
   },
   {
     id: "5",
@@ -283,7 +283,7 @@ export const Current_Anime: AnimeMangaType[] = [
     description:"testing description for carousel item",
     isFavorite: true,
     type: "Anime",
-    status: "watching"
+    status: "Watching"
   },
   {
     id: "6",
@@ -293,7 +293,7 @@ export const Current_Anime: AnimeMangaType[] = [
     description:"testing description for carousel item",
     isFavorite: true,
     type: "Anime",
-    status: "watching"
+    status: "Watching"
   }
 ];
 
@@ -307,7 +307,7 @@ export const Anime_List: AnimeMangaType[] = [
       "The story follows Nike, a princess with the power to summon rain, who is sent to marry a young king and discovers a deeper connection as they face challenges together.",
     isFavorite: true,
     type: "Anime",
-    status: "planToWatch"
+    status: "PlanToRead"
   },
   {
     id: "2",
@@ -318,7 +318,7 @@ export const Anime_List: AnimeMangaType[] = [
       "Nanami Momozono suddenly becomes a land god after helping a stranger and begins a new life filled with spirits, gods, and an unexpected relationship.",
     isFavorite: false,
     type: "Anime",
-    status: "planToWatch"
+    status: "PlanToRead"
   },
   {
     id: "3",
@@ -329,7 +329,7 @@ export const Anime_List: AnimeMangaType[] = [
       "Masamune Makabe returns after years of self-improvement with a plan to get revenge on the girl who once rejected him, but things do not go as expected.",
     isFavorite: true,
     type: "Anime",
-    status: "planToWatch"
+    status: "PlanToRead"
   },
   {
     id: "4",
@@ -340,7 +340,7 @@ export const Anime_List: AnimeMangaType[] = [
       "The story follows Nike, a princess with the power to summon rain, who is sent to marry a young king and discovers a deeper connection as they face challenges together.",
     isFavorite: true,
     type: "Anime",
-    status: "planToWatch"
+    status: "PlanToRead"
   },
   {
     id: "5",
@@ -351,7 +351,7 @@ export const Anime_List: AnimeMangaType[] = [
       "Nanami Momozono suddenly becomes a land god after helping a stranger and begins a new life filled with spirits, gods, and an unexpected relationship.",
     isFavorite: false,
     type: "Anime",
-    status: "planToWatch"
+    status: "PlanToRead"
   },
   {
     id: "6",
@@ -362,7 +362,7 @@ export const Anime_List: AnimeMangaType[] = [
       "Masamune Makabe returns after years of self-improvement with a plan to get revenge on the girl who once rejected him, but things do not go as expected.",
     isFavorite: true,
     type: "Anime",
-    status: "planToWatch"
+    status: "PlanToRead"
   }
 ];
 
@@ -376,7 +376,7 @@ export const Favorite_Manga: AnimeMangaType[] = [
       "The story follows Nike, a princess with the power to summon rain, who is sent to marry a young king and discovers a deeper connection as they face challenges together.",
     isFavorite: true,
     type: "Manga",
-    status: "completed"
+    status: "Completed"
   },
   {
     id: "2",
@@ -387,7 +387,7 @@ export const Favorite_Manga: AnimeMangaType[] = [
       "Nanami Momozono suddenly becomes a land god after helping a stranger and begins a new life filled with spirits, gods, and an unexpected relationship.",
     isFavorite: false,
     type: "Manga",
-    status: "completed"
+    status: "Completed"
   },
   {
     id: "3",
@@ -398,7 +398,7 @@ export const Favorite_Manga: AnimeMangaType[] = [
       "Masamune Makabe returns after years of self-improvement with a plan to get revenge on the girl who once rejected him, but things do not go as expected.",
     isFavorite: true,
     type: "Manga",
-    status: "completed"
+    status: "Completed"
   },
   {
     id: "4",
@@ -409,7 +409,7 @@ export const Favorite_Manga: AnimeMangaType[] = [
       "The story follows Nike, a princess with the power to summon rain, who is sent to marry a young king and discovers a deeper connection as they face challenges together.",
     isFavorite: true,
     type: "Manga",
-    status: "completed"
+    status: "Completed"
   },
   {
     id: "5",
@@ -420,7 +420,7 @@ export const Favorite_Manga: AnimeMangaType[] = [
       "Nanami Momozono suddenly becomes a land god after helping a stranger and begins a new life filled with spirits, gods, and an unexpected relationship.",
     isFavorite: false,
     type: "Manga",
-    status: "completed"
+    status: "Completed"
   },
   {
     id: "6",
@@ -431,7 +431,7 @@ export const Favorite_Manga: AnimeMangaType[] = [
       "Masamune Makabe returns after years of self-improvement with a plan to get revenge on the girl who once rejected him, but things do not go as expected.",
     isFavorite: true,
     type: "Manga",
-    status: "completed"
+    status: "Completed"
   }
 ];
 
@@ -445,7 +445,7 @@ export const Completed_Manga: AnimeMangaType[] = [
       "The story follows Nike, a princess with the power to summon rain, who is sent to marry a young king and discovers a deeper connection as they face challenges together.",
     isFavorite: true,
     type: "Manga",
-    status: "completed"
+    status: "Completed"
   },
   {
     id: "2",
@@ -456,7 +456,7 @@ export const Completed_Manga: AnimeMangaType[] = [
       "Nanami Momozono suddenly becomes a land god after helping a stranger and begins a new life filled with spirits, gods, and an unexpected relationship.",
     isFavorite: false,
     type: "Manga",
-    status: "completed"
+    status: "Completed"
   },
   {
     id: "3",
@@ -467,7 +467,7 @@ export const Completed_Manga: AnimeMangaType[] = [
       "Masamune Makabe returns after years of self-improvement with a plan to get revenge on the girl who once rejected him, but things do not go as expected.",
     isFavorite: true,
     type: "Manga",
-    status: "completed"
+    status: "Completed"
   },
   {
     id: "4",
@@ -478,7 +478,7 @@ export const Completed_Manga: AnimeMangaType[] = [
       "The story follows Nike, a princess with the power to summon rain, who is sent to marry a young king and discovers a deeper connection as they face challenges together.",
     isFavorite: true,
     type: "Manga",
-    status: "completed"
+    status: "Completed"
   },
   {
     id: "5",
@@ -489,7 +489,7 @@ export const Completed_Manga: AnimeMangaType[] = [
       "Nanami Momozono suddenly becomes a land god after helping a stranger and begins a new life filled with spirits, gods, and an unexpected relationship.",
     isFavorite: false,
     type: "Manga",
-    status: "completed"
+    status: "Completed"
   },
   {
     id: "6",
@@ -500,7 +500,7 @@ export const Completed_Manga: AnimeMangaType[] = [
       "Masamune Makabe returns after years of self-improvement with a plan to get revenge on the girl who once rejected him, but things do not go as expected.",
     isFavorite: true,
     type: "Manga",
-    status: "completed"
+    status: "Completed"
   }
 ];
 
@@ -514,7 +514,7 @@ export const Current_Manga: AnimeMangaType[] = [
       "The story follows Nike, a princess with the power to summon rain, who is sent to marry a young king and discovers a deeper connection as they face challenges together.",
     isFavorite: true,
     type: "Manga",
-    status: "reading"
+    status: "Reading"
   },
   {
     id: "2",
@@ -525,7 +525,7 @@ export const Current_Manga: AnimeMangaType[] = [
       "Nanami Momozono suddenly becomes a land god after helping a stranger and begins a new life filled with spirits, gods, and an unexpected relationship.",
     isFavorite: false,
     type: "Manga",
-    status: "reading"
+    status: "Reading"
   },
   {
     id: "3",
@@ -536,7 +536,7 @@ export const Current_Manga: AnimeMangaType[] = [
       "Masamune Makabe returns after years of self-improvement with a plan to get revenge on the girl who once rejected him, but things do not go as expected.",
     isFavorite: true,
     type: "Manga",
-    status: "reading"
+    status: "Reading"
   },
   {
     id: "4",
@@ -547,7 +547,7 @@ export const Current_Manga: AnimeMangaType[] = [
       "The story follows Nike, a princess with the power to summon rain, who is sent to marry a young king and discovers a deeper connection as they face challenges together.",
     isFavorite: true,
     type: "Manga",
-    status: "reading"
+    status: "Reading"
   },
   {
     id: "5",
@@ -558,7 +558,7 @@ export const Current_Manga: AnimeMangaType[] = [
       "Nanami Momozono suddenly becomes a land god after helping a stranger and begins a new life filled with spirits, gods, and an unexpected relationship.",
     isFavorite: false,
     type: "Manga",
-    status: "reading"
+    status: "Reading"
   },
   {
     id: "6",
@@ -569,7 +569,7 @@ export const Current_Manga: AnimeMangaType[] = [
       "Masamune Makabe returns after years of self-improvement with a plan to get revenge on the girl who once rejected him, but things do not go as expected.",
     isFavorite: true,
     type: "Manga",
-    status: "reading"
+    status: "Reading"
   }
 ];
 
@@ -582,7 +582,7 @@ export const Manga_List: AnimeMangaType[] = [
     description:"testing description for carousel item",
     isFavorite: true,
     type: "Manga",
-    status: "planToRead"
+    status: "PlanToRead"
   },
   {
     id: "2",
@@ -592,7 +592,7 @@ export const Manga_List: AnimeMangaType[] = [
     description:"testing description for carousel item",
     isFavorite: false,
     type: "Manga",
-    status: "planToRead"
+    status: "PlanToRead"
   },
   {
     id: "3",
@@ -602,7 +602,7 @@ export const Manga_List: AnimeMangaType[] = [
     description:"testing description for carousel item",
     isFavorite: true,
     type: "Manga",
-    status: "planToRead"
+    status: "PlanToRead"
   },
   {
     id: "4",
@@ -612,7 +612,7 @@ export const Manga_List: AnimeMangaType[] = [
     description:"testing description for carousel item",
     isFavorite: true,
     type: "Manga",
-    status: "planToRead"
+    status: "PlanToRead"
   },
   {
     id: "5",
@@ -622,7 +622,7 @@ export const Manga_List: AnimeMangaType[] = [
     description:"testing description for carousel item",
     isFavorite: true,
     type: "Manga",
-    status: "planToRead"
+    status: "PlanToRead"
   },
   {
     id: "6",
@@ -632,7 +632,7 @@ export const Manga_List: AnimeMangaType[] = [
     description:"testing description for carousel item",
     isFavorite: true,
     type: "Manga",
-    status: "planToRead"
+    status: "PlanToRead"
   }
 ];
 

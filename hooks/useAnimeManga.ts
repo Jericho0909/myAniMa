@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { getFavoriteAnime,
+    getCompletedAnime,
     getWatchList
 } from "@/lib/animeManga";
 import type { AnimeMangaType } from "@/type/model";
@@ -22,8 +23,10 @@ const useAnimeMangaData = () => {
         const fetchData = async () => {
             try {
                 const favoriteAnimeData = await getFavoriteAnime()
+                const completedAnimeData = await getCompletedAnime()
                 const animeListData = await getWatchList()
                 setFavoriteAnime(favoriteAnimeData)
+                setCompletedAnime(completedAnimeData)
                 setAnimeList(animeListData)
             } catch (error) {
                 console.log(error)

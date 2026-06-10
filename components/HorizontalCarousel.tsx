@@ -62,7 +62,7 @@ const HorizontalCarousel = ({ data, cardRefs, section }: { data: AnimeMangaType[
                             : (
                                 <p 
                                     className="text-base font-semibold text-gray-500"
-                                     style={{ fontFamily: 'var(--font-lato)' }}
+                                    style={{ fontFamily: 'var(--font-lato)' }}
                                 >
                                     {section === "animeFav"
                                         ? "Add your Favorite Anime"

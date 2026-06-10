@@ -24,9 +24,23 @@ const MyAnimeManga = ({completedData, currentData, listCardRefs, section}: { com
                     >
                         Anime I've Finished
                     </h3>
-                    {completedData.map((item, index) => (
-                        <AnimeMangaListCard key={index} item={item} index={index} cardRefs={listCardRefs} section={section} />
-                    ))}
+                    {completedData.length !== 0
+                        ? (
+                            completedData.map((item, index) => (
+                                <AnimeMangaListCard key={index} item={item} index={index} cardRefs={listCardRefs} section={section} />
+                            ))
+                        )
+                        : (
+                            <div className="w-full h-full flex flex-col items-center justify-center">
+                                <p
+                                    className="text-base font-semibold text-gray-500"
+                                    style={{ fontFamily: 'var(--font-lato)'}}
+                                >
+                                    You haven’t finished any anime yet.
+                                </p>
+                            </div>
+                        )
+                    }
                 </div>
                 <div className="w-full h-auto bg-white rounded-xl p-6 shadow-sm border border-slate-100">
                     <h3

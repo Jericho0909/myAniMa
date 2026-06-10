@@ -2,11 +2,15 @@ import { prisma } from "@/lib/prisma";
 
 export async function GET() {
     try {
-        const favorites = await prisma.animeManga.findMany({
-        where: {
-            isFavorite: true
-        }
-        })
+        const favorites = await prisma.animeManga.findMany(
+            {
+                where: {
+                    isFavorite: true,
+                    type: "Anime"
+
+                }
+            }
+        )
 
         return Response.json({
             success: true,
@@ -14,7 +18,7 @@ export async function GET() {
         })
 
     } catch (error) {
-        console.error("Error fetching favorites:", error);
+        console.error("Error fetching favorites:", error)
 
         return Response.json(
             {

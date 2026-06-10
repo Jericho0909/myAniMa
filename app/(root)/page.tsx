@@ -2,6 +2,7 @@
 
 import { useContext, useRef, useEffect  } from 'react'
 import SectionObserverContext from '@/context/SectionObserverContext'
+import useAnimeMangaData from '@/hooks/useAnimeManga';
 import type { SectionKey } from '@/type/model';
 import Slider from "@/components/Slider";
 import HorizontalCarousel from "@/components/HorizontalCarousel"
@@ -19,6 +20,7 @@ import {
 } from "@/constants/animeData";
 const Page = () => {
     const { sectionRefs } = useContext(SectionObserverContext)!
+    const { favoriteAnime } = useAnimeMangaData()
     const cardRefs = useRef<Record<SectionKey, (HTMLDivElement | null)[]>>({
         animeFav: [],
         mangaFav: [],
@@ -27,6 +29,7 @@ const Page = () => {
         myAnimeWatchlist: [],
         myMangaReadingList: [],
     });
+
 
     useEffect(() => {
         const savedSection = sessionStorage.getItem("section") as keyof typeof cardRefs.current;
@@ -51,14 +54,7 @@ const Page = () => {
     }, [])
 
     useEffect(() => {
-        const fetchAnime = async () => {
-            const res = await fetch('/api/animeManga')
-            const data = await res.json()
-              
-            console.log("FRONTEND DATA:", data)
-        }
-
-        fetchAnime()
+        console.log(favoriteAnime)
     }, [])
 
     return (

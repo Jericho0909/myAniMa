@@ -24,7 +24,11 @@ const Page = () => {
         favoriteAnime, 
         completedAnime,
         watchingAnime,
-        animeList 
+        animeList,
+        favoriteManga,
+        completedManga,
+        readingManga,
+        mangaList
 } = useAnimeMangaData()
     const cardRefs = useRef<Record<SectionKey, (HTMLDivElement | null)[]>>({
         animeFav: [],
@@ -125,7 +129,7 @@ const Page = () => {
                     My Favorite Manga
                 </h2>
                 <HorizontalCarousel
-                    data={Favorite_Manga}
+                    data={favoriteManga}
                     cardRefs={cardRefs}
                     loading = {loading}
                     section="mangaFav"
@@ -137,8 +141,8 @@ const Page = () => {
                     My Manga List
                 </h2>
                 <MyAnimeManga
-                    completedData={Completed_Manga}
-                    currentData={Current_Manga}
+                    completedData={completedManga}
+                    currentData={readingManga}
                     listCardRefs={cardRefs}
                     section="mangaList"
                 />
@@ -149,7 +153,7 @@ const Page = () => {
                     Reading List
                 </h2>
                 <AnimeMangaList 
-                    data={Manga_List}
+                    data={mangaList}
                     animeMangaListRefs={cardRefs}
                     loading = {loading}
                     section="myMangaReadingList"

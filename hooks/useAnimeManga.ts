@@ -4,7 +4,11 @@ import { useState, useEffect } from "react";
 import { getFavoriteAnime,
     getCompletedAnime,
     getWatchingAnime,
-    getWatchList
+    getAnimeList,
+    getFavoriteManga,
+    getCompletedManga,
+    getReadingManga,
+    getMangaList
 } from "@/lib/animeManga";
 import type { AnimeMangaType } from "@/type/model";
 
@@ -27,11 +31,19 @@ const useAnimeMangaData = () => {
                 const favoriteAnimeData = await getFavoriteAnime()
                 const completedAnimeData = await getCompletedAnime()
                 const watchingAnimeData = await getWatchingAnime()
-                const animeListData = await getWatchList()
+                const animeListData = await getAnimeList()
+                const favoriteMangaData = await getFavoriteManga()
+                const completedMangaData = await getCompletedManga()
+                const readingMangaData = await getReadingManga()
+                const mangaListData = await getMangaList()
                 setFavoriteAnime(favoriteAnimeData)
                 setCompletedAnime(completedAnimeData)
                 setWatchingAnime(watchingAnimeData)
                 setAnimeList(animeListData)
+                setFavoriteManga(favoriteMangaData)
+                setCompletedManga(completedMangaData)
+                setReadingtManga(readingMangaData)
+                setMangaList(mangaListData)
             } catch (error) {
                 console.log(error)
             } finally {

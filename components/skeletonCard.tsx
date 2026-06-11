@@ -4,15 +4,14 @@ import "react-loading-skeleton/dist/skeleton.css";
 const AnimeCardSkeleton = () => {
   return (
     <div className="w-full">
-        <Skeleton height={320} borderRadius={16} />
-
-        <div className="mt-3">
-            <Skeleton height={24} width="80%" />
+        <div className="rounded-tl-xl rounded-br-xl overflow-hidden">
+            <Skeleton height={320} />
         </div>
 
-        <div className="mt-2">
-            <Skeleton height={18} width="50%" />
+        <div className="mt-2 p-2">
+            <Skeleton height={24} width="100%" />
         </div>
+
     </div>
   )
 }

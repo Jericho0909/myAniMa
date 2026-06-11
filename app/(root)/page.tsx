@@ -20,7 +20,11 @@ import {
 } from "@/constants/animeData";
 const Page = () => {
     const { sectionRefs } = useContext(SectionObserverContext)!
-    const { favoriteAnime, completedAnime, animeList } = useAnimeMangaData()
+    const { favoriteAnime, 
+        completedAnime,
+        watchingAnime,
+        animeList 
+} = useAnimeMangaData()
     const cardRefs = useRef<Record<SectionKey, (HTMLDivElement | null)[]>>({
         animeFav: [],
         mangaFav: [],
@@ -90,7 +94,7 @@ const Page = () => {
                 </h2>
                 <MyAnimeManga
                     completedData={completedAnime}
-                    currentData={Current_Anime}
+                    currentData={watchingAnime}
                     listCardRefs={cardRefs}
                     section="animeList"
                 />

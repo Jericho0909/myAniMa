@@ -15,7 +15,7 @@ const MyAnimeManga = ({completedData, currentData, listCardRefs, section}: { com
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.4 }}
                 transition={{ duration: 0.5 }}
-                className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-full sm:max-w-[90%] h-auto mx-auto p-6 bg-linear-to-br from-slate-50 to-slate-100 rounded-2xl shadow-lg border border-slate-200"
+                className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-full sm:max-w-[90%] h-152 mx-auto p-6 bg-linear-to-br from-slate-50 to-slate-100 rounded-2xl shadow-lg border border-slate-200"
             >
                 <div className="w-full h-auto bg-white rounded-xl p-6 shadow-sm border border-slate-100">
                     <h3
@@ -36,7 +36,10 @@ const MyAnimeManga = ({completedData, currentData, listCardRefs, section}: { com
                                     className="text-base font-semibold text-gray-500"
                                     style={{ fontFamily: 'var(--font-lato)'}}
                                 >
-                                    You haven’t finished any anime yet.
+                                    {section === "animeList"
+                                        ? "You haven’t finished any anime yet."
+                                        : "You haven’t finished any manga yet."
+                                    }
                                 </p>
                             </div>
                         )
@@ -49,9 +52,26 @@ const MyAnimeManga = ({completedData, currentData, listCardRefs, section}: { com
                     >
                         What I'm Watching
                     </h3>
-                    {currentData.map((item, index) => (
-                        <AnimeMangaListCard key={index} item={item} index={index} cardRefs={listCardRefs} section={section} />
-                    ))}
+                    {currentData.length !== 0
+                        ? (
+                            currentData.map((item, index) => (
+                                <AnimeMangaListCard key={index} item={item} index={index} cardRefs={listCardRefs} section={section} />
+                            ))
+                        )
+                        : (
+                            <div className="w-full h-full flex flex-col items-center justify-center">
+                                <p
+                                    className="text-base font-semibold text-gray-500"
+                                    style={{ fontFamily: 'var(--font-lato)'}}
+                                >
+                                    {section === "animeList"
+                                        ? "Your anime journey starts here.  Add your first anime!"
+                                        : "Nothing to read yet. Discover a new manga today"
+                                    }
+                                </p>
+                            </div>
+                        )
+                    }
                 </div>
             </motion.div>
         </section>

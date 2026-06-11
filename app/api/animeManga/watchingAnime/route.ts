@@ -1,27 +1,26 @@
 import { prisma } from "@/lib/prisma";
 
 export async function GET() {
-    try{
-        const watchList = await prisma.animeManga.findMany(
+    try {
+        const watchingAnime = await prisma.animeManga.findMany(
             {
                 where: {
-                    status: "PlanToWatch",
+                    status: "Watching",
                     type: "Anime"
                 }
             }
         )
-
         return Response.json({
             success: true,
-            data: watchList
+            data: watchingAnime
         })
     } catch (error) {
-        console.error("Error fetching watchList:", error)
+        console.error("Error fetching watching anime:", error)
 
         return Response.json(
             {
                 success: false,
-                message: "Failed to fetch watchList"
+                message: "Failed to fetch watching anime"
             },
             { status: 500 }
         )

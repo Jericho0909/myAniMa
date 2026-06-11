@@ -1,7 +1,7 @@
 import type { AnimeMangaType } from "@/type/model";
 
 export async function getAllAnime(): Promise<AnimeMangaType[]> {
-  const res = await fetch('/api/anime')
+  const res = await fetch('/api/animeManga')
   const result = await res.json()
 
   return result.data
@@ -32,12 +32,30 @@ export async function getCompletedAnime(): Promise<AnimeMangaType[]> {
             throw new Error('Failed to fetch completed anime')
         }
 
-        const result = await res.json();
+        const result = await res.json()
 
-        return result.data;
+        return result.data
     } catch (error) {
         console.error("Error fetching completed anime:", error)
         return [];
+    }
+}
+
+export async function getWatchingAnime(): Promise<AnimeMangaType[]> {
+    try {
+        const res = await fetch('/api/animeManga/watchingAnime')
+
+        if (!res.ok) {
+            throw new Error('Failed to fetch completed anime')
+        }
+
+        const result = await res.json()
+
+        return result.data
+
+    } catch (error) {
+        console.error("Error fetching completed anime:", error)
+        return []
     }
 }
 

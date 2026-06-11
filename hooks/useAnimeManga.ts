@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { getFavoriteAnime,
     getCompletedAnime,
+    getWatchingAnime,
     getWatchList
 } from "@/lib/animeManga";
 import type { AnimeMangaType } from "@/type/model";
@@ -13,8 +14,8 @@ const useAnimeMangaData = () => {
     const [ favoriteManga, setFavoriteManga ] = useState<AnimeMangaType[]>([])
     const [ completedAnime, setCompletedAnime ] = useState<AnimeMangaType[]>([])
     const [ completedManga, setCompletedManga ] = useState<AnimeMangaType[]>([])
-    const [ currentAnime, setCurrentAnime ] = useState<AnimeMangaType[]>([])
-    const [ currentManga, setCurrentManga ] = useState<AnimeMangaType[]>([])
+    const [ watchingAnime, setWatchingAnime ] = useState<AnimeMangaType[]>([])
+    const [ readingManga, setReadingtManga ] = useState<AnimeMangaType[]>([])
     const [ animeList, setAnimeList ] = useState<AnimeMangaType[]>([])
     const [ mangaList, setMangaList ] = useState<AnimeMangaType[]>([])
 
@@ -24,9 +25,11 @@ const useAnimeMangaData = () => {
             try {
                 const favoriteAnimeData = await getFavoriteAnime()
                 const completedAnimeData = await getCompletedAnime()
+                const watchingAnimeData = await getWatchingAnime()
                 const animeListData = await getWatchList()
                 setFavoriteAnime(favoriteAnimeData)
                 setCompletedAnime(completedAnimeData)
+                setWatchingAnime(watchingAnimeData)
                 setAnimeList(animeListData)
             } catch (error) {
                 console.log(error)
@@ -41,8 +44,8 @@ const useAnimeMangaData = () => {
         favoriteManga,
         completedAnime,
         completedManga,
-        currentAnime,
-        currentManga,
+        watchingAnime,
+        readingManga,
         animeList,
         mangaList
     }

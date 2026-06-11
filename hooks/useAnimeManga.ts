@@ -9,6 +9,7 @@ import { getFavoriteAnime,
 import type { AnimeMangaType } from "@/type/model";
 
 const useAnimeMangaData = () => {
+    const [ loading, setLoading ] = useState(true)
     const [ data, setData ] = useState<AnimeMangaType[]>([])
     const [ favoriteAnime, setFavoriteAnime ] = useState<AnimeMangaType[]>([])
     const [ favoriteManga, setFavoriteManga ] = useState<AnimeMangaType[]>([])
@@ -33,12 +34,15 @@ const useAnimeMangaData = () => {
                 setAnimeList(animeListData)
             } catch (error) {
                 console.log(error)
+            } finally {
+                setLoading(false)
             }
         }
         fetchData()
     }, [])
 
     return {
+        loading,
         data,
         favoriteAnime,
         favoriteManga,

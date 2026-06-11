@@ -20,7 +20,8 @@ import {
 } from "@/constants/animeData";
 const Page = () => {
     const { sectionRefs } = useContext(SectionObserverContext)!
-    const { favoriteAnime, 
+    const { loading,
+        favoriteAnime, 
         completedAnime,
         watchingAnime,
         animeList 
@@ -84,6 +85,7 @@ const Page = () => {
                 <HorizontalCarousel
                     data={favoriteAnime}
                     cardRefs={cardRefs}
+                    loading = {loading}
                     section="animeFav"
                 />
                 <h2 
@@ -107,6 +109,7 @@ const Page = () => {
                 <AnimeMangaList 
                     data={animeList}
                     animeMangaListRefs={cardRefs}
+                    loading = {loading}
                     section="myAnimeWatchlist"
                 />
             </section>
@@ -124,6 +127,7 @@ const Page = () => {
                 <HorizontalCarousel
                     data={Favorite_Manga}
                     cardRefs={cardRefs}
+                    loading = {loading}
                     section="mangaFav"
                 />
                 <h2 
@@ -147,6 +151,7 @@ const Page = () => {
                 <AnimeMangaList 
                     data={Manga_List}
                     animeMangaListRefs={cardRefs}
+                    loading = {loading}
                     section="myMangaReadingList"
                 />
             </section>

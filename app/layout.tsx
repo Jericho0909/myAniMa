@@ -38,7 +38,6 @@ export default function RootLayout({
         className={`${geist.variable} ${fredoka.variable} ${lato.variable} h-full antialiased`}
     >
       <body className={`min-h-full flex flex-col`}>
-        
         <Providers>
           <SectionObserverProvider>
             {children}

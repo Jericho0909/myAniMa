@@ -5,15 +5,6 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import useImage from "@/hooks/useImage"
 import type { AnimeMangaType } from "@/type/model"
 
-interface CreateAnimeMangaInput {
-    title: string;
-    image: string;
-    genre: string[];
-    description: string;
-    type: "Anime" | "Manga";
-    status: string;
-}
-
 const AnimeMangaForm = () => {
     const queryClient = useQueryClient()
     const { handleUpload, preview, setPreview, loadingImg } = useImage()

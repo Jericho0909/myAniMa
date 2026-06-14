@@ -507,7 +507,7 @@ export const Completed_Manga: AnimeMangaType[] = [
 export const Current_Manga: AnimeMangaType[] = [
   {
     id: "1",
-    title: "Sooredemo Sekai wa Utsukushii",
+    title: "Soredemo Sekai wa Utsukushii",
     image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779501095/twisbW_yzthxj.webp",
     genre: ["Romance", "Fantasy", "Adventure"],
     description:

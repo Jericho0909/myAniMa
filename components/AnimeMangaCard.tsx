@@ -1,12 +1,48 @@
+'use client'
+
 import { useContext } from "react";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import SectionObserverContext from "@/context/SectionObserverContext";
 import { handleSaveSectionAndIndex } from "@/utils/saveSection";
 import type { AnimeMangaType, SectionKey } from "@/type/model";
 import Link from "next/link";
-import { Eye } from "lucide-react";
+import { Eye, BookOpenText } from "lucide-react";
 
 const AnimeMangaCard = ({ index, item, w, cardRefs, section }: { index: number; item: AnimeMangaType; w: string; cardRefs: React.RefObject<Record<SectionKey, (HTMLDivElement | null)[]>>; section: SectionKey }) => {
+    const queryClient = useQueryClient()
     const { setActiveSection } = useContext(SectionObserverContext)!
+
+    const mutation = useMutation({mutationFn: async ({ id, status }: { id: string; status: string }) => {
+        const res = await fetch(`/api/animeManga/${id}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ status }),
+                });
+
+            return res.json()
+        },
+
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ["animeManga"] })
+        },
+    })
+
+    const handleUpdateStatus = (
+        e: React.MouseEvent<HTMLButtonElement>,
+        id: string | undefined
+    ) => {
+        e.preventDefault();
+        if (!id) return;
+
+        const updatedStatus = section === "myAnimeWatchlist" ? "Watching" : "Reading"
+
+        mutation.mutate({
+            id,
+            status: updatedStatus,
+        })
+    }
 
     return (
         <Link
@@ -66,12 +102,24 @@ const AnimeMangaCard = ({ index, item, w, cardRefs, section }: { index: number; 
                         <button
                             type="button"
                             className="absolute top-2 right-2 p-1 z-20 icon-btn"
+                            onClick={(e) => handleUpdateStatus(e, item.id)}
                         >
-                            <Eye
-                                size={20}
-                                color="green"
-                                className="cursor-pointer"
-                            />
+                            {section === "myAnimeWatchlist"
+                                ? (
+                                    <Eye
+                                        size={20}
+                                        color="green"
+                                        className="cursor-pointer"
+                                    />
+                                )
+                                : (
+                                    <BookOpenText
+                                        size={20}
+                                        color="green"
+                                        className="cursor-pointer"
+                                    />
+                                )
+                            }
                         </button>
                     </div>
                 </div>

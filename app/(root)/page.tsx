@@ -9,7 +9,7 @@ import HorizontalCarousel from "@/components/HorizontalCarousel"
 import MyAnimeManga from "@/components/MyAnimeManga";
 import AnimeMangaList from "@/components/AnimeMangaList";
 const Page = () => {
-    const { data: animeManga = [], isLoading } = useAnimeManga();
+    const { data: animeManga = [], isLoading } = useAnimeManga()
     const { sectionRefs } = useContext(SectionObserverContext)!
     
     const cardRefs = useRef<Record<SectionKey, (HTMLDivElement | null)[]>>({

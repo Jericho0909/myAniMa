@@ -1,35 +1,17 @@
 'use client'
 
 import { useContext, useRef, useEffect  } from 'react'
+import useAnimeManga from '@/hooks/useAnimeManga';
 import SectionObserverContext from '@/context/SectionObserverContext'
-import useAnimeMangaData from '@/hooks/useAnimeManga';
 import type { SectionKey } from '@/type/model';
 import Slider from "@/components/Slider";
 import HorizontalCarousel from "@/components/HorizontalCarousel"
 import MyAnimeManga from "@/components/MyAnimeManga";
 import AnimeMangaList from "@/components/AnimeMangaList";
-import { 
-    Favorite_Anime, 
-    Favorite_Manga, 
-    Completed_Anime,
-    Current_Anime, 
-    Anime_List,
-    Completed_Manga, 
-    Current_Manga,
-    Manga_List
-} from "@/constants/animeData";
 const Page = () => {
+    const { data: animeManga = [], isLoading } = useAnimeManga();
     const { sectionRefs } = useContext(SectionObserverContext)!
-    const { loading,
-        favoriteAnime, 
-        completedAnime,
-        watchingAnime,
-        animeList,
-        favoriteManga,
-        completedManga,
-        readingManga,
-        mangaList
-} = useAnimeMangaData()
+    
     const cardRefs = useRef<Record<SectionKey, (HTMLDivElement | null)[]>>({
         animeFav: [],
         mangaFav: [],
@@ -39,6 +21,15 @@ const Page = () => {
         myMangaReadingList: [],
     });
 
+    const favoriteAnime = animeManga.filter(data => data.isFavorite === true && data.type === "Anime" )
+    const completedAnime = animeManga.filter(data => data.status === "Completed" && data.type === "Anime" )
+    const watchingAnime = animeManga.filter(data => data.status === "Watching" && data.type === "Anime" )
+    const animeList = animeManga.filter(data => data.status === "PlanToWatch" && data.type === "Anime" )
+
+    const favoriteManga = animeManga.filter(data => data.isFavorite === true && data.type === "Manga" )
+    const completedManga = animeManga.filter(data => data.status === "Completed" && data.type === "Manga" )
+    const readingManga = animeManga.filter(data => data.status === "Reading" && data.type === "Manga" )
+    const mangaList = animeManga.filter(data => data.status === "PlanToRead" && data.type === "Manga" )
 
     useEffect(() => {
         const savedSection = sessionStorage.getItem("section") as keyof typeof cardRefs.current;
@@ -60,10 +51,6 @@ const Page = () => {
             sessionStorage.clear()
         }, 300)
 
-    }, [])
-
-    useEffect(() => {
-        console.log(favoriteAnime)
     }, [])
 
     return (
@@ -89,7 +76,7 @@ const Page = () => {
                 <HorizontalCarousel
                     data={favoriteAnime}
                     cardRefs={cardRefs}
-                    loading = {loading}
+                    loading = {isLoading}
                     section="animeFav"
                 />
                 <h2 
@@ -113,7 +100,7 @@ const Page = () => {
                 <AnimeMangaList 
                     data={animeList}
                     animeMangaListRefs={cardRefs}
-                    loading = {loading}
+                    loading = {isLoading}
                     section="myAnimeWatchlist"
                 />
             </section>
@@ -131,7 +118,7 @@ const Page = () => {
                 <HorizontalCarousel
                     data={favoriteManga}
                     cardRefs={cardRefs}
-                    loading = {loading}
+                    loading = {isLoading}
                     section="mangaFav"
                 />
                 <h2 
@@ -155,7 +142,7 @@ const Page = () => {
                 <AnimeMangaList 
                     data={mangaList}
                     animeMangaListRefs={cardRefs}
-                    loading = {loading}
+                    loading = {isLoading}
                     section="myMangaReadingList"
                 />
             </section>

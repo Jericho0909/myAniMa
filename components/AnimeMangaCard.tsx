@@ -3,7 +3,7 @@ import SectionObserverContext from "@/context/SectionObserverContext";
 import { handleSaveSectionAndIndex } from "@/utils/saveSection";
 import type { AnimeMangaType, SectionKey } from "@/type/model";
 import Link from "next/link";
-import { Heart } from "lucide-react";
+import { Eye } from "lucide-react";
 
 const AnimeMangaCard = ({ index, item, w, cardRefs, section }: { index: number; item: AnimeMangaType; w: string; cardRefs: React.RefObject<Record<SectionKey, (HTMLDivElement | null)[]>>; section: SectionKey }) => {
     const { setActiveSection } = useContext(SectionObserverContext)!
@@ -67,13 +67,10 @@ const AnimeMangaCard = ({ index, item, w, cardRefs, section }: { index: number; 
                             type="button"
                             className="absolute top-2 right-2 p-1 z-20 icon-btn"
                         >
-                            <Heart
+                            <Eye
                                 size={20}
-                                className={`${
-                                    item.isFavorite
-                                    ? "text-red-500 fill-red-500"
-                                    : "text-white"
-                                }`}
+                                color="green"
+                                className="cursor-pointer"
                             />
                         </button>
                     </div>

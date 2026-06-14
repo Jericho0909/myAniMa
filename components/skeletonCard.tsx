@@ -8,7 +8,7 @@ const AnimeCardSkeleton = () => {
             <Skeleton height={320} />
         </div>
 
-        <div className="mt-2 p-2">
+        <div className="mt-2 p-1">
             <Skeleton height={24} width="100%" />
         </div>
 

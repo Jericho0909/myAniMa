@@ -5,13 +5,13 @@ export async function GET() {
         const animeManga = await prisma.animeManga.findMany()
 
         return Response.json({
-        success: true,
-        data: animeManga
+            success: true,
+            data: animeManga
         })
     } catch (error) {
         return Response.json({
-        success: false,
-        message: 'Failed to fetch anime'
+            success: false,
+            message: 'Failed to fetch anime'
         }, { status: 500 })
     }
 }

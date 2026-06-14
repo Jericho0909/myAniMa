@@ -1,10 +1,21 @@
 'use client'
 
 import { useState, useRef } from "react"
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import useImage from "@/hooks/useImage"
 import type { AnimeMangaType } from "@/type/model"
 
+interface CreateAnimeMangaInput {
+    title: string;
+    image: string;
+    genre: string[];
+    description: string;
+    type: "Anime" | "Manga";
+    status: string;
+}
+
 const AnimeMangaForm = () => {
+    const queryClient = useQueryClient()
     const { handleUpload, preview, setPreview, loadingImg } = useImage()
     const imageInputRef = useRef<HTMLInputElement | null>(null)
     const [ isLoading, setIsLoading ] = useState<boolean>(false)
@@ -27,15 +38,35 @@ const AnimeMangaForm = () => {
         "Horror",
         "Slice of Life",
         "Sci-Fi",
-        "Supernatural"
+        "Supernatural",
+        "Psychological",
+        "Thriller",
+        "School"
     ]
+
+   const mutation = useMutation({
+        mutationFn: async (newAnime: AnimeMangaType) => {
+            const res = await fetch("/api/animeManga", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newAnime),
+            })
+
+            return res.json()
+        },
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ["animeManga"] })
+        }
+    })
 
     const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
         e.preventDefault()
 
-        const finalData = {
+        const finalData: AnimeMangaType = {
             ...data,
-            image: preview,
+            image: preview || "",
             status:
             data.type === "Anime"
                 ? "PlanToWatch"
@@ -44,19 +75,8 @@ const AnimeMangaForm = () => {
 
         try{
             setIsLoading(true)
-            const res = await fetch('/api/animeManga', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(finalData)
-            })
+            await mutation.mutateAsync(finalData)
 
-            const result = await res.json()
-            if (!res.ok) {
-                console.log(result.message)
-                return
-            }
             setData({
                 title: "",
                 image: "",
@@ -66,7 +86,6 @@ const AnimeMangaForm = () => {
                 status: ""
             })
             setPreview(null)
-
         } catch (error) {
             console.error('Failed to submit:', error)
         } finally {

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Fredoka, Lato } from "next/font/google";
 import "../app/globals.css";
+import Providers from "./provider";
 import { SectionObserverProvider } from "@/context/SectionObserverContext";
 
 const geist = Geist({
@@ -37,7 +38,13 @@ export default function RootLayout({
         className={`${geist.variable} ${fredoka.variable} ${lato.variable} h-full antialiased`}
     >
       <body className={`min-h-full flex flex-col`}>
-        <SectionObserverProvider>{children}</SectionObserverProvider>
+        
+        <Providers>
+          <SectionObserverProvider>
+            {children}
+          </SectionObserverProvider>
+        </Providers>
+       
       </body>
     </html>
   );

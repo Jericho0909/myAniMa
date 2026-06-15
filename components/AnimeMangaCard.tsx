@@ -6,7 +6,7 @@ import SectionObserverContext from "@/context/SectionObserverContext";
 import { handleSaveSectionAndIndex } from "@/utils/saveSection";
 import type { AnimeMangaType, SectionKey } from "@/type/model";
 import Link from "next/link";
-import { Eye, BookOpenText } from "lucide-react";
+import { BookMarked } from "lucide-react";
 
 const AnimeMangaCard = ({ index, item, w, cardRefs, section }: { index: number; item: AnimeMangaType; w: string; cardRefs: React.RefObject<Record<SectionKey, (HTMLDivElement | null)[]>>; section: SectionKey }) => {
     const queryClient = useQueryClient()
@@ -52,7 +52,7 @@ const AnimeMangaCard = ({ index, item, w, cardRefs, section }: { index: number; 
                 ref={(el) => {
                     cardRefs.current[section][index] = el;
                 }}
-                className={`group shrink-0 ${w} rounded-tl-xl rounded-br-xl overflow-hidden border border-gray-600 cursor-pointer`}
+                className="group shrink-0 ${w} rounded-tl-xl rounded-br-xl overflow-hidden border border-gray-600"
                 onClick={() => {
                     setActiveSection(item.type === "Anime" ? "anime" : "manga");
                     handleSaveSectionAndIndex({ section, index })
@@ -99,28 +99,14 @@ const AnimeMangaCard = ({ index, item, w, cardRefs, section }: { index: number; 
                             </span>
                             ))}
                         </div>
-                        <button
-                            type="button"
-                            className="absolute top-2 right-2 p-1 z-20 icon-btn"
-                            onClick={(e) => handleUpdateStatus(e, item.id)}
+                        <div
+                            className="absolute top-2 right-2 p-1 z-20"
                         >
-                            {section === "myAnimeWatchlist"
-                                ? (
-                                    <Eye
-                                        size={20}
-                                        color="green"
-                                        className="cursor-pointer"
-                                    />
-                                )
-                                : (
-                                    <BookOpenText
-                                        size={20}
-                                        color="green"
-                                        className="cursor-pointer"
-                                    />
-                                )
-                            }
-                        </button>
+                            <BookMarked
+                                size={20}
+                                className="text-indigo-500"
+                            />
+                        </div>
                     </div>
                 </div>
 

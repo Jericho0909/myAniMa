@@ -3,7 +3,7 @@ import Link from "next/link";
 import SectionObserverContext from "@/context/SectionObserverContext";
 import { handleSaveSectionAndIndex } from "@/utils/saveSection";
 import type { AnimeMangaType, SectionKey } from "@/type/model";
-import { Heart, Eye } from "lucide-react";
+import { Eye, BookOpenText } from "lucide-react";
 
 const AnimeMangaListCard = ({ item, index, cardRefs, section }: { item: AnimeMangaType; index: number; cardRefs: React.RefObject<Record<SectionKey, (HTMLDivElement | null)[]>>; section: SectionKey }) => {
     const { setActiveSection } = useContext(SectionObserverContext)!
@@ -17,7 +17,7 @@ const AnimeMangaListCard = ({ item, index, cardRefs, section }: { item: AnimeMan
                 ref={(el) => {
                     cardRefs.current[section][index] = el;
                 }}
-                className="group anime-list-card flex items-center gap-3 p-2 border-2 rounded-2xl mb-2 relative overflow-visible cursor-pointer"
+                className="group anime-list-card flex items-center gap-3 p-2 border-2 rounded-2xl mb-2 cursor-default relative overflow-visible"
                 onClick={() => {
                     setActiveSection(item.type === "Anime" ? "anime" : "manga")
                     handleSaveSectionAndIndex({ section, index })
@@ -41,21 +41,22 @@ const AnimeMangaListCard = ({ item, index, cardRefs, section }: { item: AnimeMan
                     </h3>
                 </div>
 
-                <button type="button" className="icon-btn z-10 p-1 cursor-pointer">
-                    {item.status === "planToWatch" ||
-                    item.status === "planToRead" ? (
-                        <Eye size={20} className="text-gray-500" />
-                    ) : (
-                        <Heart
-                            size={20}
-                            className={`${
-                                item.isFavorite
-                                    ? "text-red-500 fill-red-500"
-                                    : "text-gray-500"
-                            }`}
-                        />
-                    )}
-                </button>
+                <div className="z-10 p-1">
+                    {section === "animeList"
+                        ? (
+                            <Eye 
+                                size={20} 
+                                className="text-blue-500"
+                            />
+                        )
+                        : (
+                            <BookOpenText 
+                                size={20} 
+                                className="text-emerald-500"
+                            />
+                        )
+                    }
+                </div>
 
                 {/* SIDEBAR PREVIEW */}
                 <div
@@ -67,24 +68,23 @@ const AnimeMangaListCard = ({ item, index, cardRefs, section }: { item: AnimeMan
                         className={`w-full h-80 rounded-xl ${item.type === "Anime" ? "object-cover" : "object-fill"}`}
                     />
 
-                    <div className="text-right mt-2">
-                        <button type="button" className="icon-btn p-1 cursor-pointer">
-                            {item.status === "planToWatch" || item.status === "planToRead" 
+                    <div className="flex items-center justify-end mt-2">
+                        <div className="text-right p-1">
+                            {section === "animeList"
                                 ? (
-                                <Eye size={20} className="text-gray-500" />
-                                ) 
+                                    <Eye 
+                                        size={20} 
+                                        className="text-blue-500"
+                                    />
+                                )
                                 : (
-                                    <Heart
-                                        size={20}
-                                        className={`${
-                                            item.isFavorite
-                                                ? "text-red-500 fill-red-500"
-                                                : "text-gray-500"
-                                        }`}
+                                    <BookOpenText 
+                                        size={20} 
+                                        className="text-emerald-500"
                                     />
                                 )
                             }
-                        </button>
+                        </div>
                     </div>
 
                     <h3

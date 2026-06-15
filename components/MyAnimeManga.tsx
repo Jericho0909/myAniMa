@@ -1,8 +1,9 @@
 import type { AnimeMangaType, SectionKey } from "@/type/model";
 import AnimeMangaListCard from "./AnimeMangaListCard";
 import interSectionObserver from "@/hooks/useIntersectionObserver";
+import AnimeCardListSkeleton from "./SkeletonCardList";
 import { motion } from "framer-motion";
-const MyAnimeManga = ({completedData, currentData, listCardRefs, section}: { completedData: AnimeMangaType[]; currentData: AnimeMangaType[]; listCardRefs: React.RefObject<Record<SectionKey, (HTMLDivElement | null)[]>>; section: SectionKey }) => {
+const MyAnimeManga = ({completedData, currentData, listCardRefs, loading, section}: { completedData: AnimeMangaType[]; currentData: AnimeMangaType[]; listCardRefs: React.RefObject<Record<SectionKey, (HTMLDivElement | null)[]>>; loading: boolean; section: SectionKey }) => {
     const myAnimeMangaSection = interSectionObserver({ th: 0.2 })
     return (
         <section 
@@ -24,24 +25,33 @@ const MyAnimeManga = ({completedData, currentData, listCardRefs, section}: { com
                     >
                         Anime I've Finished
                     </h3>
-                    {completedData.length !== 0
+                    {loading 
                         ? (
-                            completedData.map((item, index) => (
-                                <AnimeMangaListCard key={index} item={item} index={index} cardRefs={listCardRefs} section={section} />
+                            Array.from({ length: 5 }).map((_, index) => (
+                                <AnimeCardListSkeleton key={index} />
                             ))
                         )
                         : (
-                            <div className="w-full h-full flex flex-col items-center justify-center">
-                                <p
-                                    className="text-base font-semibold text-gray-500"
-                                    style={{ fontFamily: 'var(--font-lato)'}}
-                                >
-                                    {section === "animeList"
-                                        ? "You haven’t finished any anime yet."
-                                        : "You haven’t finished any manga yet."
-                                    }
-                                </p>
-                            </div>
+                            completedData.length !== 0
+                            ? (
+                                completedData.map((item, index) => (
+                                    <AnimeMangaListCard key={index} item={item} index={index} cardRefs={listCardRefs} section={section} />
+                                ))
+                            )
+                            : (
+                                <div className="w-full h-full flex flex-col items-center justify-center">
+                                    <p
+                                        className="text-base font-semibold text-gray-500"
+                                        style={{ fontFamily: 'var(--font-lato)'}}
+                                    >
+                                        {section === "animeList"
+                                            ? "You haven’t finished any anime yet."
+                                            : "You haven’t finished any manga yet."
+                                        }
+                                    </p>
+                                </div>
+                            )
+                        
                         )
                     }
                 </div>
@@ -52,24 +62,33 @@ const MyAnimeManga = ({completedData, currentData, listCardRefs, section}: { com
                     >
                         What I'm Watching
                     </h3>
-                    {currentData.length !== 0
+                    {loading
                         ? (
-                            currentData.map((item, index) => (
-                                <AnimeMangaListCard key={index} item={item} index={index} cardRefs={listCardRefs} section={section} />
+                            Array.from({ length: 5 }).map((_, index) => (
+                                <AnimeCardListSkeleton key={index} />
                             ))
                         )
                         : (
-                            <div className="w-full h-full flex flex-col items-center justify-center">
-                                <p
-                                    className="text-base font-semibold text-gray-500"
-                                    style={{ fontFamily: 'var(--font-lato)'}}
-                                >
-                                    {section === "animeList"
-                                        ? "Your anime journey starts here.  Add your first anime!"
-                                        : "Nothing to read yet. Discover a new manga today"
-                                    }
-                                </p>
-                            </div>
+                            currentData.length !== 0
+                            ? (
+                                currentData.map((item, index) => (
+                                    <AnimeMangaListCard key={index} item={item} index={index} cardRefs={listCardRefs} section={section} />
+                                ))
+                            )
+                            : (
+                                <div className="w-full h-full flex flex-col items-center justify-center">
+                                    <p
+                                        className="text-base font-semibold text-gray-500"
+                                        style={{ fontFamily: 'var(--font-lato)'}}
+                                    >
+                                        {section === "animeList"
+                                            ? "Your anime journey starts here.  Add your first anime!"
+                                            : "Nothing to read yet. Discover a new manga today"
+                                        }
+                                    </p>
+                                </div>
+                            )
+                            
                         )
                     }
                 </div>

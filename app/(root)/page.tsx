@@ -89,6 +89,7 @@ const Page = () => {
                     completedData={completedAnime}
                     currentData={watchingAnime}
                     listCardRefs={cardRefs}
+                    loading = {isLoading}
                     section="animeList"
                 />
                 <h2 
@@ -131,6 +132,7 @@ const Page = () => {
                     completedData={completedManga}
                     currentData={readingManga}
                     listCardRefs={cardRefs}
+                    loading = {isLoading}
                     section="mangaList"
                 />
                 <h2 

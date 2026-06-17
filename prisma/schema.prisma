@@ -13,10 +13,15 @@ model AnimeManga {
   title       String
   description String
   image       String
-  type        String
+  type        Type
   status      StatusType
   isFavorite  Boolean  @default(false)
   genre       String[]
+}
+
+enum Type {
+  Anime
+  Manga
 }
 
 enum StatusType {

@@ -1,18 +1,28 @@
+import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+
+export const runtime = "nodejs"
 
 export async function GET() {
     try {
         const animeManga = await prisma.animeManga.findMany()
+        console.log(animeManga)
 
-        return Response.json({
+        return NextResponse.json({
             success: true,
-            data: animeManga
+            data: animeManga,
         })
     } catch (error) {
-        return Response.json({
-            success: false,
-            message: 'Failed to fetch anime'
-        }, { status: 500 })
+    console.error("PRISMA ERROR:", error);
+
+    return Response.json(
+        {
+        success: false,
+        message: "Failed to fetch anime",
+        error: error instanceof Error ? error.message : String(error),
+        },
+        { status: 500 }
+    );
     }
 }
 
@@ -27,7 +37,7 @@ export async function POST(request: Request) {
             !body.status ||
             !body.genre
             ){
-            return Response.json(
+            return NextResponse.json(
                 { message: 'Missing required fields' },
                 { status: 400 }
             )
@@ -44,11 +54,11 @@ export async function POST(request: Request) {
             }
         })
 
-        return Response.json(anime, { status: 201 })
+        return NextResponse.json(anime, { status: 201 })
     } catch (error) {
         console.error(error)
 
-        return Response.json(
+        return NextResponse.json(
             { message: 'Failed to create anime' },
             { status: 500 }
         )

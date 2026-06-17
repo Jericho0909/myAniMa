@@ -1,4 +1,4 @@
-type StatusType =
+ type StatusType =
     | "Watching"
     | "Reading"
     | "Completed"

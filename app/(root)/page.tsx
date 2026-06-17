@@ -53,10 +53,6 @@ const Page = () => {
 
     }, [])
 
-    useEffect(() => {
-        console.log(animeManga)
-    }, [animeManga])
-
     return (
         <main className="min-h-full w-full">
             <section

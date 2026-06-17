@@ -3,7 +3,7 @@ import Link from "next/link";
 import SectionObserverContext from "@/context/SectionObserverContext";
 import { handleSaveSectionAndIndex } from "@/utils/saveSection";
 import type { AnimeMangaType, SectionKey } from "@/type/model";
-import { Eye, BookOpenText } from "lucide-react";
+import { icons } from "@/constants/statusIcons";
 
 const AnimeMangaListCard = ({ item, index, cardRefs, section }: { item: AnimeMangaType; index: number; cardRefs: React.RefObject<Record<SectionKey, (HTMLDivElement | null)[]>>; section: SectionKey }) => {
     const { setActiveSection } = useContext(SectionObserverContext)!
@@ -41,19 +41,13 @@ const AnimeMangaListCard = ({ item, index, cardRefs, section }: { item: AnimeMan
                     </h3>
                 </div>
 
-                <div className="z-10 p-1">
+                <div className={`rounded-full z-10 p-2 ${item.status && icons[item.status]?.style}`}>
                     {section === "animeList"
                         ? (
-                            <Eye 
-                                size={20} 
-                                className="text-blue-500"
-                            />
+                            item.status && icons[item.status]?.icon
                         )
                         : (
-                            <BookOpenText 
-                                size={20} 
-                                className="text-emerald-500"
-                            />
+                            item.status && icons[item.status]?.icon
                         )
                     }
                 </div>
@@ -70,20 +64,16 @@ const AnimeMangaListCard = ({ item, index, cardRefs, section }: { item: AnimeMan
 
                     <div className="flex items-center justify-end mt-2">
                         <div className="text-right p-1">
-                            {section === "animeList"
-                                ? (
-                                    <Eye 
-                                        size={20} 
-                                        className="text-blue-500"
-                                    />
-                                )
-                                : (
-                                    <BookOpenText 
-                                        size={20} 
-                                        className="text-emerald-500"
-                                    />
-                                )
-                            }
+                            <div className={`rounded-full p-2 ${item.status && icons[item.status]?.style}`}>
+                                {section === "animeList"
+                                    ? (
+                                        item.status && icons[item.status]?.icon
+                                    )
+                                    : (
+                                        item.status && icons[item.status]?.icon
+                                    )
+                                }
+                            </div>
                         </div>
                     </div>
 

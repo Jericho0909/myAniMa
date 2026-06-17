@@ -1,5 +1,4 @@
 import Link from "next/link";
-import type {IconItem} from "@/type/model";
 import { Favorite_Anime, 
     Favorite_Manga,
     Completed_Anime,
@@ -9,13 +8,8 @@ import { Favorite_Anime,
     Anime_List, 
     Manga_List
 } from "@/constants/animeData";
-import { Heart, 
-    Eye,
-    Check,
-    Bookmark,
-    BookOpenText,
-    X
-} from "lucide-react";
+import { Heart, X } from "lucide-react";
+import { icons } from "@/constants/statusIcons";
 
 const AnimeMangaDetail = async ({params}: {params: Promise<{ status: string; slug: string }>}) => {
     const { status, slug } = await params
@@ -34,13 +28,7 @@ const AnimeMangaDetail = async ({params}: {params: Promise<{ status: string; slu
     const animeListDetail = Anime_List.find((a) => a.title === cleanSlug && a.status === status)
     const mangaListDetail = Manga_List.find((m) => m.title === cleanSlug && m.status === status)
 
-    const icons: Record<string, IconItem> = {
-        "watching": { status: "Watching", icon: <Eye size={20} strokeWidth={3}/>, style: "bg-blue-500 text-white" },
-        "reading": { status: "Reading", icon: <BookOpenText size={20} strokeWidth={3}/>, style: "bg-purple-500 text-white" },
-        "completed": { status: "Completed", icon: <Check size={20} strokeWidth={3}/>, style: "bg-green-500 text-white" },
-        "planToWatch": { status: "PlanToWatch", icon: <Bookmark size={20} strokeWidth={3}/>, style: "bg-amber-500 text-white" },
-        "planToRead": { status: "PlanToRead", icon: <Bookmark size={20} strokeWidth={3}/>, style: "bg-orange-500 text-white" },
-    };
+    
 
     const detail = animeDetail || mangaDetail || completedAnimeDetail || currentAnimeDetail || completedMangaDetail || currentMangaDetail || animeListDetail || mangaListDetail;
 

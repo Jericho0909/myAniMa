@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import SectionObserverContext from "@/context/SectionObserverContext";
 import { handleSaveSectionAndIndex } from "@/utils/saveSection";
+import { icons } from "@/constants/statusIcons";
 import type { AnimeMangaType, SectionKey } from "@/type/model";
 import Link from "next/link";
 import { BookMarked } from "lucide-react";
@@ -100,12 +101,9 @@ const AnimeMangaCard = ({ index, item, w, cardRefs, section }: { index: number; 
                             ))}
                         </div>
                         <div
-                            className="absolute top-2 right-2 p-1 z-20"
+                            className={`rounded-full absolute top-2 right-2 p-1 z-20 ${item.status && icons[item.status]?.style}`}
                         >
-                            <BookMarked
-                                size={20}
-                                className="text-indigo-500"
-                            />
+                            {item.status && icons[item.status]?.icon}
                         </div>
                     </div>
                 </div>

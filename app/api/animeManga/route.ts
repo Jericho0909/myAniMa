@@ -13,7 +13,6 @@ export async function GET() {
             data: animeManga,
         })
     } catch (error) {
-    console.error("PRISMA ERROR:", error);
 
     return Response.json(
         {

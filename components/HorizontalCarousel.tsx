@@ -7,7 +7,14 @@ import { ArrowBigLeftDash, ArrowBigRightDash } from 'lucide-react';
 import { AnimeMangaType, SectionKey } from '@/type/model';
 import { motion } from 'framer-motion';
 
-const HorizontalCarousel = ({ data, cardRefs, loading, section }: { data: AnimeMangaType[]; cardRefs: React.RefObject<Record<SectionKey, (HTMLDivElement | null)[]>>; loading: boolean; section: SectionKey }) => {
+interface HorizontalCarouselType {
+    data: AnimeMangaType[]; 
+    cardRefs: React.RefObject<Record<SectionKey, (HTMLDivElement | null)[]>>;
+    loading: boolean; 
+    section: SectionKey;
+}
+
+const HorizontalCarousel = ({ data, cardRefs, loading, section }: HorizontalCarouselType) => {
     const horizontalCarouselSection = interSectionObserver({ th: 0.2 })
     const scrollContainerRef = useRef<HTMLDivElement>(null);
     const scroll = (direction: 'left' | 'right') => {

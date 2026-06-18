@@ -7,9 +7,16 @@ import { handleSaveSectionAndIndex } from "@/utils/saveSection";
 import { icons } from "@/constants/statusIcons";
 import type { AnimeMangaType, SectionKey } from "@/type/model";
 import Link from "next/link";
-import { BookMarked } from "lucide-react";
 
-const AnimeMangaCard = ({ index, item, w, cardRefs, section }: { index: number; item: AnimeMangaType; w: string; cardRefs: React.RefObject<Record<SectionKey, (HTMLDivElement | null)[]>>; section: SectionKey }) => {
+interface AnimeMangaCardType {
+    index: number; 
+    item: AnimeMangaType; 
+    w: string; 
+    cardRefs: React.RefObject<Record<SectionKey, (HTMLDivElement | null)[]>>; 
+    section: SectionKey;
+}
+
+const AnimeMangaCard = ({ index, item, w, cardRefs, section }: AnimeMangaCardType) => {
     const queryClient = useQueryClient()
     const { setActiveSection } = useContext(SectionObserverContext)!
 

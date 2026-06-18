@@ -5,7 +5,14 @@ import { handleSaveSectionAndIndex } from "@/utils/saveSection";
 import type { AnimeMangaType, SectionKey } from "@/type/model";
 import { icons } from "@/constants/statusIcons";
 
-const AnimeMangaListCard = ({ item, index, cardRefs, section }: { item: AnimeMangaType; index: number; cardRefs: React.RefObject<Record<SectionKey, (HTMLDivElement | null)[]>>; section: SectionKey }) => {
+interface AnimeMangaListCardType {
+    item: AnimeMangaType; 
+    index: number; 
+    cardRefs: React.RefObject<Record<SectionKey, (HTMLDivElement | null)[]>>; 
+    section: SectionKey;
+}
+
+const AnimeMangaListCard = ({ item, index, cardRefs, section }: AnimeMangaListCardType) => {
     const { setActiveSection } = useContext(SectionObserverContext)!
 
 

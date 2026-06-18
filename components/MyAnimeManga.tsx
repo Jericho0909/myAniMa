@@ -3,7 +3,16 @@ import AnimeMangaListCard from "./AnimeMangaListCard";
 import interSectionObserver from "@/hooks/useIntersectionObserver";
 import AnimeCardListSkeleton from "./SkeletonCardList";
 import { motion } from "framer-motion";
-const MyAnimeManga = ({completedData, currentData, listCardRefs, loading, section}: { completedData: AnimeMangaType[]; currentData: AnimeMangaType[]; listCardRefs: React.RefObject<Record<SectionKey, (HTMLDivElement | null)[]>>; loading: boolean; section: SectionKey }) => {
+
+interface MyAnimeMangaType {
+    completedData: AnimeMangaType[]; 
+    currentData: AnimeMangaType[]; 
+    listCardRefs: React.RefObject<Record<SectionKey, (HTMLDivElement | null)[]>>; 
+    loading: boolean; 
+    section: SectionKey;
+}
+
+const MyAnimeManga = ({completedData, currentData, listCardRefs, loading, section}: MyAnimeMangaType ) => {
     const myAnimeMangaSection = interSectionObserver({ th: 0.2 })
     return (
         <section 

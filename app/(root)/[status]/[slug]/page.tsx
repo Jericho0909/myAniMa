@@ -144,7 +144,6 @@ const AnimeMangaDetail = async ({params}: {params: Promise<{ status: string; slu
                 </div>
             </section>
 
-            {/* Content */}
         
         </div>
     )

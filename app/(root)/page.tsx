@@ -8,6 +8,15 @@ import Slider from "@/components/Slider";
 import HorizontalCarousel from "@/components/HorizontalCarousel"
 import MyAnimeManga from "@/components/MyAnimeManga";
 import AnimeMangaList from "@/components/AnimeMangaList";
+import { getFavoriteAnime,
+    getCompletedAnime,
+    getWatchingAnime,
+    getAnimeList,
+    getFavoriteManga,
+    getCompletedManga,
+    getReadingManga,
+    getMangaList
+} from '../selectors/animeMangaSelectors';
 const Page = () => {
     const { data: animeManga = [], isLoading } = useAnimeManga()
     const { sectionRefs } = useContext(SectionObserverContext)!
@@ -19,17 +28,7 @@ const Page = () => {
         mangaList: [],
         myAnimeWatchlist: [],
         myMangaReadingList: [],
-    });
-
-    const favoriteAnime = animeManga.filter(data => data.isFavorite === true && data.type === "Anime" )
-    const completedAnime = animeManga.filter(data => data.status === "Completed" && data.type === "Anime" )
-    const watchingAnime = animeManga.filter(data => data.status === "Watching" && data.type === "Anime" )
-    const animeList = animeManga.filter(data => data.status === "PlanToWatch" && data.type === "Anime" )
-
-    const favoriteManga = animeManga.filter(data => data.isFavorite === true && data.type === "Manga" )
-    const completedManga = animeManga.filter(data => data.status === "Completed" && data.type === "Manga" )
-    const readingManga = animeManga.filter(data => data.status === "Reading" && data.type === "Manga" )
-    const mangaList = animeManga.filter(data => data.status === "PlanToRead" && data.type === "Manga" )
+    })
 
     useEffect(() => {
         const savedSection = sessionStorage.getItem("section") as keyof typeof cardRefs.current;
@@ -74,7 +73,7 @@ const Page = () => {
                     My Favorite Anime
                 </h2>
                 <HorizontalCarousel
-                    data={favoriteAnime}
+                    data={getFavoriteAnime(animeManga)}
                     cardRefs={cardRefs}
                     loading = {isLoading}
                     section="animeFav"
@@ -86,8 +85,8 @@ const Page = () => {
                     My Anime List
                 </h2>
                 <MyAnimeManga
-                    completedData={completedAnime}
-                    currentData={watchingAnime}
+                    completedData={getCompletedAnime(animeManga)}
+                    currentData={getWatchingAnime(animeManga)}
                     listCardRefs={cardRefs}
                     loading = {isLoading}
                     section="animeList"
@@ -99,7 +98,7 @@ const Page = () => {
                     My Watchlist
                 </h2>
                 <AnimeMangaList 
-                    data={animeList}
+                    data={getAnimeList(animeManga)}
                     animeMangaListRefs={cardRefs}
                     loading = {isLoading}
                     section="myAnimeWatchlist"
@@ -117,7 +116,7 @@ const Page = () => {
                     My Favorite Manga
                 </h2>
                 <HorizontalCarousel
-                    data={favoriteManga}
+                    data={getFavoriteManga(animeManga)}
                     cardRefs={cardRefs}
                     loading = {isLoading}
                     section="mangaFav"
@@ -129,8 +128,8 @@ const Page = () => {
                     My Manga List
                 </h2>
                 <MyAnimeManga
-                    completedData={completedManga}
-                    currentData={readingManga}
+                    completedData={getCompletedManga(animeManga)}
+                    currentData={getReadingManga(animeManga)}
                     listCardRefs={cardRefs}
                     loading = {isLoading}
                     section="mangaList"
@@ -142,7 +141,7 @@ const Page = () => {
                     Reading List
                 </h2>
                 <AnimeMangaList 
-                    data={mangaList}
+                    data={getMangaList(animeManga)}
                     animeMangaListRefs={cardRefs}
                     loading = {isLoading}
                     section="myMangaReadingList"

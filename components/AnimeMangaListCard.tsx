@@ -41,7 +41,7 @@ const AnimeMangaListCard = ({ item, index, cardRefs, section }: { item: AnimeMan
                     </h3>
                 </div>
 
-                <div className={`rounded-full z-10 p-2 ${item.status && icons[item.status]?.style}`}>
+                <div className={`rounded-full z-10 p-1 ${item.status && icons[item.status]?.style}`}>
                     {section === "animeList"
                         ? (
                             item.status && icons[item.status]?.icon
@@ -64,7 +64,7 @@ const AnimeMangaListCard = ({ item, index, cardRefs, section }: { item: AnimeMan
 
                     <div className="flex items-center justify-end mt-2">
                         <div className="text-right p-1">
-                            <div className={`rounded-full p-2 ${item.status && icons[item.status]?.style}`}>
+                            <div className={`rounded-full p-1 ${item.status && icons[item.status]?.style}`}>
                                 {section === "animeList"
                                     ? (
                                         item.status && icons[item.status]?.icon

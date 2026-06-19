@@ -1,12 +1,12 @@
 'use client'
 
 import { useState, useRef } from "react"
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import useAnimeMangaMutations from "@/hooks/useMutation"
 import useImage from "@/hooks/useImage"
 import type { AnimeMangaType } from "@/type/model"
 
 const AnimeMangaForm = () => {
-    const queryClient = useQueryClient()
+    const { add } = useAnimeMangaMutations()
     const { handleUpload, preview, setPreview, loadingImg } = useImage()
     const imageInputRef = useRef<HTMLInputElement | null>(null)
     const [ isLoading, setIsLoading ] = useState<boolean>(false)
@@ -35,22 +35,7 @@ const AnimeMangaForm = () => {
         "School"
     ]
 
-   const mutation = useMutation({
-        mutationFn: async (newAnime: AnimeMangaType) => {
-            const res = await fetch("/api/animeManga", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(newAnime),
-            })
-
-            return res.json()
-        },
-        onSuccess: () => {
-            queryClient.invalidateQueries({ queryKey: ["animeManga"] })
-        }
-    })
+   
 
     const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
         e.preventDefault()
@@ -66,7 +51,7 @@ const AnimeMangaForm = () => {
 
         try{
             setIsLoading(true)
-            await mutation.mutateAsync(finalData)
+            await add.mutateAsync(finalData)
 
             setData({
                 title: "",

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import useAnimeManga from "@/hooks/useAnimeManga";
+import useAnimeMangaMutations from "@/hooks/useMutation";
 import { getFavoriteAnime,
     getCompletedAnime,
     getWatchingAnime,
@@ -21,6 +22,7 @@ interface AnimeMangaDetailCardType {
 
 const AnimeMangaDetailCard = ({ status, title }: AnimeMangaDetailCardType) => {
     const { data: animeManga = [], isLoading} = useAnimeManga()
+    const { update } = useAnimeMangaMutations()
     const animeDetail = getFavoriteAnime(animeManga).find((a) => a.title === title && a.status === status)
     const mangaDetail = getFavoriteManga(animeManga).find((m) => m.title === title && m.status === status)
 
@@ -39,6 +41,33 @@ const AnimeMangaDetailCard = ({ status, title }: AnimeMangaDetailCardType) => {
         ? ["Completed", "Watching", "PlanToWatch"]
         : ["Completed", "Reading", "PlanToRead"]
 
+    const handleFavorite = (
+        e: React.MouseEvent<HTMLButtonElement>,
+        id: string | undefined,
+        isFavorite: boolean) => {
+            e.preventDefault();
+            if (!id) return;
+
+            update.mutate({
+                id,
+                isFavorite: isFavorite,
+            })
+    }
+
+
+    const handleUpdateStatus = (
+        e: React.MouseEvent<HTMLButtonElement>,
+        id: string | undefined,
+        status: string) => {
+            e.preventDefault();
+            if (!id) return;
+
+            update.mutate({
+                id,
+                status: status,
+            })
+    }
+    
     if(isLoading) {
         return (
             <div className="h-screen flex items-center justify-center">
@@ -62,6 +91,7 @@ const AnimeMangaDetailCard = ({ status, title }: AnimeMangaDetailCardType) => {
             </div>
         )
     }
+    
 
     return (
         <section className="relative h-full">

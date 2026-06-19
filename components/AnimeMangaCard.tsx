@@ -1,7 +1,6 @@
 'use client'
 
 import { useContext } from "react";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
 import SectionObserverContext from "@/context/SectionObserverContext";
 import { handleSaveSectionAndIndex } from "@/utils/saveSection";
 import { icons } from "@/constants/statusIcons";
@@ -17,40 +16,10 @@ interface AnimeMangaCardType {
 }
 
 const AnimeMangaCard = ({ index, item, w, cardRefs, section }: AnimeMangaCardType) => {
-    const queryClient = useQueryClient()
     const { setActiveSection } = useContext(SectionObserverContext)!
 
-    const mutation = useMutation({mutationFn: async ({ id, status }: { id: string; status: string }) => {
-        const res = await fetch(`/api/animeManga/${id}`, {
-                method: "PATCH",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ status }),
-                });
 
-            return res.json()
-        },
 
-        onSuccess: () => {
-            queryClient.invalidateQueries({ queryKey: ["animeManga"] })
-        },
-    })
-
-    const handleUpdateStatus = (
-        e: React.MouseEvent<HTMLButtonElement>,
-        id: string | undefined
-    ) => {
-        e.preventDefault();
-        if (!id) return;
-
-        const updatedStatus = section === "myAnimeWatchlist" ? "Watching" : "Reading"
-
-        mutation.mutate({
-            id,
-            status: updatedStatus,
-        })
-    }
 
     return (
         <Link

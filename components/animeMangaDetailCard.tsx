@@ -33,8 +33,11 @@ const AnimeMangaDetailCard = ({ status, title }: AnimeMangaDetailCardType) => {
     const animeListDetail = getAnimeList(animeManga).find((a) => a.title === title && a.status === status)
     const mangaListDetail = getMangaList(animeManga).find((m) => m.title === title && m.status === status)
 
-    const detail = animeDetail || mangaDetail || completedAnimeDetail || currentAnimeDetail || completedMangaDetail || currentMangaDetail || animeListDetail || mangaListDetail;
+    const detail = animeDetail || mangaDetail || completedAnimeDetail || currentAnimeDetail || completedMangaDetail || currentMangaDetail || animeListDetail || mangaListDetail
 
+    const statusBtn = detail?.type === "Anime" 
+        ? ["Completed", "Watching", "PlanToWatch"]
+        : ["Completed", "Reading", "PlanToRead"]
 
     if (!detail) {
         return (
@@ -62,7 +65,7 @@ const AnimeMangaDetailCard = ({ status, title }: AnimeMangaDetailCardType) => {
 
             <div className="absolute inset-0 bg-black/60" />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95%] sm:w-[75%] lg:w-[60%]  z-10">
-                    <div className="relative bg-white w-full rounded-3xl shadow-2xl p-6 md:p-8">
+                <div className="relative bg-white w-full rounded-3xl shadow-2xl p-6 md:p-8">
                     <Link
                         href={`/`}
                         className="close-btn absolute top-4 right-4 p-2 rounded-full transition-all cursor-pointer"
@@ -74,12 +77,12 @@ const AnimeMangaDetailCard = ({ status, title }: AnimeMangaDetailCardType) => {
                             <img
                                 src={detail.image}
                                 alt={detail.title}
-                                className="w-72 h-72 rounded-2xl object-fill shadow-lg"
+                                className="w-40 h-40 sm:w-56 sm:h-56 lg:w-60 lg:h-60 xl:w-64 xl:h-64 rounded-2xl object-fill shadow-lg"
                             />
                         </div>
                         <div className="flex-1">
                             <h1
-                                className="text-4xl font-bold mb-4"
+                                className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4"
                                 style={{ fontFamily: "var(--font-fredoka)" }}
                             >
                                 {detail.title}
@@ -88,7 +91,7 @@ const AnimeMangaDetailCard = ({ status, title }: AnimeMangaDetailCardType) => {
                                 {detail.genre.map((genre, index) => (
                                     <span
                                         key={index}
-                                        className="px-3 py-1 rounded-full bg-slate-200 text-sm "
+                                        className="px-3 py-1 rounded-full bg-slate-200 text-sm"
                                         style={{ fontFamily: "var(--font-lato)" }}
                                     >
                                         {genre}
@@ -97,49 +100,47 @@ const AnimeMangaDetailCard = ({ status, title }: AnimeMangaDetailCardType) => {
                             </div>
                             <div className="overflow-y-auto mb-4">
                                 <p
-                                    className="text-slate-600 leading-relaxed whitespace-break-spaces"
+                                    className="text-slate-600 text-sm leading-relaxed whitespace-break-spaces"
                                     style={{ fontFamily: "var(--font-lato)" }}
                                 >
                                     {detail.description}
                                 </p>
                             </div>
 
-                            <div 
-                                className="flex gap-4 mt-6 font-semibold"
-                                style={{ fontFamily: "var(--font-fredoka)" }}
+                            <button
+                                type="button"
+                                className={`fav-btn flex items-center gap-2 px-5 py-2 rounded-xl transition-all mb-2 cursor-pointer ${detail.isFavorite ? "fav-active bg-red-500": "fav-inactive bg-gray-200"}`}
                             >
-                                <button
-                                    type="button"
-                                    className={`fav-btn flex items-center gap-2 px-5 py-2 rounded-xl transition-all cursor-pointer ${detail.isFavorite ? "fav-active bg-red-500": "fav-inactive bg-gray-200"}`}
-                                >
-                                    <span>
-                                        <Heart size={20} strokeWidth={3}/> 
-                                    </span>
-                                    <span>
-                                        {detail.isFavorite ? "Favorite" : "Unfavorite"}
-                                    </span>
-                                </button>
+                                <span>
+                                    <Heart size={20} strokeWidth={3}/> 
+                                </span>
+                                <span>
+                                    {detail.isFavorite ? "Favorite" : "Unfavorite"}
+                                </span>
+                            </button>
+                            <div
+                                className="flex flex-wrap lg:items-center gap-2 p-2 rounded-2xl bg-slate-800 w-fit"
+                            >
+                                {statusBtn.map((btn, index) => {
+                                    const isActive = btn === detail.status
 
-                                <button
-                                    type="button"
-                                    className={`status-btn flex items-center gap-2 px-5 py-2 rounded-xl font-semibold cursor-pointer transition-all ${detail.status && icons[detail.status]?.style}`}
-                                >
-                                    <span>
-                                        {
-                                            detail.status && icons[detail.status]?.icon
-                                        }
-                                    </span>
-                                    <span>
-                                        {
-                                            detail.status && icons[detail.status]?.status
-                                        }
-                                    </span>
-                                </button>
-
+                                    return (
+                                        <button
+                                            key={index}
+                                            type="button"
+                                            className={`status-btn flex items-center gap-2 px-5 py-2 rounded-xl font-semibold cursor-pointer transition-all ${icons[btn]?.style} ${isActive ? "active ring-2 ring-white/20" : "inactive"}`}
+                                        >
+                                            <span>
+                                                {icons[btn]?.icon}
+                                            </span>
+                                            <span>
+                                                {icons[btn]?.status}
+                                            </span>
+                                        </button>
+                                    )
+                                })}
                             </div>
-
                         </div>
-
                     </div>
 
                 </div>

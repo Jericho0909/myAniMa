@@ -20,7 +20,7 @@ interface AnimeMangaDetailCardType {
 }
 
 const AnimeMangaDetailCard = ({ status, title }: AnimeMangaDetailCardType) => {
-    const { data: animeManga = [] } = useAnimeManga()
+    const { data: animeManga = [], isLoading} = useAnimeManga()
     const animeDetail = getFavoriteAnime(animeManga).find((a) => a.title === title && a.status === status)
     const mangaDetail = getFavoriteManga(animeManga).find((m) => m.title === title && m.status === status)
 
@@ -38,6 +38,14 @@ const AnimeMangaDetailCard = ({ status, title }: AnimeMangaDetailCardType) => {
     const statusBtn = detail?.type === "Anime" 
         ? ["Completed", "Watching", "PlanToWatch"]
         : ["Completed", "Reading", "PlanToRead"]
+
+    if(isLoading) {
+        return (
+            <div className="h-screen flex items-center justify-center">
+                <div className="loader4"></div>
+            </div>
+        )
+    }
 
     if (!detail) {
         return (

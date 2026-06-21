@@ -18,12 +18,9 @@ interface AnimeMangaCardType {
 const AnimeMangaCard = ({ index, item, w, cardRefs, section }: AnimeMangaCardType) => {
     const { setActiveSection } = useContext(SectionObserverContext)!
 
-
-
-
     return (
         <Link
-            href={`/${item.status}/${item.title}`}
+            href={`/${item.type}/${item.title}`}
         >
             <div
                 ref={(el) => {
@@ -40,7 +37,7 @@ const AnimeMangaCard = ({ index, item, w, cardRefs, section }: AnimeMangaCardTyp
                     <img
                         src={item.image}
                         alt={item.title}
-                        className={`anime-image w-full h-60 sm:h-80 ${item.type === "Anime" ? "object-cover" : "object-fill"} transition-transform duration-500`}
+                        className={`anime-image w-full ${w} h-60 sm:h-80 ${item.type === "Anime" ? "object-cover" : "object-fill"} transition-transform duration-500`}
                     />
 
                     {/* Overlay */}

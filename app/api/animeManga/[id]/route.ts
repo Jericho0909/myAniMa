@@ -12,9 +12,7 @@ export async function PATCH(
             where: {
                 id,
             },
-            data: {
-                status: body.status,
-            },
+            data: body,
         });
 
         return Response.json({

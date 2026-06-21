@@ -16,24 +16,24 @@ import { icons } from "@/constants/statusIcons";
 import { Heart, X } from "lucide-react";
 
 interface AnimeMangaDetailCardType {
-    status: string;
+    type: string;
     title: string;
 }
 
-const AnimeMangaDetailCard = ({ status, title }: AnimeMangaDetailCardType) => {
+const AnimeMangaDetailCard = ({ type, title }: AnimeMangaDetailCardType) => {
     const { data: animeManga = [], isLoading} = useAnimeManga()
     const { update } = useAnimeMangaMutations()
-    const animeDetail = getFavoriteAnime(animeManga).find((a) => a.title === title && a.status === status)
-    const mangaDetail = getFavoriteManga(animeManga).find((m) => m.title === title && m.status === status)
+    const animeDetail = getFavoriteAnime(animeManga).find((a) => a.title === title && a.type === type)
+    const mangaDetail = getFavoriteManga(animeManga).find((m) => m.title === title && m.type === type)
 
-    const completedAnimeDetail = getCompletedAnime(animeManga).find((a) => a.title === title && a.status === status)
-    const completedMangaDetail = getCompletedManga(animeManga).find((m) => m.title === title && m.status === status)
+    const completedAnimeDetail = getCompletedAnime(animeManga).find((a) => a.title === title && a.type === type)
+    const completedMangaDetail = getCompletedManga(animeManga).find((m) => m.title === title && m.type === type)
 
-    const currentAnimeDetail = getWatchingAnime(animeManga).find((a) => a.title === title && a.status === status)
-    const currentMangaDetail = getReadingManga(animeManga).find((m) => m.title === title && m.status === status)
+    const currentAnimeDetail = getWatchingAnime(animeManga).find((a) => a.title === title && a.type === type)
+    const currentMangaDetail = getReadingManga(animeManga).find((m) => m.title === title && m.type === type)
 
-    const animeListDetail = getAnimeList(animeManga).find((a) => a.title === title && a.status === status)
-    const mangaListDetail = getMangaList(animeManga).find((m) => m.title === title && m.status === status)
+    const animeListDetail = getAnimeList(animeManga).find((a) => a.title === title && a.type === type)
+    const mangaListDetail = getMangaList(animeManga).find((m) => m.title === title && m.type === type)
 
     const detail = animeDetail || mangaDetail || completedAnimeDetail || currentAnimeDetail || completedMangaDetail || currentMangaDetail || animeListDetail || mangaListDetail
 
@@ -47,7 +47,6 @@ const AnimeMangaDetailCard = ({ status, title }: AnimeMangaDetailCardType) => {
         isFavorite: boolean) => {
             e.preventDefault();
             if (!id) return;
-
             update.mutate({
                 id,
                 isFavorite: isFavorite,
@@ -148,6 +147,7 @@ const AnimeMangaDetailCard = ({ status, title }: AnimeMangaDetailCardType) => {
                             <button
                                 type="button"
                                 className={`fav-btn flex items-center gap-2 px-5 py-2 rounded-xl transition-all mb-2 cursor-pointer ${detail.isFavorite ? "fav-active bg-red-500": "fav-inactive bg-gray-200"}`}
+                                onClick={(e) => handleFavorite(e, detail.id, detail.isFavorite ? false : true) }
                             >
                                 <span>
                                     <Heart size={20} strokeWidth={3}/> 
@@ -167,6 +167,7 @@ const AnimeMangaDetailCard = ({ status, title }: AnimeMangaDetailCardType) => {
                                             key={index}
                                             type="button"
                                             className={`status-btn flex items-center gap-2 px-5 py-2 rounded-xl font-semibold cursor-pointer transition-all ${icons[btn]?.style} ${isActive ? "active ring-2 ring-white/20" : "inactive"}`}
+                                            onClick={(e) => handleUpdateStatus(e, detail.id, btn)}
                                         >
                                             <span>
                                                 {icons[btn]?.icon}

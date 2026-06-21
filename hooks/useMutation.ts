@@ -21,11 +21,15 @@ const useAnimeMangaMutations = () => {
         },
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ["animeManga"] })
-        }
+        },
+        onError: (error) => {
+            console.error("Failed:", error);
+        },
     })
 
     const update = useMutation({
         mutationFn: async ({ id, status, isFavorite, }: { id: string; status?: string; isFavorite?: boolean; }) => {
+            
             const res = await fetch(`/api/animeManga/${id}`, {
                 method: "PATCH",
                 headers: {
@@ -41,6 +45,9 @@ const useAnimeMangaMutations = () => {
         },
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ["animeManga"] })
+        },
+        onError: (error) => {
+            console.error("Update failed:", error);
         },
         
     })

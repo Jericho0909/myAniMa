@@ -60,7 +60,7 @@ const HorizontalCarousel = ({ data, cardRefs, loading, section }: HorizontalCaro
                                         key={index} 
                                         index={index} 
                                         item={item} 
-                                        w={"w-56"}
+                                        w={"sm:w-64 lg:w-72"}
                                         cardRefs={cardRefs}
                                         section={section}
                                     />

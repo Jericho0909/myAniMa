@@ -28,28 +28,43 @@ const useAnimeMangaMutations = () => {
     })
 
     const update = useMutation({
-        mutationFn: async ({ id, status, isFavorite, }: { id: string; status?: string; isFavorite?: boolean; }) => {
-            
+        mutationFn: async ({ id, status, isFavorite }: { id: string; status?: string; isFavorite?: boolean; }) => {
             const res = await fetch(`/api/animeManga/${id}`, {
-                method: "PATCH",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    status,
-                    isFavorite,
-                }),
-            })
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ status, isFavorite }),
+            });
+
+            if (!res.ok) throw new Error("Update failed");
+
             return res.json()
-            
         },
-        onSuccess: () => {
+
+        onMutate: async (variables) => {
+            await queryClient.cancelQueries({ queryKey: ["animeManga"] })
+
+            const previousData = queryClient.getQueryData(["animeManga"])
+
+            queryClient.setQueryData(["animeManga"], (old: any) => {
+            if (!old) return old;
+
+            return old.map((item: any) =>
+                item.id === variables.id
+                ? { ...item, ...variables }
+                : item
+            );
+            });
+
+            return { previousData }
+        },
+
+        onError: (_err, _variables, context) => {
+            queryClient.setQueryData(["animeManga"], context?.previousData)
+        },
+
+        onSettled: () => {
             queryClient.invalidateQueries({ queryKey: ["animeManga"] })
         },
-        onError: (error) => {
-            console.error("Update failed:", error);
-        },
-        
     })
 
     return {

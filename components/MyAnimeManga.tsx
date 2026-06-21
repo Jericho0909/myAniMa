@@ -32,7 +32,10 @@ const MyAnimeManga = ({completedData, currentData, listCardRefs, loading, sectio
                         className="text-2xl font-bold text-left p-2"
                         style={{ fontFamily: 'var(--font-fredoka)' }}
                     >
-                        Anime I've Finished
+                        {section === "animeList"
+                            ? "Anime I've Finished"
+                            : "Manga I've Finished"
+                        }
                     </h3>
                     {loading 
                         ? (
@@ -69,7 +72,10 @@ const MyAnimeManga = ({completedData, currentData, listCardRefs, loading, sectio
                         className="text-2xl font-bold text-left p-2"
                         style={{ fontFamily: 'var(--font-fredoka)' }}
                     >
-                        What I'm Watching
+                        {section === "animeList"
+                            ? "What I'm Watching"
+                            : "What I'm Reading"
+                        }
                     </h3>
                     {loading
                         ? (

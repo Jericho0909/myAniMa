@@ -4,13 +4,14 @@ import { useState, useRef } from "react"
 import useAnimeMangaMutations from "@/hooks/useMutation"
 import useImage from "@/hooks/useImage"
 import type { AnimeMangaType } from "@/type/model"
+import { showSuccess, showError } from "@/lib/toast"
 
 const AnimeMangaForm = () => {
     const { add } = useAnimeMangaMutations()
     const { handleUpload, preview, setPreview, loadingImg } = useImage()
     const imageInputRef = useRef<HTMLInputElement | null>(null)
     const [ isLoading, setIsLoading ] = useState<boolean>(false)
-    const [data, setData] = useState<AnimeMangaType>({
+    const [ data, setData ] = useState<AnimeMangaType>({
         title: "",
         image: "",
         genre: [],
@@ -35,24 +36,25 @@ const AnimeMangaForm = () => {
         "School"
     ]
 
-   
+    
 
     const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
         e.preventDefault()
+        if (!data.title || !data.description || !data.image || !data.type || data.genre.length === 0) {
+           showError("Please fill out all required fields");
+            return;
+        }
 
         const finalData: AnimeMangaType = {
             ...data,
             image: preview || "",
-            status:
-            data.type === "Anime"
-                ? "PlanToWatch"
-                : "PlanToRead",
+            status:data.type === "Anime" ? "PlanToWatch" : "PlanToRead",
         }
 
         try{
             setIsLoading(true)
             await add.mutateAsync(finalData)
-
+            showSuccess(`${data.type === "Anime" ? "Anime added successfully!" : "Manga added successfully!"}`)
             setData({
                 title: "",
                 image: "",

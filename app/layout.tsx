@@ -3,6 +3,7 @@ import { Geist, Fredoka, Lato } from "next/font/google";
 import "../app/globals.css";
 import Providers from "./provider";
 import { SectionObserverProvider } from "@/context/SectionObserverContext";
+import { Toaster } from "react-hot-toast";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -41,6 +42,12 @@ export default function RootLayout({
         <Providers>
           <SectionObserverProvider>
             {children}
+            <Toaster
+              position="bottom-right"
+              toastOptions={{
+                className: "font-fredoka font-bold",
+              }}
+            />
           </SectionObserverProvider>
         </Providers>
        

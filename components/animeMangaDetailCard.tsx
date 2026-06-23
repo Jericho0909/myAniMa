@@ -12,6 +12,7 @@ import { getFavoriteAnime,
     getReadingManga,
     getMangaList
 } from "@/app/selectors/animeMangaSelectors";
+import { showSuccess } from "@/lib/toast";
 import { icons } from "@/constants/statusIcons";
 import { Heart, X } from "lucide-react";
 
@@ -45,14 +46,15 @@ const AnimeMangaDetailCard = ({ type, title }: AnimeMangaDetailCardType) => {
         e: React.MouseEvent<HTMLButtonElement>,
         id: string | undefined,
         isFavorite: boolean) => {
-            e.preventDefault();
-            if (!id) return;
+            e.preventDefault()
+            if (!id) return
             update.mutate({
                 id,
                 isFavorite: isFavorite,
             })
-    }
 
+            showSuccess(`${isFavorite ? "Successfully added to favorites!" : "Successfully removed from favorites!"}`);
+    }
 
     const handleUpdateStatus = (
         e: React.MouseEvent<HTMLButtonElement>,
@@ -65,6 +67,7 @@ const AnimeMangaDetailCard = ({ type, title }: AnimeMangaDetailCardType) => {
                 id,
                 status: status,
             })
+            showSuccess(`Status updated to ${status}`)
     }
     
     if(isLoading) {

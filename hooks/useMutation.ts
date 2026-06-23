@@ -10,11 +10,11 @@ const useAnimeMangaMutations = () => {
     const add = useMutation({
         mutationFn: async (newAnime: AnimeMangaType) => {
             const res = await fetch("/api/animeManga", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(newAnime),
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(newAnime),
             })
 
             return res.json()
@@ -30,12 +30,12 @@ const useAnimeMangaMutations = () => {
     const update = useMutation({
         mutationFn: async ({ id, status, isFavorite }: { id: string; status?: string; isFavorite?: boolean; }) => {
             const res = await fetch(`/api/animeManga/${id}`, {
-            method: "PATCH",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ status, isFavorite }),
-            });
+                method: "PATCH",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ status, isFavorite }),
+            })
 
-            if (!res.ok) throw new Error("Update failed");
+            if (!res.ok) throw new Error("Update failed")
 
             return res.json()
         },
@@ -67,9 +67,29 @@ const useAnimeMangaMutations = () => {
         },
     })
 
+    const remove = useMutation({
+        mutationFn: async ({ id }: { id: string }) => {
+            const res = await fetch(`/api/animeManga/${id}`, {
+                method: "DELETE",
+            })
+
+            if (!res.ok) throw new Error("Delete failed")
+
+            const data = await res.json()
+            return data;
+        },
+         onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ["animeManga"] })
+        },
+        onError: (error) => {
+            console.error("Failed:", error);
+        },
+    })
+
     return {
         add,
-        update
+        update,
+        remove
     }
 }
 

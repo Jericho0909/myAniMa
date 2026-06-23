@@ -40,7 +40,7 @@ const AnimeMangaForm = () => {
 
     const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
         e.preventDefault()
-        if (!data.title || !data.description || !data.image || !data.type || data.genre.length === 0) {
+        if (!data.title || !data.description|| !preview  || !data.type || data.genre.length === 0) {
            showError("Please fill out all required fields");
             return;
         }

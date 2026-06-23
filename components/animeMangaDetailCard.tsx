@@ -23,7 +23,7 @@ interface AnimeMangaDetailCardType {
 
 const AnimeMangaDetailCard = ({ type, title }: AnimeMangaDetailCardType) => {
     const { data: animeManga = [], isLoading} = useAnimeManga()
-    const { update } = useAnimeMangaMutations()
+    const { update, remove } = useAnimeMangaMutations()
     const animeDetail = getFavoriteAnime(animeManga).find((a) => a.title === title && a.type === type)
     const mangaDetail = getFavoriteManga(animeManga).find((m) => m.title === title && m.type === type)
 
@@ -68,6 +68,16 @@ const AnimeMangaDetailCard = ({ type, title }: AnimeMangaDetailCardType) => {
                 status: status,
             })
             showSuccess(`Status updated to ${status}`)
+    }
+
+    const handleRemove = (
+        e: React.MouseEvent<HTMLButtonElement>,
+        id: string | undefined,
+    ) => {
+        e.preventDefault()
+        if (!id) return
+
+        remove.mutate({id})
     }
     
     if(isLoading) {
@@ -182,6 +192,13 @@ const AnimeMangaDetailCard = ({ type, title }: AnimeMangaDetailCardType) => {
                                     )
                                 })}
                             </div>
+                            <button
+                                type="button"
+                                className="absolute bottom-1 right-1 p-2 border border-red-500"
+                                onClick={(e) => handleRemove(e, detail.id)}
+                            >
+                                drop
+                            </button>
                         </div>
                     </div>
 

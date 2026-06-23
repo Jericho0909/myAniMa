@@ -6,7 +6,6 @@ export const runtime = "nodejs"
 export async function GET() {
     try {
         const animeManga = await prisma.animeManga.findMany()
-        console.log(animeManga)
 
         return NextResponse.json({
             success: true,

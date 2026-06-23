@@ -1,7 +1,7 @@
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
-const AnimeCardListSkeleton = () => {
+const AnimeMangaCardListSkeleton = () => {
   return (
     <div className="flex items-center gap-3 p-2 border-2 rounded-2xl mb-2">
         <Skeleton circle width={48} height={48} />
@@ -13,4 +13,4 @@ const AnimeCardListSkeleton = () => {
   );
 };
 
-export default AnimeCardListSkeleton;
+export default AnimeMangaCardListSkeleton;

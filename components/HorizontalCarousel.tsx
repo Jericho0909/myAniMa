@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import interSectionObserver from '@/hooks/useIntersectionObserver';
 import AnimeMangaCard from './AnimeMangaCard';
+import AnimeMangaCardSkeleton from './SkeletonCard';
 import { ArrowBigLeftDash, ArrowBigRightDash } from 'lucide-react';
 import { AnimeMangaType, SectionKey } from '@/type/model';
 import { motion } from 'framer-motion';
@@ -53,29 +54,40 @@ const HorizontalCarousel = ({ data, cardRefs, loading, section }: HorizontalCaro
                             ${data.length !== 0 ? "" : "items-center justify-center h-60 sm:h-80" }
                         `}
                     >
-                        {data.length !== 0
+                        {loading 
                             ? (
-                                data.map((item, index) => (
-                                    <AnimeMangaCard 
+                                Array.from({ length: 8 }).map((_, index) => (
+                                    <AnimeMangaCardSkeleton 
                                         key={index} 
-                                        index={index} 
-                                        item={item} 
                                         w={"sm:w-64 lg:w-72"}
-                                        cardRefs={cardRefs}
-                                        section={section}
                                     />
                                 ))
                             )
                             : (
-                                <p 
-                                    className="text-base font-semibold text-gray-500"
-                                    style={{ fontFamily: 'var(--font-lato)' }}
-                                >
-                                    {section === "animeFav"
-                                        ? "Add your Favorite Anime"
-                                        : "Add your Favorite Manga"
-                                    }
-                                </p>
+                                data.length !== 0
+                                ? (
+                                    data.map((item, index) => (
+                                        <AnimeMangaCard 
+                                            key={index} 
+                                            index={index} 
+                                            item={item} 
+                                            w={"sm:w-64 lg:w-72"}
+                                            cardRefs={cardRefs}
+                                            section={section}
+                                        />
+                                    ))
+                                )
+                                : (
+                                    <p 
+                                        className="text-base font-semibold text-gray-500"
+                                        style={{ fontFamily: 'var(--font-lato)' }}
+                                    >
+                                        {section === "animeFav"
+                                            ? "Add your Favorite Anime"
+                                            : "Add your Favorite Manga"
+                                        }
+                                    </p>
+                                )
                             )
                         }
                     </div>

@@ -42,12 +42,12 @@ const AnimeMangaCard = ({ index, item, w, cardRefs, section }: AnimeMangaCardTyp
 
                     {/* Overlay */}
                     <div
-                        className="anime-overlay absolute inset-0 bg-black/70 opacity-0  transition-all duration-500"
+                        className="anime-overlay absolute inset-0 bg-black/70 opacity-0  transition-all duration-500 border"
                     />
 
                     {/* Content */}
                     <div
-                        className="anime-content absolute inset-0 z-10 flex flex-col justify-end p-4 opacity-0 translate-y-6  transition-all duration-500"
+                        className="anime-content absolute inset-0 z-10 flex flex-col justify-end p-4 opacity-0 translate-y-6  transition-all duration-500 border-b-2 border-yellow-500"
                     >
                         <h3
                             className="text-white font-bold text-lg mb-2"
@@ -82,14 +82,7 @@ const AnimeMangaCard = ({ index, item, w, cardRefs, section }: AnimeMangaCardTyp
                 </div>
 
                 {/* Normal title sa mobile */}
-                <div className="p-2 group-hover:hidden">
-                    <h3
-                        className="font-semibold text-lg truncate"
-                        style={{ fontFamily: "var(--font-fredoka)" }}
-                    >
-                        {item.title}
-                    </h3>
-                </div>
+                
             </div>
         </Link>
     );

@@ -1,7 +1,7 @@
 import type { AnimeMangaType, SectionKey } from "@/type/model";
 import AnimeMangaListCard from "./AnimeMangaListCard";
+import AnimeMangaCardListSkeleton from "./SkeletonCardList";
 import interSectionObserver from "@/hooks/useIntersectionObserver";
-import AnimeCardListSkeleton from "./SkeletonCardList";
 import { motion } from "framer-motion";
 
 interface MyAnimeMangaType {
@@ -40,7 +40,7 @@ const MyAnimeManga = ({completedData, currentData, listCardRefs, loading, sectio
                     {loading 
                         ? (
                             Array.from({ length: 5 }).map((_, index) => (
-                                <AnimeCardListSkeleton key={index} />
+                                <AnimeMangaCardListSkeleton key={index} />
                             ))
                         )
                         : (
@@ -80,7 +80,7 @@ const MyAnimeManga = ({completedData, currentData, listCardRefs, loading, sectio
                     {loading
                         ? (
                             Array.from({ length: 5 }).map((_, index) => (
-                                <AnimeCardListSkeleton key={index} />
+                                <AnimeMangaCardListSkeleton key={index} />
                             ))
                         )
                         : (

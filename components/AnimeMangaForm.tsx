@@ -33,7 +33,10 @@ const AnimeMangaForm = () => {
         "Supernatural",
         "Psychological",
         "Thriller",
-        "School"
+        "School",
+        "Mystery",
+        "Magic",
+        "Shounen",
     ]
 
     
@@ -78,6 +81,11 @@ const AnimeMangaForm = () => {
         <div className="relative">
             <form 
                 onSubmit={handleSubmit}
+                onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                        handleSubmit
+                    }
+                }}
                 className={`flex flex-col gap-6 bg-linear-to-br from-slate-50 to-slate-100 border border-slate-200 rounded-3xl shadow-lg p-8 sm:p-10 transition ${
                 isLoading ? "blur-[2px]" : ""}`}
             >

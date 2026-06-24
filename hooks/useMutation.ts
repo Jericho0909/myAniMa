@@ -1,11 +1,13 @@
 'use client'
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useRouter } from "next/navigation";
 import type { AnimeMangaType } from "@/type/model";
 
 
 const useAnimeMangaMutations = () => {
     const queryClient = useQueryClient()
+    const router = useRouter()
 
     const add = useMutation({
         mutationFn: async (newAnime: AnimeMangaType) => {
@@ -76,13 +78,14 @@ const useAnimeMangaMutations = () => {
             if (!res.ok) throw new Error("Delete failed")
 
             const data = await res.json()
-            return data;
+            return data
         },
          onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ["animeManga"] })
+            router.replace("/")
         },
         onError: (error) => {
-            console.error("Failed:", error);
+            console.error("Failed:", error)
         },
     })
 

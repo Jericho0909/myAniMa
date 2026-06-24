@@ -45,7 +45,7 @@ export default function RootLayout({
             <Toaster
               position="bottom-right"
               toastOptions={{
-                className: "font-fredoka font-bold",
+                className: "font-fredoka font-semibold",
               }}
             />
           </SectionObserverProvider>

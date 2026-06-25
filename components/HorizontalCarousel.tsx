@@ -20,7 +20,7 @@ const HorizontalCarousel = ({ data, cardRefs, loading, section }: HorizontalCaro
     const scrollContainerRef = useRef<HTMLDivElement>(null);
     const scroll = (direction: 'left' | 'right') => {
         if (scrollContainerRef.current) {
-            const scrollAmount = 240;
+            const scrollAmount = 840;
             scrollContainerRef.current.scrollBy({
                 left: direction === 'left' ? -scrollAmount : scrollAmount,
                 behavior: 'smooth'

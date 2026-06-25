@@ -24,7 +24,7 @@ const AnimeMangaListCard = ({ item, index, cardRefs, section }: AnimeMangaListCa
                 ref={(el) => {
                     cardRefs.current[section][index] = el;
                 }}
-                className="group anime-list-card flex items-center gap-3 p-2 border-2 rounded-2xl mb-2 cursor-default relative overflow-visible"
+                className="group anime-list-card flex items-center gap-3 p-2 border-2 rounded-2xl mb-2 cursor-default relative overflow-visible transition-all ease-in-out "
                 onClick={() => {
                     setActiveSection(item.type === "Anime" ? "anime" : "manga")
                     handleSaveSectionAndIndex({ section, index })

@@ -194,7 +194,7 @@ const AnimeMangaDetailCard = ({ type, title }: AnimeMangaDetailCardType) => {
                             </div>
                             <button
                                 type="button"
-                                className="delete-btn absolute bottom-3 right-3 text-sm rounded-xl bg-transparent text-red-500 cursor-pointer transition-all duration-300"
+                                className="delete-btn absolute bottom-3 right-3 text-sm  text-gray-700 cursor-pointer transition-all duration-300"
                                 onClick={(e) => handleRemove(e, detail.id)}
                             >
                                 Drop

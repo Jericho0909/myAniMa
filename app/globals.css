@@ -206,7 +206,6 @@
   }
 
   /*STATUS BTN*/
-
   .status-btn {
     position: relative;
     overflow: hidden;
@@ -250,6 +249,12 @@
 
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.8);
+  }
+
+  /* DELETE BTN */  
+  .delete-btn:active {
+    transform: translateY(0);
+    box-shadow: none;
   }
 
 /* Hover effects only on hover-capable devices (desktop/mouse) */
@@ -317,18 +322,14 @@
     transform: scale(1.1);
   }
 
-  /* CARD LIFT EFFECT */
-  .anime-list-card {
-    transition: all 0.3s ease;
-  }
   
   /* FORM BUTTON */
-  .watch-btn:hover {
+  .form-btn:hover {
     background-color: #333;
     transform: scale(1.02);
   }
 
-  .watch-btn:active {
+  .form-btn:active {
     transform: scale(0.97);
   }
 
@@ -384,79 +385,9 @@
     transform: translateY(-2px);
 }
 
-.delete-btn:active {
-    transform: translateY(0);
-    box-shadow: none;
-}
-
-}
-
-/* Responsive status button layout and sizes */
-.status-btns {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  align-items: center;
-}
-
-.status-btn .status-icon svg {
-  display: block;
-  width: 20px;
-  height: 20px;
-}
-
-.status-btn .status-label {
-  display: inline-block;
-  line-height: 1;
-}
-
-@media (max-width: 768px) {
-  .status-btn {
-    padding: 0.5rem 0.75rem;
-    font-size: 0.92rem;
-    gap: 0.5rem;
-  }
-
-  .status-btn .status-icon svg {
-    width: 18px;
-    height: 18px;
-  }
-
-  .status-btns {
-    justify-content: center;
-  }
-}
-
-@media (max-width: 420px) {
-  .status-btn {
-    flex: 1 1 calc(50% - 0.5rem);
-    max-width: calc(50% - 0.5rem);
-    padding: 0.45rem 0.6rem;
-    font-size: 0.9rem;
-  }
-
-  .status-btns {
-    gap: 0.4rem;
-  }
-}
-
-@media (max-width: 320px) {
-  .status-btn {
-    flex-basis: 100%;
-    max-width: 100%;
-    justify-content: center;
-  }
 }
 
 
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 0%;
-  }
-  50% {
-    background-position: 100% 0%;
-  }
-  100% {
-    background-position: 0% 0%;
-  }
-}
+
+
+

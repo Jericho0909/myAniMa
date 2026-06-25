@@ -39,7 +39,7 @@ const AnimeMangaForm = () => {
         "Shounen",
     ]
 
-    
+    const sortGenreArr = genraArr.sort((a, b) => a.localeCompare(b))
 
     const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
         e.preventDefault()
@@ -235,7 +235,7 @@ const AnimeMangaForm = () => {
                     </label>
 
                     <div className="flex flex-wrap gap-3">
-                        {genraArr.map((genre) => (
+                        {sortGenreArr.map((genre) => (
                             <label
                                 key={genre}
                                 className={`text-sm font-semibold px-3 py-1 border rounded-full cursor-pointer transition-all duration-200
@@ -270,7 +270,7 @@ const AnimeMangaForm = () => {
 
                 <button
                     type="submit"
-                    className="watch-btn w-full py-3 px-4 bg-black text-white font-semibold rounded-lg transition-all duration-200 shadow-md cursor-pointer"
+                    className="form-btn w-full py-3 px-4 bg-black text-white font-semibold rounded-lg transition-all duration-200 shadow-md cursor-pointer"
                 >
                     {data.type === "Anime"
                         ? "Add to WatchList"

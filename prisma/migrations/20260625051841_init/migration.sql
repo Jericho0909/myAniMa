@@ -15,6 +15,7 @@ CREATE TABLE "AnimeManga" (
     "isFavorite" BOOLEAN NOT NULL DEFAULT false,
     "genre" TEXT[],
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "AnimeManga_pkey" PRIMARY KEY ("id")
 );

@@ -22,15 +22,16 @@ export type SectionKey =
     | "myMangaReadingList";
 
 export interface AnimeMangaType {
-    id?: string
-    title: string
-    image: string 
-    genre: string[]
-    description: string
-    isFavorite?: boolean
-    type: "Anime" | "Manga" | ""
-    status?: StatusType,
+    id?: string;
+    title: string;
+    image: string ;
+    genre: string[];
+    description: string;
+    isFavorite?: boolean;
+    type: "Anime" | "Manga" | "";
+    status?: StatusType;
     createdAt?: string;
+    updatedAt? : string;
 }
 
 export interface SliderState<T>  {

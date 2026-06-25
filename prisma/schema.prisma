@@ -17,6 +17,7 @@ model AnimeManga {
   status      StatusType
   isFavorite  Boolean  @default(false)
   genre       String[]
+  createdAt   DateTime @default(now())
 }
 
 enum Type {

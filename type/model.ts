@@ -29,7 +29,8 @@ export interface AnimeMangaType {
     description: string
     isFavorite?: boolean
     type: "Anime" | "Manga" | ""
-    status?: StatusType
+    status?: StatusType,
+    createdAt?: string;
 }
 
 export interface SliderState<T>  {

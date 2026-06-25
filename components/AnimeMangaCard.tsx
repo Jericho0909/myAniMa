@@ -26,7 +26,7 @@ const AnimeMangaCard = ({ index, item, w, cardRefs, section }: AnimeMangaCardTyp
                 ref={(el) => {
                     cardRefs.current[section][index] = el;
                 }}
-                className="group shrink-0 ${w} rounded-tl-xl rounded-br-xl overflow-hidden border border-gray-600"
+                className={`group shrink-0 ${w} rounded-tl-xl rounded-br-xl overflow-hidden border border-gray-600`}
                 onClick={() => {
                     setActiveSection(item.type === "Anime" ? "anime" : "manga");
                     handleSaveSectionAndIndex({ section, index })

@@ -1,7 +1,7 @@
 import type { AnimeMangaType } from "@/type/model";
 
 export const getFavoriteAnime = (animeManga: AnimeMangaType[]) => {
-    return animeManga.filter((item) => item.isFavorite && item.type ==="Anime")
+    return animeManga.filter((item) => item.isFavorite && item.type ==="Anime").sort((a, b) =>new Date(b.createdAt ?? 0).getTime() - new Date(a.createdAt ?? 0).getTime())
 }
 
 export const getCompletedAnime = (animeManga: AnimeMangaType[]) => {

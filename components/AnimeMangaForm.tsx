@@ -37,6 +37,7 @@ const AnimeMangaForm = () => {
         "Mystery",
         "Magic",
         "Shounen",
+        "Sports",
     ]
 
     const sortGenreArr = genraArr.sort((a, b) => a.localeCompare(b))

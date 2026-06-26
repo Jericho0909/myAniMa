@@ -80,6 +80,7 @@ const Page = () => {
                     cardRefs={cardRefs}
                     loading = {isLoading}
                     section="animeFav"
+                    type = "Anime"
                 />
                 <h2 
                     className="text-3xl font-bold mt-8 text-left p-2" 
@@ -93,6 +94,7 @@ const Page = () => {
                     listCardRefs={cardRefs}
                     loading = {isLoading}
                     section="animeList"
+                    type="Anime"
                 />
                 <h2 
                     className="text-3xl font-bold mt-8 text-left p-2" 
@@ -123,6 +125,7 @@ const Page = () => {
                     cardRefs={cardRefs}
                     loading = {isLoading}
                     section="mangaFav"
+                    type="Manga"
                 />
                 <h2 
                     className="text-3xl font-bold mt-8 text-left p-2" 
@@ -136,6 +139,7 @@ const Page = () => {
                     listCardRefs={cardRefs}
                     loading = {isLoading}
                     section="mangaList"
+                    type="Manga"
                 />
                 <h2 
                     className="text-3xl font-bold mt-8 text-left p-2" 

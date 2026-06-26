@@ -20,11 +20,11 @@ const AnimeMangaCard = ({ index, item, w, cardRefs, section }: AnimeMangaCardTyp
 
     return (
         <Link
-            href={`/${item.type}/${item.title}`}
+            href={`/${item.type}/${section}/${item.title}`}
         >
             <div
                 ref={(el) => {
-                    cardRefs.current[section][index] = el;
+                    cardRefs.current[section][index] = el
                 }}
                 className={`group shrink-0 ${w} rounded-tl-xl rounded-br-xl overflow-hidden border border-gray-600`}
                 onClick={() => {

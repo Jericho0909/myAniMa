@@ -1,6 +1,7 @@
 ﻿'use client';
 
 import { useRef } from 'react';
+import Link from "next/link";
 import interSectionObserver from '@/hooks/useIntersectionObserver';
 import AnimeMangaCard from './AnimeMangaCard';
 import AnimeMangaCardSkeleton from './SkeletonCard';
@@ -13,9 +14,10 @@ interface HorizontalCarouselType {
     cardRefs: React.RefObject<Record<SectionKey, (HTMLDivElement | null)[]>>;
     loading: boolean; 
     section: SectionKey;
+    type: string;
 }
 
-const HorizontalCarousel = ({ data, cardRefs, loading, section }: HorizontalCarouselType) => {
+const HorizontalCarousel = ({ data, cardRefs, loading, section, type }: HorizontalCarouselType) => {
     const horizontalCarouselSection = interSectionObserver({ th: 0.2 })
     const scrollContainerRef = useRef<HTMLDivElement>(null);
     const scroll = (direction: 'left' | 'right') => {
@@ -39,8 +41,15 @@ const HorizontalCarousel = ({ data, cardRefs, loading, section }: HorizontalCaro
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.4 }}
                 transition={{ duration: 0.5 }}
-                className="max-w-full md:max-w-[90%] h-auto mx-auto p-6 bg-linear-to-br from-slate-50 to-slate-100 rounded-2xl shadow-lg border border-slate-200"
+                className="relative max-w-full md:max-w-[90%] h-auto mx-auto p-6 bg-linear-to-br from-slate-50 to-slate-100 rounded-2xl shadow-lg border border-slate-200 "
             >
+                <Link
+                    href={`/${type}/${section}`}
+                >
+                    <div className="absolute text-red-500 bottom-1 right-3">
+                        see more
+                    </div>
+                </Link>
                 <div className="flex items-center gap-4">
                     <button
                         onClick={() => scroll('left')}

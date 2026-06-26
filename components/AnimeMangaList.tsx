@@ -8,7 +8,7 @@ interface AnimeMangaListType  {
     data: AnimeMangaType[]; 
     animeMangaListRefs: React.RefObject<Record<SectionKey, (HTMLDivElement | null)[]>>; 
     loading: boolean; 
-    section: SectionKey
+    section: SectionKey;
 }
 
 const AnimeMangaList = ({ data, animeMangaListRefs, loading, section }: AnimeMangaListType) => {

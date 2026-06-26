@@ -18,7 +18,7 @@ const AnimeMangaListCard = ({ item, index, cardRefs, section }: AnimeMangaListCa
 
     return (
         <Link
-            href={`/${item.type}/${item.title}`}
+            href={`/${item.type}/${section}/${item.title}`}
         >
             <div 
                 ref={(el) => {

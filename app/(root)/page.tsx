@@ -37,7 +37,10 @@ const Page = () => {
         if (!savedSection || savedIndex === null) return;
 
         const sectionRef = cardRefs.current[savedSection]
-        const element = sectionRef?.[Number(savedIndex)]
+        const card = sectionRef?.[Number(savedIndex)]
+        const section = document.getElementById(savedSection)
+
+        const element = card ?? section
 
         if (!element) return
 

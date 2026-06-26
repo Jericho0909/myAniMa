@@ -73,11 +73,13 @@ const AnimeMangaDetailCard = ({ type, title }: AnimeMangaDetailCardType) => {
     const handleRemove = (
         e: React.MouseEvent<HTMLButtonElement>,
         id: string | undefined,
+        type: string
     ) => {
         e.preventDefault()
         if (!id) return
 
         remove.mutate({id})
+        showSuccess(`${type} dropped successfully.`)
     }
     
     if(isLoading) {
@@ -195,7 +197,7 @@ const AnimeMangaDetailCard = ({ type, title }: AnimeMangaDetailCardType) => {
                             <button
                                 type="button"
                                 className="delete-btn absolute left-4 top-4 text-sm  text-gray-700 cursor-pointer transition-all duration-300"
-                                onClick={(e) => handleRemove(e, detail.id)}
+                                onClick={(e) => handleRemove(e, detail.id, detail.type)}
                             >
                                 Drop
                             </button>

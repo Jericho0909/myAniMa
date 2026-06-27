@@ -2,8 +2,8 @@
 
 import { useContext, useRef, useEffect  } from 'react'
 import useAnimeManga from '@/hooks/useAnimeManga';
+import { useCardRefs } from '@/hooks/useCardRefs';
 import SectionObserverContext from '@/context/SectionObserverContext'
-import type { SectionKey } from '@/type/model';
 import Slider from "@/components/Slider";
 import HorizontalCarousel from "@/components/HorizontalCarousel"
 import MyAnimeManga from "@/components/MyAnimeManga";
@@ -19,16 +19,9 @@ import { getFavoriteAnime,
 } from '../selectors/animeMangaSelectors';
 const Page = () => {
     const { data: animeManga = [], isLoading } = useAnimeManga()
+    const cardRefs = useCardRefs()
     const { sectionRefs } = useContext(SectionObserverContext)!
     
-    const cardRefs = useRef<Record<SectionKey, (HTMLDivElement | null)[]>>({
-        animeFav: [],
-        mangaFav: [],
-        animeList: [],
-        mangaList: [],
-        myAnimeWatchlist: [],
-        myMangaReadingList: [],
-    })
 
     useEffect(() => {
         const savedSection = sessionStorage.getItem("section") as keyof typeof cardRefs.current;

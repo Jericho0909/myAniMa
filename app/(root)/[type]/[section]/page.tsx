@@ -1,10 +1,11 @@
-const AllAnimeMangaLsit = async ({params}: {params: Promise<{section: string }>}) => {
+import List from "@/components/List"
+const AllAnimeManga = async ({params}: {params: Promise<{section: string }>}) => {
     const { section } = await params
     return (
-        <div className="border border-red-500 h-screen">
-            asda
-        </div>
+        <List
+            section={section}
+        />
     )
 }
 
-export default AllAnimeMangaLsit
+export default AllAnimeManga

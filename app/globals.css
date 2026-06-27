@@ -257,6 +257,12 @@
     box-shadow: none;
   }
 
+  /* SEE MORE */
+  .see-more-link {
+    transition: color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+  }
+
 /* Hover effects only on hover-capable devices (desktop/mouse) */
 @media (hover: hover) {
   .nav-link:hover {
@@ -383,7 +389,13 @@
   /* DELETE BTN */  
   .delete-btn:hover {
     transform: translateY(-2px);
-}
+  }
+
+  /* SEE MORE */
+  .see-more-link:hover {
+    color: #dc2626; /* mas dark na red */
+    transform: translateX(4px);
+  }
 
 }
 

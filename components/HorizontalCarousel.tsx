@@ -46,7 +46,7 @@ const HorizontalCarousel = ({ data, cardRefs, loading, section, type }: Horizont
                 <Link
                     href={`/${type}/${section}`}
                 >
-                    <div className="absolute text-red-500 bottom-1 right-3">
+                    <div className="see-more-link absolute bottom-1 right-3 text-sm text-red-500">
                         see more
                     </div>
                 </Link>

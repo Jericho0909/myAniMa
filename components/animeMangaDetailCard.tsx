@@ -1,6 +1,5 @@
 'use client'
 
-import Link from "next/link";
 import useAnimeManga from "@/hooks/useAnimeManga";
 import useAnimeMangaMutations from "@/hooks/useMutation";
 import { getFavoriteAnime,
@@ -12,6 +11,7 @@ import { getFavoriteAnime,
     getReadingManga,
     getMangaList
 } from "@/app/selectors/animeMangaSelectors";
+import { useRouter } from "next/navigation";
 import { showSuccess } from "@/lib/toast";
 import { icons } from "@/constants/statusIcons";
 import { Heart, X } from "lucide-react";
@@ -23,6 +23,7 @@ interface AnimeMangaDetailCardType {
 
 const AnimeMangaDetailCard = ({ type, title }: AnimeMangaDetailCardType) => {
     const { data: animeManga = [], isLoading} = useAnimeManga()
+    const router = useRouter()
     const { update, remove } = useAnimeMangaMutations()
     const animeDetail = getFavoriteAnime(animeManga).find((a) => a.title === title && a.type === type)
     const mangaDetail = getFavoriteManga(animeManga).find((m) => m.title === title && m.type === type)
@@ -81,6 +82,10 @@ const AnimeMangaDetailCard = ({ type, title }: AnimeMangaDetailCardType) => {
         remove.mutate({id})
         showSuccess(`${type} dropped successfully.`)
     }
+
+    const handleBack = () => {
+        router.back()
+    }
     
     if(isLoading) {
         return (
@@ -118,12 +123,12 @@ const AnimeMangaDetailCard = ({ type, title }: AnimeMangaDetailCardType) => {
             <div className="absolute inset-0 bg-black/60" />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[95%] sm:w-[75%] lg:w-[60%]  z-10">
                 <div className="relative bg-white w-full rounded-3xl shadow-2xl p-6 md:p-8">
-                    <Link
-                        href={`/`}
+                    <button
+                        onClick={handleBack}
                         className="close-btn absolute top-4 right-4 p-2 rounded-full transition-all cursor-pointer"
                     >
                         <X size={24} strokeWidth={3} />
-                    </Link>
+                    </button>
                     <div className="flex flex-col gap-8">
                         <div className="flex items-center justify-center w-full h-full">
                             <img

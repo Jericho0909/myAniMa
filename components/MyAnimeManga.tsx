@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { handleSaveSectionAndIndex } from "@/utils/saveSection";
 import type { AnimeMangaType, SectionKey } from "@/type/model";
 import AnimeMangaListCard from "./AnimeMangaListCard";
 import AnimeMangaCardListSkeleton from "./SkeletonCardList";
@@ -30,6 +31,12 @@ const MyAnimeManga = ({completedData, currentData, listCardRefs, loading, sectio
             >
                 <Link
                     href={`/${type}/${section}`}
+                    onClick={() =>
+                        handleSaveSectionAndIndex({
+                            section: section,
+                            index: -1,
+                        })
+                    }
                 >
                     <div className="see-more-link absolute bottom-1 right-3 text-sm text-red-500">
                         see more

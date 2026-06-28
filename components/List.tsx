@@ -46,8 +46,8 @@ const List = ({section}: {section: SectionKey}) => {
         <>
             {section === "animeFav" || section === "mangaFav"
                 ? (
-                    <section className="h-screen my-16">
-                        <h2 
+                    <section className="h-auto my-16">
+                        <h3 
                             className="text-3xl font-bold mt-8 text-left p-2" 
                             style={{ fontFamily: 'var(--font-fredoka)' }}
                         >
@@ -55,7 +55,7 @@ const List = ({section}: {section: SectionKey}) => {
                                 ? "My Favorite Anime"
                                 : "My Favorite Manga"
                             }
-                        </h2>
+                        </h3>
                         {isLoading
                             ? (
                                 Array.from({ length: 10 }).map((_, index) => (
@@ -99,15 +99,68 @@ const List = ({section}: {section: SectionKey}) => {
                     </section>
                 )
                 : (
-                    <section className="h-screen my-16">
+                    <section className="h-auto my-16">
                         <div>
-                            <h2 
+                            <h3 
                                 className="text-3xl font-bold mt-8 text-left p-2" 
                                 style={{ fontFamily: 'var(--font-fredoka)' }}
                             >
                                 {section === "animeList"
                                     ? "Anime I've Finished"
                                     : "Manga I've Finished"
+                                }
+                            </h3>
+                            {isLoading
+                                ? (
+                                    Array.from({ length: 10 }).map((_, index) => (
+                                    <AnimeMangaCardSkeleton 
+                                        key={index} 
+                                        w={"sm:w-64 lg:w-72"}
+                                    />
+                                ))
+                                )
+                                : (
+                                    data.length !== 0
+                                    ? (
+                                            <div className="max-w-full md:max-w-[90%] h-auto mx-auto p-6 bg-linear-to-br from-slate-50 to-slate-100 rounded-2xl shadow-lg border border-slate-200">
+                                            <div className="grid grid-cols-4 gap-5 p-2">
+                                                {data.map((item, index) => (
+                                                item.status === "Completed" && (
+                                                    <AnimeMangaCard 
+                                                        key={index} 
+                                                        index={index} 
+                                                        item={item} 
+                                                        w={"sm:w-64 lg:w-full"}
+                                                        cardRefs={cardRefs}
+                                                        section={section}
+                                                    />
+                                                )
+                                            ))}
+                                            </div>
+                                        </div>
+                                    )
+                                    : (
+                                        <p 
+                                            className="text-base font-semibold text-gray-500"
+                                            style={{ fontFamily: 'var(--font-lato)' }}
+                                        >
+                                            {section === "animeList"
+                                                ? "You haven’t finished any anime yet."
+                                                : "You haven’t finished any manga yet."
+                                            }
+                                        </p>
+                                    )
+                                )
+                            }
+                        </div>
+                        <div>
+                            <h2 
+                                className="text-3xl font-bold mt-8 text-left p-2" 
+                                style={{ fontFamily: 'var(--font-fredoka)' }}
+                            >
+                                {section === "animeList"
+                                    ? "What I'm Watching"
+                                    : "What I'm Reading"
                                 }
                             </h2>
                             {isLoading
@@ -125,6 +178,7 @@ const List = ({section}: {section: SectionKey}) => {
                                             <div className="max-w-full md:max-w-[90%] h-auto mx-auto p-6 bg-linear-to-br from-slate-50 to-slate-100 rounded-2xl shadow-lg border border-slate-200">
                                             <div className="grid grid-cols-4 gap-5 p-2">
                                                 {data.map((item, index) => (
+                                                item.status !== "Completed" && (
                                                     <AnimeMangaCard 
                                                         key={index} 
                                                         index={index} 
@@ -133,7 +187,8 @@ const List = ({section}: {section: SectionKey}) => {
                                                         cardRefs={cardRefs}
                                                         section={section}
                                                     />
-                                                ))}
+                                                )
+                                            ))}
                                             </div>
                                         </div>
                                     )
@@ -143,24 +198,13 @@ const List = ({section}: {section: SectionKey}) => {
                                             style={{ fontFamily: 'var(--font-lato)' }}
                                         >
                                             {section === "animeList"
-                                                ? "Add your Favorite Anime"
-                                                : "Add your Favorite Manga"
+                                                ? "Your anime journey starts here.  Add your first anime!"
+                                                : "Nothing to read yet. Discover a new manga today"
                                             }
                                         </p>
                                     )
                                 )
                             }
-                        </div>
-                        <div>
-                            <h2 
-                                className="text-3xl font-bold mt-8 text-left p-2" 
-                                style={{ fontFamily: 'var(--font-fredoka)' }}
-                            >
-                                {section === "animeList"
-                                    ? "What I'm Watching"
-                                    : "What I'm Reading"
-                                }
-                            </h2>
                         </div>
                     </section>
                 )

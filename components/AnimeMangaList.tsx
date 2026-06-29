@@ -26,7 +26,7 @@ const AnimeMangaList = ({ data, animeMangaListRefs, loading, section }: AnimeMan
                 viewport={{ once: true, amount: 0.4 }}
                 transition={{ duration: 0.5 }}
                 className={`max-w-full sm:max-w-[90%] h-auto mx-auto p-6 bg-linear-to-br from-slate-50 to-slate-100 rounded-2xl shadow-lg border border-slate-200
-                    ${data.length !== 0 || loading ? "grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 sm:gap-4" : "flex items-center justify-center h-60 sm:h-80"}
+                    ${data.length !== 0 || loading ? "grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 sm:gap-4" : "flex items-center justify-center h-60 sm:h-80"}
                 `}
             >
                 {loading

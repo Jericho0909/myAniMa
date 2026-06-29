@@ -24,6 +24,11 @@ const Page = () => {
     
 
     useEffect(() => {
+        const useCustomScroll = JSON.parse(
+            sessionStorage.getItem("useCustomScroll") || "false"
+        )
+
+        if (!useCustomScroll) return;
         const savedSection = sessionStorage.getItem("section") as keyof typeof cardRefs.current;
         const savedIndex = sessionStorage.getItem("index")
 
@@ -44,7 +49,7 @@ const Page = () => {
             })
 
             sessionStorage.clear()
-        }, 300)
+        }, 900)
 
     }, [])
 

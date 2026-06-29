@@ -50,6 +50,7 @@ const HorizontalCarousel = ({ data, cardRefs, loading, section, type }: Horizont
                         handleSaveSectionAndIndex({
                             section: section,
                             index: -1,
+                            isScrollRestoration: false
                         })
                     }
                 >
@@ -87,7 +88,7 @@ const HorizontalCarousel = ({ data, cardRefs, loading, section, type }: Horizont
                                             key={index} 
                                             index={index} 
                                             item={item} 
-                                            w={"sm:w-64 lg:w-72"}
+                                            w={"w-50 sm:w-64 lg:w-72"}
                                             cardRefs={cardRefs}
                                             section={section}
                                         />

@@ -68,8 +68,8 @@ const List = ({section}: {section: SectionKey}) => {
                             : (
                                 data.length !== 0
                                 ? (
-                                        <div className="max-w-full md:max-w-[90%] h-auto mx-auto p-6 bg-linear-to-br from-slate-50 to-slate-100 rounded-2xl shadow-lg border border-slate-200">
-                                        <div className="grid grid-cols-4 gap-5 p-2">
+                                        <div className="max-w-full md:max-w-[90%] min-h-screen mx-auto p-6 bg-linear-to-br from-slate-50 to-slate-100 rounded-2xl shadow-lg border border-slate-200">
+                                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-5 p-2">
                                             {data.map((item, index) => (
                                                 <AnimeMangaCard 
                                                     key={index} 
@@ -122,8 +122,8 @@ const List = ({section}: {section: SectionKey}) => {
                                 : (
                                     data.length !== 0
                                     ? (
-                                            <div className="max-w-full md:max-w-[90%] h-auto mx-auto p-6 bg-linear-to-br from-slate-50 to-slate-100 rounded-2xl shadow-lg border border-slate-200">
-                                            <div className="grid grid-cols-4 gap-5 p-2">
+                                            <div className="max-w-full md:max-w-[90%] min-h-screen mx-auto p-6 bg-linear-to-br from-slate-50 to-slate-100 rounded-2xl shadow-lg border border-slate-200">
+                                            <div className="grid grid-cols-2 sm:grid-cols-4 gap-5 p-2">
                                                 {data.map((item, index) => (
                                                 item.status === "Completed" && (
                                                     <AnimeMangaCard 
@@ -175,8 +175,8 @@ const List = ({section}: {section: SectionKey}) => {
                                 : (
                                     data.length !== 0
                                     ? (
-                                            <div className="max-w-full md:max-w-[90%] h-auto mx-auto p-6 bg-linear-to-br from-slate-50 to-slate-100 rounded-2xl shadow-lg border border-slate-200">
-                                            <div className="grid grid-cols-4 gap-5 p-2">
+                                            <div className="max-w-full md:max-w-[90%] min-h-screen mx-auto p-6 bg-linear-to-br from-slate-50 to-slate-100 rounded-2xl shadow-lg border border-slate-200">
+                                            <div className="grid grid-cols-2 sm:grid-cols-4 gap-5 p-2">
                                                 {data.map((item, index) => (
                                                 item.status !== "Completed" && (
                                                     <AnimeMangaCard 

@@ -35,6 +35,7 @@ const MyAnimeManga = ({completedData, currentData, listCardRefs, loading, sectio
                         handleSaveSectionAndIndex({
                             section: section,
                             index: -1,
+                            isScrollRestoration: false
                         })
                     }
                 >

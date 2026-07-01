@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import Link from "next/link";
 import interSectionObserver from '@/hooks/useIntersectionObserver';
+import useWindowSizeCustom from '@/hooks/useWindowSize';
 import AnimeMangaCard from './AnimeMangaCard';
 import AnimeMangaCardSkeleton from './SkeletonCard';
 import { ArrowBigLeftDash, ArrowBigRightDash } from 'lucide-react';
@@ -18,12 +19,22 @@ interface HorizontalCarouselType {
     type: string;
 }
 
+
 const HorizontalCarousel = ({ data, cardRefs, loading, section, type }: HorizontalCarouselType) => {
     const horizontalCarouselSection = interSectionObserver({ th: 0.2 })
-    const scrollContainerRef = useRef<HTMLDivElement>(null);
+    const { width } = useWindowSizeCustom()
+    const scrollContainerRef = useRef<HTMLDivElement>(null)
+   
+    const activeScrollAmount =
+        width >= 1280 ? 840 :
+        width >= 1024 ? 740 :
+        width >= 768 ? 640 :
+        width >= 640 ? 540 :
+        215
+
     const scroll = (direction: 'left' | 'right') => {
         if (scrollContainerRef.current) {
-            const scrollAmount = 840;
+            const scrollAmount = activeScrollAmount;
             scrollContainerRef.current.scrollBy({
                 left: direction === 'left' ? -scrollAmount : scrollAmount,
                 behavior: 'smooth'

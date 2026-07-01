@@ -47,7 +47,7 @@
   transition: transform 0.3s ease;
 }
 
-/*HORIZONTAL ICON */
+/*BACK BTN*/
 
 .icon-btn svg {
   transform: scale(1);
@@ -286,17 +286,17 @@
     animation: gradientShift 1s ease infinite;
   }
 
-  /* Horizontal Carousel hover effect */
+  /* BACK BTN */
+  .icon-btn:hover svg {
+    transform: scale(1.1);
+  }
+
+  /*  HORIZONTAL CAROUSEL */
   .carousel-arrow:hover {
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 50%;
     transition: background-color 300ms ease, border-radius 300ms ease;
   }
-
-  .icon-btn:hover svg {
-    transform: scale(1.1);
-  }
-
 
   .anime-card:hover .anime-image {
     transform: scale(1.1);

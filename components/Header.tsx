@@ -49,11 +49,13 @@ const Header =({ children }: HeaderProps) => {
                     type="button"
                     onClick={handleBack}
                 >
-                    <MoveRight
-                        size={24}
-                        strokeWidth={3}
-                        className="text-pink-600"
-                    />
+                    <div className="icon-btn">
+                        <MoveRight
+                            size={24}
+                            strokeWidth={3}
+                            className="text-pink-600"
+                        />
+                    </div>
                 </button>
             )
         }

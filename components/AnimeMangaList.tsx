@@ -1,6 +1,6 @@
 import type { AnimeMangaType, SectionKey } from "@/type/model";
 import AnimeMangaCard from "./AnimeMangaCard";
-import AnimeMangaCardSkeleton from "./SkeletonCard";
+import AnimeMangaCardSkeleton from "@/components/SkeletonCard"
 import interSectionObserver from "@/hooks/useIntersectionObserver";
 import { motion } from "framer-motion";
 

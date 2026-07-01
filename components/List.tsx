@@ -11,7 +11,7 @@ import { getFavoriteAnime,
     getReadingManga,
 } from "@/app/selectors/animeMangaSelectors"
 import AnimeMangaCard from "./AnimeMangaCard"
-import AnimeMangaCardSkeleton from "./SkeletonCard"
+import AnimeMangaCardSkeleton from "@/components/SkeletonCard"
 const List = ({section}: {section: SectionKey}) => {
     
     const { data: animeManga, isLoading } = useAnimeManga()

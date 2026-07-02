@@ -11,7 +11,7 @@ import { getFavoriteAnime,
     getReadingManga,
 } from "@/app/selectors/animeMangaSelectors"
 import AnimeMangaCard from "./AnimeMangaCard"
-import AnimeMangaCardSkeleton from "@/components/SkeletonCard"
+import SkeletonCard from "./SkeletonCard"
 const List = ({section}: {section: SectionKey}) => {
     
     const { data: animeManga, isLoading } = useAnimeManga()
@@ -59,7 +59,7 @@ const List = ({section}: {section: SectionKey}) => {
                         {isLoading
                             ? (
                                 Array.from({ length: 10 }).map((_, index) => (
-                                    <AnimeMangaCardSkeleton 
+                                    <SkeletonCard 
                                         key={index} 
                                         w={"sm:w-64 lg:w-72"}
                                     />
@@ -113,7 +113,7 @@ const List = ({section}: {section: SectionKey}) => {
                             {isLoading
                                 ? (
                                     Array.from({ length: 10 }).map((_, index) => (
-                                    <AnimeMangaCardSkeleton 
+                                    <SkeletonCard 
                                         key={index} 
                                         w={"sm:w-64 lg:w-72"}
                                     />
@@ -166,7 +166,7 @@ const List = ({section}: {section: SectionKey}) => {
                             {isLoading
                                 ? (
                                     Array.from({ length: 10 }).map((_, index) => (
-                                    <AnimeMangaCardSkeleton 
+                                    <SkeletonCard 
                                         key={index} 
                                         w={"sm:w-64 lg:w-72"}
                                     />

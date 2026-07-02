@@ -5,7 +5,7 @@ import Link from "next/link";
 import interSectionObserver from '@/hooks/useIntersectionObserver';
 import useWindowSizeCustom from '@/hooks/useWindowSize';
 import AnimeMangaCard from './AnimeMangaCard';
-import AnimeMangaCardSkeleton from "@/components/SkeletonCard"
+import SkeletonCard from './SkeletonCard';
 import { ArrowBigLeftDash, ArrowBigRightDash } from 'lucide-react';
 import { AnimeMangaType, SectionKey } from '@/type/model';
 import { handleSaveSectionAndIndex } from '@/utils/saveSection';
@@ -85,7 +85,7 @@ const HorizontalCarousel = ({ data, cardRefs, loading, section, type }: Horizont
                         {loading 
                             ? (
                                 Array.from({ length: 8 }).map((_, index) => (
-                                    <AnimeMangaCardSkeleton 
+                                    <SkeletonCard 
                                         key={index} 
                                         w={"sm:w-64 lg:w-72"}
                                     />

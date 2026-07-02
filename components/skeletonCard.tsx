@@ -5,7 +5,7 @@ interface AnimeMangaCardSkeletonProps  {
   w: string;
 };
 
-const AnimeMangaCardSkeleton = ({ w }: AnimeMangaCardSkeletonProps) => {
+const SkeletonCard = ({ w }: AnimeMangaCardSkeletonProps) => {
   return (
     <div className="w-full">
         <div className={`rounded-tl-xl rounded-br-xl overflow-hidden ${w}`}>
@@ -17,4 +17,4 @@ const AnimeMangaCardSkeleton = ({ w }: AnimeMangaCardSkeletonProps) => {
   )
 }
 
-export default AnimeMangaCardSkeleton
+export default SkeletonCard

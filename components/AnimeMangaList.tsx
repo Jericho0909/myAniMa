@@ -1,6 +1,6 @@
 import type { AnimeMangaType, SectionKey } from "@/type/model";
 import AnimeMangaCard from "./AnimeMangaCard";
-import AnimeMangaCardSkeleton from "@/components/SkeletonCard"
+import SkeletonCard from "./SkeletonCard";
 import interSectionObserver from "@/hooks/useIntersectionObserver";
 import { motion } from "framer-motion";
 
@@ -32,7 +32,7 @@ const AnimeMangaList = ({ data, animeMangaListRefs, loading, section }: AnimeMan
                 {loading
                     ? (
                         Array.from({ length: 5 }).map((_, index) => (
-                            <AnimeMangaCardSkeleton 
+                            <SkeletonCard 
                                 key={index} 
                                 w={"w-full"} 
                             />

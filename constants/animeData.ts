@@ -4,7 +4,7 @@ export const ANIME_SLIDER_DATA: AnimeMangaType[] = [
   {
     id: "1",
     title: "Attack on Titan",
-    image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779254585/aotW_j0i9vt.webp",
+    image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1782965989/aotW_qtwrdi.webp",
     genre: ["Action", "Dark Fantasy", "Drama"],
     description:
       "In a world where humanity is on the brink of extinction due to giant humanoid Titans, people live inside massive walled cities. The story follows Eren Yeager and his fight for freedom against the Titans.",
@@ -13,7 +13,7 @@ export const ANIME_SLIDER_DATA: AnimeMangaType[] = [
   {
     id: "2",
     title: "Demon Slayer",
-    image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779254597/dsW_kelu9f.webp",
+    image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1782966040/dsW_h3udjc.webp",
     genre: ["Action", "Supernatural", "Adventure"],
     description:
       "The story follows Tanjiro Kamado, a kind-hearted boy who becomes a Demon Slayer after his family is slaughtered and his sister is turned into a demon, as he seeks a cure for her and revenge.",
@@ -22,7 +22,7 @@ export const ANIME_SLIDER_DATA: AnimeMangaType[] = [
   {
     id: "3",
     title: "My Teen Romantic Comedy SNAFU",
-    image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779254610/snafuW_ldvh0e.webp",
+    image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1782966086/snafuW_rfifu8.webp",
     genre: ["Romance", "Slice of Life", "Comedy", "Drama"],
     description:
       "The story follows Hachiman Hikigaya, a cynical high school student who is forced to join the Service Club, where he begins to understand relationships, friendships, and social dynamics.",
@@ -31,7 +31,7 @@ export const ANIME_SLIDER_DATA: AnimeMangaType[] = [
   {
     id: "4",
     title: "Soredemo Sekai wa Utsukushii",
-    image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779501095/twisbW_yzthxj.webp",
+    image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1782966110/twisbW_xp9ysr.webp",
     genre: ["Romance", "Fantasy", "Adventure"],
     description:
       "The story follows Nike, a princess with the power to summon rain, who is sent to marry a young king and discovers a deeper connection as they face challenges together.",
@@ -40,7 +40,7 @@ export const ANIME_SLIDER_DATA: AnimeMangaType[] = [
   {
     id: "5",
     title: "Kamisama Kiss",
-    image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779501108/kkW_ynbxkd.webp",
+    image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1782966155/kkW_jgtlba.webp",
     genre: ["Romance", "Supernatural", "Comedy"],
     description:
       "Nanami Momozono suddenly becomes a land god after helping a stranger and begins a new life filled with spirits, gods, and an unexpected relationship.",
@@ -49,7 +49,7 @@ export const ANIME_SLIDER_DATA: AnimeMangaType[] = [
   {
     id: "6",
     title: "Masamune-kun no Revenge",
-    image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1779501122/mrW_voymz6.webp",
+    image: "https://res.cloudinary.com/daxhmcpkq/image/upload/v1782966189/mrW_wnx69w.webp",
     genre: ["Romance", "Comedy", "School"],
     description:
       "Masamune Makabe returns after years of self-improvement with a plan to get revenge on the girl who once rejected him, but things do not go as expected.",

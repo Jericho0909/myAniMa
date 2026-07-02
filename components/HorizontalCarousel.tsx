@@ -5,7 +5,7 @@ import Link from "next/link";
 import interSectionObserver from '@/hooks/useIntersectionObserver';
 import useWindowSizeCustom from '@/hooks/useWindowSize';
 import AnimeMangaCard from './AnimeMangaCard';
-import SkeletonCard from './SkeletonCard';
+import SkeletonCard from './SkeletonC';
 import { ArrowBigLeftDash, ArrowBigRightDash } from 'lucide-react';
 import { AnimeMangaType, SectionKey } from '@/type/model';
 import { handleSaveSectionAndIndex } from '@/utils/saveSection';

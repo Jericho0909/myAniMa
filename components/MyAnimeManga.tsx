@@ -2,7 +2,7 @@ import Link from "next/link";
 import { handleSaveSectionAndIndex } from "@/utils/saveSection";
 import type { AnimeMangaType, SectionKey } from "@/type/model";
 import AnimeMangaListCard from "./AnimeMangaListCard";
-import AnimeMangaCardListSkeleton from "./SkeletonCardList";
+import AnimeMangaCardListSkeleton from "./ListSC";
 import interSectionObserver from "@/hooks/useIntersectionObserver";
 import { motion } from "framer-motion";
 
